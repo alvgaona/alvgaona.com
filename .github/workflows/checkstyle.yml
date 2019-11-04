@@ -1,0 +1,16 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run checkstyle with ESLint and Stylelint
+      run: |
+        npm ci
+        npm run eslint ./src/**/*.js*
+        npm run lint:css
+    env:
+      CI: true

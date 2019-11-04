@@ -1,0 +1,143 @@
+$primitive: #5a9bcf;
+$char: #d8Dee9;
+$comment: #b2b2b2;
+$keyword: #c5a5c5;
+$lineHighlight: #353b45;
+$primitive: #5a9bcf;
+$string: #8dc891;
+$variable: #d7deea;
+$boolean: #ff8b50;
+$punctuation: #88c6be;
+$tag: #fc929e;
+$function: #79b6f2;
+$className: #fac863;
+$method: #6699cc;
+$operator: #fc929e;
+
+code[class*="gatsby-code-"],
+pre[class*="gatsby-code-"] {
+  font-family: source-code-pro, Menlo,Monaco, Consolas, Courier New, monospace!important;
+  font-size: 0.875rem;
+}
+
+.gatsby-highlight {
+  background: #141822;
+  color: white;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 10px;
+  overflow: auto;
+  tab-size: 1.5em;
+
+  & > code[class*="gatsby-code-"],
+  & > pre[class*="gatsby-code-"],
+  & > pre.prism-code {
+    font-family: source-code-pro, Menlo,Monaco, Consolas, Courier New, monospace!important;
+    height: auto !important;
+    margin: 1rem;
+    font-size: 0.875rem;
+    line-height: 1.125rem;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+}
+
+.gatsby-highlight + .gatsby-highlight {
+  margin-top: 20px;
+}
+
+.gatsby-highlight-code-line {
+  background-color: $lineHighlight;
+  display: block;
+  margin: -0.125rem calc(-1rem - 15px);
+  padding: 0.125rem calc(1rem + 15px);
+}
+
+.token.attr-name {
+  color: $keyword;
+}
+
+.token.comment,
+.token.block-comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: $comment;
+}
+
+.token.property,
+.token.number,
+.token.function-name,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: $primitive;
+}
+
+.token.boolean {
+  color: $boolean;
+}
+
+.token.tag {
+  color: $tag;
+}
+
+.token.string {
+  color: $string;
+}
+
+.token.punctuation {
+  color: $punctuation;
+}
+
+.token.selector,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: $char;
+}
+
+.token.function {
+  color: $function;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.token.variable {
+  color: $variable;
+}
+
+
+.token.attr-value {
+  color: $string;
+}
+
+.token.keyword {
+  color: $keyword;
+}
+
+.token.atrule,
+.token.class-name {
+  color: $className;
+}
+
+.token.important {
+  font-weight: 400;
+}
+
+.token.bold {
+  font-weight: 700;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.namespace {
+  opacity: 0.7;
+}
