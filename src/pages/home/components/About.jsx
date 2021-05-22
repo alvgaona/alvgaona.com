@@ -35,7 +35,7 @@ const About = (): React.Node => {
           based on it.
           <br/>
           <br/>
-          Nowadays, I'm pursuing a postgraduate degree in &quot;Numerical Simulation
+          Nowadays, I&apos;m pursuing a postgraduate degree in &quot;Numerical Simulation
           and Control&quot; at University of Buenos Aires. And at the same time working
           full-time as a Software Engineer in
           {' '}

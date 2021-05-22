@@ -5,11 +5,13 @@ import * as React from 'react';
 import StringBuilder from '../../models/StringBuilder';
 
 type Props = {
+  id: string,
   label: string,
 }
 
 const TextArea = (props: Props): React.Node => {
   const {
+    id,
     label,
   } = props;
 
@@ -33,8 +35,8 @@ const TextArea = (props: Props): React.Node => {
 
   const labelClasses: string = new StringBuilder.Builder()
     .append('form-control-placeholder')
-    .append(hasFocus ? 'has-focus' : null)
-    .append(hasValue ? 'has-value' : null)
+    .append(hasFocus ? 'has-focus' : '')
+    .append(hasValue ? 'has-value' : '')
     .build();
 
   return (
@@ -50,8 +52,9 @@ const TextArea = (props: Props): React.Node => {
         defaultValue=""
         onChange={setValue}
         className="text-b-gray-100 overflow-y-auto resize-none w-96 h-52 p-4 rounded-md border-1 border-solid border-gray-300 focus:border-black outline-none"
+        id={id}
       />
-      <label className={labelClasses}>{label}</label>
+      <label htmlFor={id} className={labelClasses}>{label}</label>
     </div>
   );
 };

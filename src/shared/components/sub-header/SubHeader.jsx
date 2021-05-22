@@ -12,9 +12,9 @@ const SubHeader = (props: Props): React.Node => {
 
   return (
     <div className="lite-header">
-      <div className="lite-header-container bg-black-100 min-h-32">
+      <div className="lite-header-container bg-black min-h-32">
         <div className="title-wrapper">
-          <span className="white-100">{title}</span>
+          <span className="text-white">{title}</span>
         </div>
         <div className="lite-header-nav">
           <nav className="inline-flex flex-set overflow-hidden relative h-auto w-auto">

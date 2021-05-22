@@ -1,5 +1,4 @@
 @use 'prismjs';
-@import "colors";
 
 @tailwind base;
 @tailwind components;
@@ -226,7 +225,7 @@ body {
           white-space: nowrap;
 
           &:hover {
-            color: $gray-300;
+            color: #4e4e4e;
           }
         }
       }
@@ -298,7 +297,7 @@ body {
   display: flex;
   flex-direction: column;
   box-shadow: 0 2px 6px 0 rgba(0,0,0,.12);
-  background: $white-100;
+  background: white;
   top: 0;
   z-index: 10005;
   position: relative;
@@ -437,7 +436,7 @@ body {
         padding: .3125rem 0;
 
         &:hover {
-          color: $black-100;
+          color: black;
         }
 
         svg {
@@ -483,12 +482,12 @@ body {
   }
 
   path {
-    fill: $gray-100;
+    fill: #5f6368;
   }
 
   &:hover {
     path {
-      fill: $black-100;
+      fill: black;
     }
   }
 }
@@ -577,18 +576,18 @@ div .copyright {
 }
 
 .active {
-  border-bottom-color: $black-100 !important;
-  color: $black-100 !important;
+  border-bottom-color: black !important;
+  color: black !important;
 }
 
 .active-inverted {
-  border-bottom-color: $white-100 !important;
-  color: $white-100 !important;
+  border-bottom-color: white !important;
+  color: white !important;
 }
 
 .active-noir {
-  border-bottom-color: $red-100 !important;
-  color: $red-100 !important;
+  border-bottom-color: #f98888 !important;
+  color: #f98888 !important;
 }
 
 .blog-post {

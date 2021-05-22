@@ -9,7 +9,7 @@ class Builder {
   }
 
   append(str: string): Builder {
-    if (str !== null) {
+    if (str !== null || str !== '') {
       this.bucket.push(str);
     }
     return this;
