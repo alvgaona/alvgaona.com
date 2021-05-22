@@ -17,7 +17,7 @@ const About = (): React.Node => {
         }`);
 
   return (
-    <section className="flex flex-row items-start m-10">
+    <section className="flex flex-row items-start mx-10 mt-10 mb-20">
       <img alt="profile-pic" src={profilePic.placeholderImage.childImageSharp.fluid.src} className="profile-pic"/>
       <div id="about" className="mr-96 ml-28 pl-10">
         <p className="text-b-gray-200 text-3xl">
