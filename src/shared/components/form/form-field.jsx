@@ -33,7 +33,7 @@ const FormField = (props: Props): React.Node => {
     }
   };
 
-  const labelClasses = new StringBuilder.Builder()
+  const labelClasses = StringBuilder.Builder()
     .append('form-control-placeholder')
     .append(hasFocus ? 'has-focus' : '')
     .append(hasValue ? 'has-value' : '')

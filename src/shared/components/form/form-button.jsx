@@ -9,7 +9,7 @@ type Props = {
   value?: string
 }
 
-const FormButton = (props: Props) => {
+const FormButton = (props: Props): React.Node => {
   const {
     name,
     value,

@@ -33,7 +33,7 @@ const TextArea = (props: Props): React.Node => {
     }
   };
 
-  const labelClasses: string = new StringBuilder.Builder()
+  const labelClasses: string = StringBuilder.Builder()
     .append('form-control-placeholder')
     .append(hasFocus ? 'has-focus' : '')
     .append(hasValue ? 'has-value' : '')
