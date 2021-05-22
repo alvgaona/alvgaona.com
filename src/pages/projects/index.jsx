@@ -82,10 +82,10 @@ const Projects = (): React.Node => (
               are solved numerically and really fast. Therefore, creating a documented repository
               with numerical implementations—such as matrix operations, matrix decompositions,
               optimization, integration and differentiation, and so on—is a great idea for people
-              who really knows how to implement algorithms in various platforms without all the
-              overhead many libraries have. Each implementation will be clean as possible in order
-              to read the code and quickly understand it. This is not going to be a library, but who
-              knows what the future might hold.
+              who really wants to know how to implement algorithms in various platforms without all
+              the overhead many libraries have. Each implementation will be clean as possible in
+              order to read the code and quickly understand it. This is not going to be a library,
+              but who knows what the future might hold.
             </p>
           </div>
         </div>
