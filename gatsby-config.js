@@ -1,14 +1,14 @@
 module.exports = {
   siteMetadata: {
-    title: 'Alvaro Joaquín Gaona',
-    description: 'Personal page where I share all my projects on the Internet.',
+    title: 'Alvaro Gaona',
+    description: 'My website',
     author: '@alvgaona',
   },
   plugins: [
-    'gatsby-plugin-root-import',
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
+    'gatsby-plugin-postcss',
     {
       resolve: 'gatsby-plugin-sass',
       options: {
@@ -18,7 +18,6 @@ module.exports = {
         ],
       },
     },
-    'gatsby-plugin-postcss',
     {
       resolve: 'gatsby-source-filesystem',
       options: {

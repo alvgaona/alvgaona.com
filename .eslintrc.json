@@ -23,6 +23,17 @@
     "react-hooks",
     "flowtype"
   ],
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [
+            ["@pages", "./src/pages"],
+            ["@shared", "./src/shared"]
+         ],
+         "extensions": [".js", ".jsx"]
+      }
+    }
+  },
   "rules": {
     "sort-imports": ["error", {
         "ignoreCase": false,
