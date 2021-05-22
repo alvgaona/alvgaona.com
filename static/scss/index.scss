@@ -737,7 +737,6 @@ div .copyright {
   line-height: 1.125rem;
   text-decoration: none;
   width: 10rem;
-  padding: .33rem 2rem;
   color: #fff;
   text-transform: uppercase;
   justify-content: center;
@@ -777,7 +776,10 @@ div .copyright {
   display: flex;
   flex-direction: row;
   align-items: start;
-  margin: 2.5rem;
+  margin-top: 0;
+  margin-bottom: 5rem;
+  margin-right: 2.5rem;
+  margin-left: 2.5rem;
 
   &.meta-projects {
     align-items: center;

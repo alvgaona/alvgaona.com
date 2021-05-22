@@ -37,11 +37,12 @@ const Projects = (): React.Node => {
           <div className="my-4 py-4">
             <span className="title">Check them out</span>
           </div>
-          <div className="show-btn">
-            <Link to={PageLink.PROJECTS_URL}>
-              Show me
-            </Link>
-          </div>
+          <Link
+            to={PageLink.PROJECTS_URL}
+            className="show-btn"
+          >
+            Show me
+          </Link>
         </div>
       </div>
       <div className="background-image" style={{ backgroundImage: `url(${photo.decorateImage.childImageSharp.original.src})` }}/>
