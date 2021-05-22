@@ -1,5 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+// @flow
+
+import * as React from 'react';
 import { graphql } from 'gatsby';
 import Footer from '../../shared/components/footer';
 import Seo from '../../shared/components/seo';
@@ -8,7 +9,15 @@ import SiteHeader from '../../shared/components/site-header';
 import FigureCard from '../../shared/components/figure-card/FigureCard';
 import BlogHeader from './components/blog-header';
 
-const Blog = ({ data }) => (
+type Data = {
+  data: {
+    allMarkdownRemark: {
+      edges: Array<any>
+    }
+  }
+}
+
+const Blog = ({ data }: Data): React.Node => (
   <>
     <Seo title="Contact"/>
     <main className="layout">
@@ -35,7 +44,7 @@ const Blog = ({ data }) => (
   </>
 );
 
-export const pageQuery = graphql`
+export const pageQuery: any = graphql`
   query LatestBlogPostsPageQuery {
     allMarkdownRemark(
       limit: 6
@@ -69,15 +78,5 @@ export const pageQuery = graphql`
     }
   }
 `;
-
-Blog.propTypes = {
-  data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape(
-      {
-        edges: PropTypes.array.isRequired,
-      },
-    ).isRequired,
-  }).isRequired,
-};
 
 export default Blog;

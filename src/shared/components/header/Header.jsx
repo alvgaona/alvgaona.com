@@ -1,9 +1,14 @@
-import React from 'react';
+// @flow
+
+import * as React from 'react';
 import { Link } from 'gatsby';
-import PropTypes from 'prop-types';
 import PageLink from '../../models/PageLink';
 
-const Header = (props) => {
+type Props = {
+  bottomShadow?: Boolean,
+}
+
+const Header = (props: Props): React.Node => {
   const {
     bottomShadow,
   } = props;
@@ -46,10 +51,6 @@ const Header = (props) => {
 
 Header.defaultProps = {
   bottomShadow: true,
-};
-
-Header.propTypes = {
-  bottomShadow: PropTypes.bool,
 };
 
 export default Header;

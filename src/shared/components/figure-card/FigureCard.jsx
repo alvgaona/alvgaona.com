@@ -1,8 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+// @flow
+
+import * as React from 'react';
 import Link from 'gatsby-link';
 
-const FigureCard = (props) => {
+type Props = {
+  pictureUrl: string,
+  title: string,
+  description: string,
+  btnText: string,
+  to: string,
+};
+
+const FigureCard = (props: Props): React.Node => {
   const {
     pictureUrl,
     title,
@@ -25,14 +34,6 @@ const FigureCard = (props) => {
       </figcaption>
     </figure>
   );
-};
-
-FigureCard.propTypes = {
-  pictureUrl: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  btnText: PropTypes.string.isRequired,
-  to: PropTypes.string.isRequired,
 };
 
 export default FigureCard;

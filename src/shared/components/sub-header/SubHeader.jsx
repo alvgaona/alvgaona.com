@@ -1,7 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+// @flow
 
-const SubHeader = (props) => {
+import * as React from 'react';
+
+type Props = {
+  title: string,
+  children?: Array<React.Node>
+}
+
+const SubHeader = (props: Props): React.Node => {
   const { title, children } = props;
 
   return (
@@ -22,11 +28,6 @@ const SubHeader = (props) => {
 
 SubHeader.defaultProps = {
   children: undefined,
-};
-
-SubHeader.propTypes = {
-  title: PropTypes.string.isRequired,
-  children: PropTypes.arrayOf(PropTypes.node),
 };
 
 export default SubHeader;

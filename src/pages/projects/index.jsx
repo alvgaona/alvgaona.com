@@ -1,12 +1,13 @@
-/* eslint-disable react/no-unescaped-entities */
-import React from 'react';
+// @flow
+
+import * as React from 'react';
 import Seo from '../../shared/components/seo';
 import Header from '../../shared/components/header';
 import SiteHeader from '../../shared/components/site-header';
 import Footer from '../../shared/components/footer';
 import SubHeader from '../../shared/components/sub-header';
 
-const Projects = () => (
+const Projects = (): React.Node => (
   <>
     <Seo title="Projects"/>
     <main className="layout">
@@ -75,7 +76,7 @@ const Projects = () => (
             </p>
             <p className="mt-2 text-justify">
               Solving mathematical problems is a quite interesting field. Problems
-              that we certainly saw in undergraduate and graduate courses. We've always been
+              that we certainly saw in undergraduate and graduate courses. We&apos;ve always been
               warned not to invert a matrix just like that, so I was interested in knowing
               what the reason was. Then, convex optimization is a field in which all of the problems
               are solved numerically and really fast. Therefore, creating a documented repository

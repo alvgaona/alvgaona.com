@@ -1,11 +1,24 @@
-import React from 'react';
-import { PropTypes } from 'prop-types';
+// @flow
+
+import * as React from 'react';
 import Helmet from 'react-helmet';
 import { graphql, useStaticQuery } from 'gatsby';
 
-const Seo = ({
-  description, lang, meta, title,
-}) => {
+type Props = {
+  title: string,
+  description?: string,
+  lang?: string,
+  meta?: Array<any>,
+};
+
+const Seo = (props: Props): React.Node => {
+  const {
+    description,
+    lang,
+    meta,
+    title,
+  } = props;
+
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -79,15 +92,8 @@ const Seo = ({
 
 Seo.defaultProps = {
   lang: 'en',
-  meta: [],
+  meta: ([]: Array<empty>),
   description: '',
-};
-
-Seo.propTypes = {
-  description: PropTypes.string,
-  lang: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
 };
 
 export default Seo;

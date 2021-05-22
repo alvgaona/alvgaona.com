@@ -1,4 +1,6 @@
-import React from 'react';
+// @flow
+
+import * as React from 'react';
 import OpenInNew from '@material-ui/icons/OpenInNew';
 import { Link } from 'gatsby';
 import {
@@ -7,7 +9,7 @@ import {
 import SocialWebsites from '../../models/SocialWebsites';
 import PageLink from '../../models/PageLink';
 
-const Footer = () => {
+const Footer = (): React.Node => {
   const year = new Date().getFullYear();
 
   return (

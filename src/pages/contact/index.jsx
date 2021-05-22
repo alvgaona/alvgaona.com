@@ -1,4 +1,6 @@
-import React from 'react';
+// @flow
+
+import * as React from 'react';
 import Footer from '../../shared/components/footer';
 import Seo from '../../shared/components/seo';
 import Header from '../../shared/components/header';
@@ -6,7 +8,7 @@ import SiteHeader from '../../shared/components/site-header';
 import SubHeader from '../../shared/components/sub-header';
 import { FormButton, FormField, TextArea } from '../../shared/components/form';
 
-const Contact = () => (
+const Contact = (): React.Node => (
   <>
     <Seo title="Contact"/>
     <main className="layout">

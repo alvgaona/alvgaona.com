@@ -1,7 +1,9 @@
-import React from 'react';
+// @flow
+
+import * as React from 'react';
 import Home from './home';
 
-const IndexPage = () => (
+const IndexPage = (): React.Node => (
   <Home/>
 );
 

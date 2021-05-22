@@ -1,8 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+// @flow
+
+import * as React from 'react';
 import { Link } from 'gatsby';
 
-const MetaBlogPost = (props) => {
+type Props = {
+  to: string,
+  title: string,
+  date: string,
+  author: string,
+  topic: string,
+}
+
+const MetaBlogPost = (props: Props): React.Node => {
   const {
     to,
     title,
@@ -26,14 +35,6 @@ const MetaBlogPost = (props) => {
       </div>
     </li>
   );
-};
-
-MetaBlogPost.propTypes = {
-  to: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
-  author: PropTypes.string.isRequired,
-  topic: PropTypes.string.isRequired,
 };
 
 export default MetaBlogPost;

@@ -1,5 +1,6 @@
-/* eslint-disable react/no-unescaped-entities */
-import React from 'react';
+// @flow
+
+import * as React from 'react';
 import { ArrowForwardRounded, School } from '@material-ui/icons';
 import { Icon } from '@iconify/react';
 import researchgateIcon from '@iconify-icons/fa-brands/researchgate';
@@ -12,9 +13,7 @@ import Footer from '../../shared/components/footer';
 import SubHeader from '../../shared/components/sub-header';
 import SocialWebsites from '../../shared/models/SocialWebsites';
 
-// npm install --save-dev @iconify/react @iconify-icons/fa-brands
-
-const Publications = () => (
+const Publications = (): React.Node => (
   <>
     <Seo title="Publications"/>
     <main className="layout">
@@ -31,7 +30,7 @@ const Publications = () => (
             <br/>
             In the past I have done research in the field of signal processing applied to
             biological signals which led to my first published article. Nonetheless,
-            I'm now focused in problems such as control, navigation, and localization driven
+            I&apos;m now focused in problems such as control, navigation, and localization driven
             by deep learning and computer vision approaches.
             <br/>
             <br/>
@@ -47,7 +46,6 @@ const Publications = () => (
               <span>Research Gate</span>
             </a>
           </div>
-
         </aside>
         <div className="publications">
           <div className="flex flex-row">

@@ -1,9 +1,11 @@
-import React from 'react';
+// @flow
+
+import * as React from 'react';
 import { Link } from 'gatsby';
 import PageLink from '../../../../shared/models/PageLink';
 import SubHeader from '../../../../shared/components/sub-header';
 
-const BlogHeader = () => (
+const BlogHeader = (): React.Node => (
   <SubHeader title="Blog">
     <ul className="inline-flex flex-row p-0 m-0 self-center h-auto w-auto list-none">
       <li className="flex-inline-flex m-0 relative h-full items-center">

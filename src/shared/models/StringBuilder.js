@@ -1,22 +1,27 @@
-// eslint-disable-next-line max-classes-per-file
-class StringBuilder {
-  static Builder() {
-    class Builder {
-      constructor() {
-        this.bucket = [];
-      }
+// @flow
+/* eslint-disable max-classes-per-file */
 
-      append(str) {
-        if (str !== null) {
-          this.bucket.push(str);
-        }
-        return this;
-      }
+class Builder {
+  bucket: Array<any>;
 
-      build() {
-        return this.bucket.join(' ');
-      }
+  constructor() {
+    this.bucket = [];
+  }
+
+  append(str: string): Builder {
+    if (str !== null) {
+      this.bucket.push(str);
     }
+    return this;
+  }
+
+  build(): string {
+    return this.bucket.join(' ');
+  }
+}
+
+class StringBuilder {
+  static Builder(): Builder {
     return new Builder();
   }
 }

@@ -20,6 +20,7 @@ const Book = (props: Props): React.Node => {
   } = props;
 
   return (
+    // $FlowIgnore
     <li className={`list-item my-0 mx-1 py-1 px-0 ${className}`}>
       {author}, <span className="italic font-medium text-black">&quot;{title}&quot;</span>, {publisher}. {year}
     </li>

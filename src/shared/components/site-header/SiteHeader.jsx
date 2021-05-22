@@ -1,7 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+// @flow
 
-const SiteHeader = (props) => {
+import * as React from 'react';
+
+type Props = {
+  children: React.Node
+}
+
+const SiteHeader = (props: Props): React.Node => {
   const { children } = props;
 
   return (
@@ -9,10 +14,6 @@ const SiteHeader = (props) => {
       {children}
     </header>
   );
-};
-
-SiteHeader.propTypes = {
-  children: PropTypes.node.isRequired,
 };
 
 export default SiteHeader;

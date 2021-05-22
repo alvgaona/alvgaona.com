@@ -1,10 +1,11 @@
-/* eslint-disable react/no-unescaped-entities */
-import React from 'react';
+// @flow
+
+import * as React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Link from 'gatsby-link';
 
-const About = () => {
-  const profilePic = useStaticQuery(graphql`
+const About = (): React.Node => {
+  const profilePic: any = useStaticQuery(graphql`
     query {
           placeholderImage: file(relativePath: { eq: "alvgaona.jpg" }) {
             childImageSharp {
@@ -34,10 +35,9 @@ const About = () => {
           based on it.
           <br/>
           <br/>
-          Nowadays, I'm pursuing a postgraduate degree in "Numerical Simulation and Control"
-          at University of Buenos Aires. And at the same time working full-time as a
-          Software Engineer
-          in
+          Nowadays, I'm pursuing a postgraduate degree in &quot;Numerical Simulation
+          and Control&quot; at University of Buenos Aires. And at the same time working
+          full-time as a Software Engineer in
           {' '}
           <a href="https://sequencing.roche.com/" className="my-link">Roche Sequencing Solutions</a>
           {' '}

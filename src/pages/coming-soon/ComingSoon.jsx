@@ -1,5 +1,6 @@
-/* eslint-disable react/no-unescaped-entities */
-import React from 'react';
+// @flow
+
+import * as React from 'react';
 import Link from 'gatsby-link';
 import Seo from '../../shared/components/seo';
 import Header from '../../shared/components/header';
@@ -7,7 +8,7 @@ import Footer from '../../shared/components/footer';
 import SiteHeader from '../../shared/components/site-header';
 import SubHeader from '../../shared/components/sub-header';
 
-const ComingSoon = () => (
+const ComingSoon = (): React.Node => (
   <>
     <Seo title="Coming Soon"/>
     <main className="layout">
