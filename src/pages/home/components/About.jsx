@@ -27,7 +27,7 @@ const About = (): React.Node => {
           In 2019, I graduated from University of Buenos Aires in Electronics Engineering.
           Throughout my graduate years, I specialized in subjects such as signal processing,
           control theory, linear estimation, machine learning, and robotics.
-          Ultimately, achieving my degree by completing and defending a thesis in the field
+          Ultimately, achieving my degree by completing and defending my undergraduate thesis in the field
           of signal processing and deep learning; in addition to a published
           {' '}
           <Link to="/publications#hss" className="my-link">article</Link>
@@ -35,13 +35,11 @@ const About = (): React.Node => {
           based on it.
           <br/>
           <br/>
-          Nowadays, I&apos;m pursuing a postgraduate degree in &quot;Numerical Simulation
-          and Control&quot; at University of Buenos Aires. And at the same time working
-          full-time as a Software Engineer in
+          Nowadays, I&apos;m working at University of San Andres as a researcher in the
           {' '}
-          <a href="https://sequencing.roche.com/" className="my-link">Roche Sequencing Solutions</a>
-          {' '}
-          developing multiple applications related to cancer analysis.
+          <a href="https://linar.udesa.edu.ar/" className="my-link">Laboratory of
+          Artificial Intelligence and Robotics</a>
+          {'.'} My research pathway belongs to the field of multi-agent coordination. 
         </p>
       </div>
     </section>
