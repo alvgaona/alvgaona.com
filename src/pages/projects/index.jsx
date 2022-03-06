@@ -17,62 +17,24 @@ const Projects = (): React.Node => (
       </SiteHeader>
       <div className="flex pl-2 pr-2 mt-xl w-full h-auto">
         <div className="projects">
-          <div id="mrta" className="project-container border-b-1 border-solid">
+          <div id="autonomous-landing" className="project-container border-b-1 border-solid">
             <p className="text-b-gray-200 font-bold text-2xl helvetica-now-bold">
-              Task allocation for heterogeneous multi-robot systems
+              UAV Autonomous Landing
             </p>
             <p className="mt-2 text-justify">
-              For multi-robot teams with heterogeneous capabilities,
-              typical task allocation methods assign tasks to robots
-              based on the suitability of the robots to perform certain tasks
-              as well as the requirements of the task itself. However, in
-              real-world deployments of robot teams, the suitability of a
-              robot might be unknown prior to deployment, or might vary
-              due to changing environmental conditions. The difficulty in
-              this problem is coordinating the fleet of robots to perform
-              the tasks under these constrains. Most of the times, the tasks—one or many—
-              are allocated to a single robot based on certain criteria, but
-              what would happen if we could allocate single task to a cluster
-              of robots? Would the suitability of the cluster-robot increase?
-              Would the efficacy and efficiency, in which the task is carried out, improve?
+            Unmanned Aerial Vehicles (UAV) have reached quite a mature state in the past years. 
+            Many UAV implementations have been transformed into commercial products showing the success of different technologies applied to them. 
+            It has been made possible for UAVs to autonomously navigate in manned airspace by reducing the risks of aerial hazards. 
+            Nonetheless, there are many challenges to address for autonomous navigation.
+            One of these challenges is autonomous landing; at a given point in time, the system might need to land at a known or unknown 
+            location, due to one of many reasons. These reasons could be faulty actuators, or completing a task within a predefined mission.
+            Landing maneuvers are quite risky, therefore the maneuvers should be attempted with high accuracy, preventing the UAV to suffer
+            or cause any sort of damage to assets or people.
             </p>
           </div>
-          <div id="mrta" className="project-container border-b-1 border-solid">
+          <div id="numcase" className="project-container">
             <p className="text-b-gray-200 font-bold text-2xl helvetica-now-bold">
-              Automatic Control Simulator
-            </p>
-            <p className="mt-2 text-justify">
-              Before deploying robots, rockets and machinery onto the real world, engineers
-              have to make sure everything is working as expected; even if the software and
-              hardware are in alpha versions. Iterating without simulating would be really
-              expensive, and since software is soft, we can make as many mistakes as we
-              want and learn from them. There are a few simulators out there that are
-              used to simulate all sorts of robots, namely NVIDIA Isaac and Flightmare
-              from ETH Zurich (both based on Unity 3D). The idea is to develop an open-source
-              simulator with all the components needed to simulate a wide range of
-              dynamic and autonomous systems.
-            </p>
-          </div>
-          <div className="project-container border-b-1 border-solid">
-            <p className="text-b-gray-200 font-bold text-2xl helvetica-now-bold">
-              Bella: An onboard UAV Flight Controller
-            </p>
-            <p className="mt-2 text-justify">
-              Essentially, onboard UAV flight controllers are electronic boards with
-              different components soldered onto them. These components vary from microcontrollers,
-              to pin-outs, capable of connecting to external devices. For instance,
-              quadcopters or quadrotors need four motors to navigate throught different
-              environments, and with microcontrollers we could control the thrust of each one of the
-              motors to perform different maneuvers. My goal is to engineer multiple boards,
-              depending on the scale of the UAV, so everyone can have access to the design,
-              schematics, components, and algorithms. Moreover, this will help anyone who
-              might want to build their own UAVs from scratch; if they want to
-              try out new algorithms to do research or to learn this will help them as well.
-            </p>
-          </div>
-          <div className="project-container">
-            <p className="text-b-gray-200 font-bold text-2xl helvetica-now-bold">
-              NumCase: Mathematical problems solved numerically
+              NUMCASE: A collection of mathematical problems solved numerically
             </p>
             <p className="mt-2 text-justify">
               Solving mathematical problems is a quite interesting field. Problems

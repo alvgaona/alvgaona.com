@@ -19,7 +19,9 @@ const Header = (props: Props): React.Node => {
         <div className="flex my-auto mr-0 ml-auto self-center w-40 h-11">
           <Link to="/" className="flex flex-row w-full h-auto m-auto self-center no-underline">
             <span className="flex w-auto h-auto m-auto text-xs font-medium uppercase text-gray-900">
-              alvgaona.com
+              <span>
+                <span className="font-bold">Alvaro</span> Gaona
+              </span>
             </span>
           </Link>
         </div>
@@ -31,9 +33,6 @@ const Header = (props: Props): React.Node => {
               </li>
               <li>
                 <Link to={PageLink.PUBLICATIONS_URL}>Publications</Link>
-              </li>
-              <li>
-                <Link to={PageLink.READINGS_URL}>Readings</Link>
               </li>
               <li>
                 <Link to={PageLink.COMING_SOON_URL}>Blog</Link>
