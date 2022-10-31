@@ -9,6 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/lab": "^5.0.0-alpha.105",
+    "@mui/material": "^5.10.11",
     "@next/font": "^13.0.0",
     "autoprefixer": "^10.4.13",
     "gray-matter": "^4.0.3",

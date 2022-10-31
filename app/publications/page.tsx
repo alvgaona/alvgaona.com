@@ -1,8 +1,8 @@
 import * as React from 'react';
 import Link from 'next/link';
-import { FaResearchgate } from 'react-icons/fa';
+import { FaResearchgate as ResearchGate } from 'react-icons/fa';
 import { BsLink } from 'react-icons/bs';
-import { SiGooglescholar } from 'react-icons/si';
+import { SiGooglescholar as GoogleScholar } from 'react-icons/si';
 import { IoMdArrowForward } from 'react-icons/io';
 import SocialWebsites from '../../lib/SocialWebsites';
 
@@ -34,9 +34,9 @@ const Publication = ({ title, reference, href}: { title: string, reference: stri
 
 export default (): React.ReactNode => (
   <>
-    <div className="flex flex-col items-start w-full h-auto my-24 px-36">
-      <div className="text-justify ml-4 mb-6 pb-3 border-b-1">
-        <p>
+    <section className="flex flex-col items-start">
+      <div className="text-justify ml-4 mb-6 pb-3 border-b border-solid">
+        <p className="">
           I'm also interested in doing research, as I feel it's a big part of my life.
           I always enjoy looking for novel solutions to diverse problems, in particular problems related to
           Machine Learning and Signal Processing.
@@ -46,6 +46,21 @@ export default (): React.ReactNode => (
         I feel there's a lot of room to apply learning algorithms in the biomedical universe to continue learning
         about the human body as well as to enhance the skills of the healthcare experts.
         </p>
+        <div className="flex flex-col font-mplus">
+          <span className="font-bold underline underline-offset-4 decorate-blue my-4">Research profiles</span>
+          <p className="rounded-lg hover:bg-gray-200 hover:underline hover:underline-offset-4 px-4 py-4 mr-auto">
+            <Link href={SocialWebsites.GOOGLE_SCHOLAR} className="flex flex-row items-center w-auto">
+              <GoogleScholar className="[&>path]:fill-[#4285F4] mt-[2px] text-2xl"/>
+              <span className="ml-1 font-medium text-teal-600">@alvaro-gaona</span>
+            </Link>
+          </p>
+          <p className="rounded-lg hover:bg-gray-200 hover:underline hover:underline-offset-4 px-4 py-4 mr-auto">
+            <Link href={SocialWebsites.RESEARCH_GATE} className="flex flex-row items-center">
+              <ResearchGate className="[&>path]:fill-[#00CCBB] mt-[2px] text-2xl"/>
+              <span className="ml-1 font-medium text-teal-600">@Alvaro-Gaona</span>
+            </Link>
+          </p>
+        </div>
       </div>
       <div className="flex flex-row">
         <Anchor href="/publication#heart-sounds-segmentation" />
@@ -58,6 +73,6 @@ export default (): React.ReactNode => (
           href="http://elektron.fi.uba.ar/index.php/elektron/article/view/101/212"
         />
       </div>
-    </div>
+    </section>
   </>
 );

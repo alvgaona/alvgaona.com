@@ -10,13 +10,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <main className="flex flex-col justify-start h-screen w-screen">
-          <Navbar/>
-          <div className="flex flex-col pl-2 pr-2 mx-56 h-auto">
+        <Navbar />
+        <main className="pt-[56px]">
+          <article className="px-8 mx-auto max-w-2xl">
             {children}
-          </div>
-          <Footer/>
+          </article>
         </main>
+        <Footer />
       </body>
     </html>
   );

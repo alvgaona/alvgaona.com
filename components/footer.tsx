@@ -5,99 +5,77 @@ import { MdOpenInNew } from 'react-icons/md';
 import PageLink from '../lib/PageLink';
 import SocialWebsites from '../lib/SocialWebsites';
 
-export default (): JSX.Element => {
-  const year = new Date().getFullYear();
-// div .copyright {
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: space-evenly;
-//   align-items: center;
-//   width: auto;
-//   padding: 10px;
-//   font-size: 12px;
-//   font-weight: 300;
-//   color: #6d6d6d;
-// }
-  return (
-    <footer className="site-footer font-mplus">
-      <div className="flex justify-center border-b-1 border-solid w-auto m-0 h-14">
-          <span className="self-center">{`© ${year} Alvaro Gaona. All rights reserved.`}</span>
+export default (): JSX.Element => (
+  <footer className="flex flex-col mt-3">
+    <div className="px-8 mx-auto w-full max-w-2xl">
+      <div className="flex justify-center self-center items-center h-14 text-sm border-y border-solid">
+        <span>{`© ${new Date().getFullYear()} Alvaro Gaona. All rights reserved.`}</span>
       </div>
-      <ul className="styled-ul">
-        <li className="styled-li">
+      <ul className="flex flex-row flex-wrap h-auto my-4 justify-evenly self-center">
+        <li className="flex-col m-0 py-4 px-6 font-normal text-xs tracking-wide leading-6">
           <div className="flex flex-col">
-            <h4>About</h4>
-            <Link href="/#about" className="site-link">
-              <div className="link-box-item">Introduction</div>
+            <h4 className="text-md leading-4 tracking-wide mb-3 font-bold">About</h4>
+            <Link href="/#about">
+              <div className="">Introduction</div>
             </Link>
-            <Link href={PageLink.RESUME_URL} className="site-link">
-              <div className="link-box-item">Résumé</div>
+            <Link href={PageLink.RESUME_URL}>
+              <div className="">Résumé</div>
             </Link>
           </div>
         </li>
-        <li className="styled-li">
+        <li className="flex-col m-0 py-4 px-6 font-normal text-xs tracking-wide leading-6">
           <div className="flex flex-col">
-            <h4>Social</h4>
-            <a href={SocialWebsites.GITHUB} className="site-external-link">
-              <div className="link-box-item">
-                Github
-                <MdOpenInNew/>
-              </div>
+            <h4 className="text-md leading-4 tracking-wide mb-3 font-bold">Social</h4>
+            <Link href={SocialWebsites.GITHUB} className="flex flex-row items-center">
+              Github
+              <MdOpenInNew className="ml-1" />
+            </Link>
+            <a href={SocialWebsites.LINKEDIN} className="flex flex-row items-center">
+              LinkedIn
+              <MdOpenInNew className="ml-1" />
             </a>
-            <a href={SocialWebsites.LINKEDIN} className="site-external-link">
-              <div className="link-box-item">
-                LinkedIn
-                <MdOpenInNew/>
-              </div>
+            <a href={SocialWebsites.FACEBOOK} className="flex flex-row items-center">
+              Facebook
+              <MdOpenInNew className="ml-1" />
             </a>
-            <a href={SocialWebsites.FACEBOOK} className="site-external-link">
-              <div className="link-box-item">
-                Facebook
-                <MdOpenInNew/>
-              </div>
-            </a>
-            <a href={SocialWebsites.TWITTER} className="site-external-link">
-              <div className="link-box-item">
-                Twitter
-                <MdOpenInNew/>
-              </div>
+            <a href={SocialWebsites.TWITTER} className="flex flex-row items-center">
+              Twitter
+              <MdOpenInNew className="ml-1" />
             </a>
           </div>
         </li>
-        <li className="styled-li">
+        <li className="flex-col m-0 py-4 px-6 font-normal text-xs tracking-wide leading-6">
           <div className="flex flex-col">
-            <h4>More</h4>
-            <a href={PageLink.MAIL_TO_URL} className="site-link">
-              <div className="link-box-item">Contact</div>
-            </a>
-            <Link href={PageLink.COMING_SOON_URL} className="site-link">
-              <div className="link-box-item">Blog</div>
+            <h4 className="text-md leading-4 tracking-wide mb-3 font-bold">More</h4>
+            <Link href={PageLink.MAIL_TO_URL}>
+              Contact
             </Link>
-            <Link href={PageLink.PUBLICATIONS_URL} className="site-link">
-              <div className="link-box-item">Publications</div>
+            <Link href={PageLink.COMING_SOON_URL}>
+              Blog
+            </Link>
+            <Link href={PageLink.PUBLICATIONS_URL}>
+              Publications
             </Link>
           </div>
         </li>
       </ul>
-      <div className="m-0 border-t border-t-grey ">
-        <div className="sub-footer-align">
-          <li className="tab cursor-default">
-            <a aria-label="github" className="site-external-link icon-fill" href={SocialWebsites.GITHUB}>
-              <FaGithub id="github"/>
-            </a>
-          </li>
-          <li className="tab cursor-default">
-            <a aria-label="linkedin" className="site-external-link icon-fill" href={SocialWebsites.LINKEDIN}>
-              <FaLinkedin id="linkedin"/>
-            </a>
-          </li>
-          <li className="tab cursor-default">
-            <a aria-label="twitter" className="site-external-link icon-fill" href={SocialWebsites.TWITTER}>
-              <FaTwitter id="twitter"/>
-            </a>
-          </li>
-        </div>
+      <div className="flex flex-row justify-center self-center py-6 border-t border-t-gray-200">
+        <li className="inline-flex cursor-default">
+          <Link aria-label="github" className="mx-4" href={SocialWebsites.GITHUB}>
+            <FaGithub className="[&>path]:fill-[#5f6368] [&>path]:hover:fill-black text-3xl" id="github" />
+          </Link>
+        </li>
+        <li className="inline-flex cursor-default">
+          <Link aria-label="linkedin" className="mx-4" href={SocialWebsites.LINKEDIN}>
+            <FaLinkedin className="[&>path]:fill-[#5f6368] [&>path]:hover:fill-[#0a66c2] text-3xl" id="linkedin" />
+          </Link>
+        </li>
+        <li className="inline-flex cursor-default">
+          <Link aria-label="twitter" className="mx-4" href={SocialWebsites.TWITTER}>
+            <FaTwitter className="[&>path]:fill-[#5f6368] [&>path]:hover:fill-[#0083eb] text-3xl" id="twitter" />
+          </Link>
+        </li>
       </div>
-    </footer>
-  );
-};
+    </div>
+  </footer>
+);

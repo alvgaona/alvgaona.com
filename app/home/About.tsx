@@ -7,15 +7,15 @@ import { IoMdArrowForward } from 'react-icons/io';
 export default () => {
   return (
     <>
-      <section className="flex flex-col items-start mx-10 mt-20">
-        <div className="flex flex-row justify-center w-full px-28">
-          <span className="font-mplus font-medium bg-gray-800 text-white text-base border-1 px-12 py-4 mb-4 rounded-md">
+      <section className="flex flex-col items-start">
+        <div className="flex flex-row justify-center w-full">
+          <span className="font-mplus font-medium text-sm bg-gray-800 text-white text-base border-1 px-12 py-4 mb-4 rounded-md">
             Hi! I'm a Software and Machine Learning Engineer based in
             {' '}
             <Link className="underline underline-offset-4 text-sky-300" href="https://en.wikipedia.org/wiki/Argentina">Argentina</Link>. 📍
           </span>
         </div>
-        <div className="flex flex-row w-full px-36 mt-6 justify-between">
+        <div className="flex flex-row w-full mt-6 justify-around">
           <div className="flex flex-col">
             <span className="font-mplus font-bold text-5xl mb-1">Alvaro Gaona</span>
             <p>Engineer / Developer / Architect / Researcher </p>
@@ -23,13 +23,13 @@ export default () => {
           <Image className="h-32 self-end w-auto rounded-full" alt="avatar" src={alvgaona} priority />
         </div>
       </section>
-      <section className="flex flex-col items-start mx-10 my-20">
-        <div className="flex flex-col w-full px-36 mt-6">
+      <section className="flex flex-col items-start justify-start">
+        <div className="flex flex-col w-full mt-6">
           <span className="font-mplus font-bold underline underline-offset-4 mb-2">Work</span>
           <p className="text-justify">
             Certainly most of the time I'm working as a Software Engineer at a Machine Learning company.
             My job is to design, architect and develop robust, performing, and scalable machine learning services.
-            Since 2020 I contribute to my favorite deep learning framework, PyTorch, with features and improvements
+            Since 2020 I've been contributing to my favorite deep learning framework, PyTorch, with features and improvements
             to make both the user's and the developers' life easier. Look at my 
             {' '}
             <Link className="underline underline-offset-4 decoration-orange-300 hover:animate-pulse" href="https://github.com/pytorch/pytorch/search?q=is%3Apr+author%3Aalvgaona+author%3Aalvarogaona&type=issues">
@@ -47,11 +47,11 @@ export default () => {
               Learn more <IoMdArrowForward className="self-center ml-1 mt-1"/>
             </Link>
           </p>
-          <div className="font-mplus font-medium border-1 justify-center self-center mt-8 px-8 py-2 rounded-lg bg-teal-300">
-            <Link href="/works">Check out my works</Link>
-          </div>
+            <Link href="/works" className="justify-center transition-colors duration-500 self-center mt-8 px-8 py-2 border-1 rounded-lg font-mplus font-medium bg-teal-500 text-white hover:text-white hover:bg-teal-600">
+                Check out my works
+            </Link>
         </div>
-        <div className="flex flex-col w-full px-36 mt-6">
+        <div className="flex flex-col w-full mt-6">
           <span className="font-mplus font-bold underline underline-offset-4">Career timeline</span>
         </div>
       </section>
