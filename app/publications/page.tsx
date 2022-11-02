@@ -1,14 +1,12 @@
 'use client'
 
-import * as React from 'react';
-import Link from 'next/link';
-import { FaResearchgate as ResearchGate } from 'react-icons/fa';
-import { BsLink } from 'react-icons/bs';
-import { SiGooglescholar as GoogleScholar } from 'react-icons/si';
-import { IoMdArrowForward } from 'react-icons/io';
-import SocialWebsites from '../../lib/SocialWebsites';
-import AnimatedLayout from '../../components/animated-layout';
-
+import * as React from 'react'
+import Link from 'next/link'
+import { FaResearchgate as ResearchGate } from 'react-icons/fa'
+import { BsLink } from 'react-icons/bs'
+import { SiGooglescholar as GoogleScholar } from 'react-icons/si'
+import { IoMdArrowForward } from 'react-icons/io'
+import AnimatedLayout from '../../components/animated-layout'
 
 const Anchor = ({ href }: { href: string }) => (
   <div className="opacity-0 mb-auto curosr-pointer mr-1 hover:opacity-100 hover:transition hover:duration-200 hover:ease-in-out pt-2">
@@ -28,7 +26,7 @@ const Publication = ({ title, reference, href }: { title: string, reference: str
     </p>
     <Link
       href={href}
-      className="pt-4 underline transform hover:translate-x-1 transition duration-200"
+      className="pt-4 underline underline-offset-4 transform hover:translate-x-1 transition duration-200"
     >
       <span className="flex items-center"><IoMdArrowForward className="mr-1" /> Go to</span>
     </Link>
@@ -51,11 +49,11 @@ export default (): React.ReactNode => (
           </p>
           <div className="flex flex-col font-mplus">
             <span className="font-bold underline underline-offset-4 my-4">Research profiles</span>
-            <Link href={SocialWebsites.GOOGLE_SCHOLAR} className="rounded-lg dark:hover:bg-zinc-600 hover:bg-zinc-200 hover:underline hover:underline-offset-4 decoration-blue-700 px-4 py-4 mr-auto flex flex-row items-center w-auto">
+            <Link href="https://www.researchgate.net/profile/Alvaro-Gaona" className="rounded-lg dark:hover:bg-zinc-600 hover:bg-zinc-200 hover:underline hover:underline-offset-4 decoration-blue-700 px-4 py-4 mr-auto flex flex-row items-center w-auto">
               <GoogleScholar className="[&>path]:fill-[#4285F4] mt-[2px] text-2xl" />
               <span className="ml-1 font-medium text-teal-500 dark:text-teal-300">@alvaro-gaona</span>
             </Link>
-            <Link href={SocialWebsites.RESEARCH_GATE} className="rounded-lg dark:hover:bg-zinc-600 hover:bg-zinc-200 hover:underline hover:underline-offset-4 decoration-blue-700 px-4 py-4 mr-auto flex flex-row items-center">
+            <Link href="https://scholar.google.com/citations?user=unBAfxAAAAAJ" className="rounded-lg dark:hover:bg-zinc-600 hover:bg-zinc-200 hover:underline hover:underline-offset-4 decoration-blue-700 px-4 py-4 mr-auto flex flex-row items-center">
               <ResearchGate className="[&>path]:fill-[#00CCBB] mt-[2px] text-2xl" />
               <span className="ml-1 font-medium text-teal-500 dark:text-teal-300">@Alvaro-Gaona</span>
             </Link>
