@@ -4,7 +4,7 @@ import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import SocialWebsites from '../lib/SocialWebsites';
 
 export default (): JSX.Element => (
-  <footer>
+  <footer className="pb-10">
     <div className="flex justify-center self-center items-center h-14 text-sm">
       <span>{`© ${new Date().getFullYear()} Alvaro Gaona. All rights reserved.`}</span>
     </div>

@@ -37,7 +37,6 @@ const Publication = ({ title, reference, href }: { title: string, reference: str
 
 export default (): React.ReactNode => (
   <AnimatedLayout>
-    <>
       <section className="flex flex-col items-start">
         <div className="text-justify ml-4 mt-2 mb-6 pb-3 border-b border-solid">
           <p className="pt-2">
@@ -74,6 +73,5 @@ export default (): React.ReactNode => (
           />
         </div>
       </section>
-    </>
   </AnimatedLayout>
 );

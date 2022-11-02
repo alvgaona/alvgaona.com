@@ -14,7 +14,6 @@ import AnimatedLayout from '../components/animated-layout'
 export default () => {
   return (
     <AnimatedLayout>
-      <>
         <section className="flex flex-col items-start">
           <div className="flex flex-row justify-center w-full">
             <span className="font-mplus font-medium bg-gray-800 dark:bg-gray-600 text-white text-base border-1 px-12 py-4 my-5 rounded-md">
@@ -104,7 +103,6 @@ export default () => {
             </div>
           </div>
         </section>
-      </>
     </AnimatedLayout>
   );
 };
