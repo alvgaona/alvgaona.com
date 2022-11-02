@@ -1,5 +1,5 @@
 const metadata = {
-    title: "Work",
+    title: "Works",
 }
 
 export default async () => {  

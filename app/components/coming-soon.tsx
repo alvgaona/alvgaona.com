@@ -1,34 +1,6 @@
 import * as React from 'react';
 import Link from 'next/link';
 
-// .show-btn {
-//   outline: none;
-//   display: flex;
-//   font-weight: 400;
-//   font-size: 1rem;
-//   line-height: 1.125rem;
-//   text-decoration: none;
-//   width: 10rem;
-//   color: #fff;
-//   text-transform: uppercase;
-//   justify-content: center;
-//   text-align: center;
-//   align-items: center;
-//   min-height: 3.5rem;
-//   border: none;
-//   background: #000000;
-//   position: relative;
-
-//   &:hover {
-//     background: #999999;
-//     transition-property: background-color;
-//     transition-duration: 0.25s;
-//     transition-timing-function: ease-out;
-//     transition-delay: 0s;
-//   }
-// }
-
-
 export default (): JSX.Element => (
   <>
     <div className="flex flex-col justify-center items-center my-24">
