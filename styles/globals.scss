@@ -1,0 +1,31 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;200;300;400;500;600;700&display=swap');
+
+:root {
+  ---system-ui: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+html, body {
+  font-family: var(---system-ui);
+  font-weight: 300;
+  height: 100%;
+}
+
+body {
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  text-decoration: none;
+  text-transform: none;
+  color: #060606;
+}
+
+// https://github.com/vercel/next.js/discussions/41745#discussioncomment-3964086
+main, div:not([class]) {
+  div:not([class]) {
+    display: contents
+  }
+}
