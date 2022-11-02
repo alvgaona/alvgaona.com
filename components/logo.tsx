@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-export default (): JSX.Element => (
+const Logo = (): JSX.Element => (
     <span className="font-mplus">
           <Link href="/">
             <span className="text-lg border-2 rounded-full p-1 border-black dark:border-zinc-400">
@@ -9,3 +9,5 @@ export default (): JSX.Element => (
           </Link>
     </span>
 )
+
+export default Logo

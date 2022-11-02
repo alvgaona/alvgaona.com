@@ -5,7 +5,7 @@ import { IoSunny, IoMoon } from 'react-icons/io5';
 
 const themes = ['light', 'dark']
 
-export default (): JSX.Element => {
+const ThemeToggleButton = (): JSX.Element => {
     const [isMounted, setIsMounted] = useState(false)
     const [theme, setTheme] = useState(() => {
 
@@ -58,3 +58,5 @@ export default (): JSX.Element => {
         </div>
     ) : <div />;
 }
+
+export default ThemeToggleButton

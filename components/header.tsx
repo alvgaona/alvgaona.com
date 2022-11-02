@@ -10,7 +10,7 @@ const NavItem = ({ children }: { children: React.ReactNode; }): JSX.Element => (
   </li>
 )
 
-export default (): JSX.Element => (
+export const Header = (): JSX.Element => (
   <header className="fixed z-index-2 backdrop-blur-md shadow-md w-full">
     <div className="mx-auto max-w-2xl">
       <nav className="flex justify-between first:items-center text-base">
@@ -44,3 +44,5 @@ export default (): JSX.Element => (
     </div>
   </header>
 );
+
+export default Header;

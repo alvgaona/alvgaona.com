@@ -12,7 +12,7 @@ const variants = {
 }
 
 
-export default ({ children }: { children: React.ReactNode }) => (
+const AnimatedLayout = ({ children }: { children: React.ReactNode }) => (
     <AnimatePresence
         initial={true}
         onExitComplete={() => {
@@ -33,3 +33,5 @@ export default ({ children }: { children: React.ReactNode }) => (
         </motion.div>
     </AnimatePresence>
 )
+
+export default AnimatedLayout

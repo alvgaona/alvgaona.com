@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Link from 'next/link';
 
-export default (): React.ReactNode => (
+const NotFound = (): React.ReactNode => (
   <>
     <div className="flex flex-col justify-center items-center mt-24">
       <h1 className="text-3xl font-bold">Looks like the route that you just hit no longer belongs here.</h1>
@@ -14,3 +14,5 @@ export default (): React.ReactNode => (
     </div>
   </>
 );
+
+export default NotFound
