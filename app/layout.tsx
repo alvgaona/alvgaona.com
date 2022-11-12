@@ -1,4 +1,8 @@
+'use client'
+
 import '../styles/globals.scss'
+import Navbar from '../components/header'
+import Footer from '../components/footer'
 import { M_PLUS_Rounded_1c } from '@next/font/google'
 
 const M_PLUS_ROUNDED_1C = M_PLUS_Rounded_1c({
@@ -15,7 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={M_PLUS_ROUNDED_1C.variable}>
       <body className="bg-orange-50 dark:bg-zinc-800 dark:text-zinc-200">
+        <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
