@@ -1,3 +1,4 @@
+/** @type {import('tailwindcss').Config} \*/
 module.exports = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx}",
@@ -8,7 +9,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        mplus: ["'M PLUS Rounded 1c'", 'Verdana', 'sans-serif']
+        mplus: ['var(--font-mplus)', 'Verdana', 'sans-serif']
       },
     },
   },
