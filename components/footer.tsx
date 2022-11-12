@@ -10,17 +10,17 @@ const Footer = (): JSX.Element => (
     <div className="flex flex-row justify-center self-center">
       <li className="inline-flex cursor-default">
         <Link aria-label="github" className="mx-4" href="https://github.com/alvgaona">
-          <FaGithub className="[&>path]:fill-gray-800 dark:[&>path]:fill-teal-300 [&>path]:hover:fill-black text-3xl" id="github" />
+  <FaGithub className="[&>path]:fill-gray-800 dark:[&>path]:fill-teal-300 dark:[&>path]:hover:fill-black [&>path]:hover:fill-black text-3xl" id="github" />
         </Link>
       </li>
       <li className="inline-flex cursor-default">
         <Link aria-label="linkedin" className="mx-4" href="https://linkedin.com/in/alvaro-gaona">
-          <FaLinkedin className="[&>path]:fill-gray-800 dark:[&>path]:fill-teal-300 [&>path]:hover:fill-[#0a66c2] text-3xl" id="linkedin" />
+  <FaLinkedin className="[&>path]:fill-gray-800 dark:[&>path]:fill-teal-300 dark:[&>path]:hover:fill-[#0a66c2] [&>path]:hover:fill-[#0a66c2] text-3xl" id="linkedin" />
         </Link>
       </li>
       <li className="inline-flex cursor-default">
         <Link aria-label="twitter" className="mx-4" href="https://twitter.com/alvgaona">
-          <FaTwitter className="[&>path]:fill-gray-800 dark:[&>path]:fill-teal-300 [&>path]:hover:fill-[#0083eb] text-3xl" id="twitter" />
+  <FaTwitter className="[&>path]:fill-gray-800 dark:[&>path]:fill-teal-300 dark:[&>path]:hover:fill-[#0083eb] [&>path]:hover:fill-[#0083eb] text-3xl" id="twitter" />
         </Link>
       </li>
     </div>
