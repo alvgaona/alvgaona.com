@@ -15,7 +15,7 @@ export default function RootLayout({
   // Layouts must accept a children prop.
   // This will be populated with nested layouts or pages
   children,
-}: { children: React.ReactNode; }) {
+}: { children: React.ReactNode; }): React.ReactNode {
   return (
     <html lang="en" className={M_PLUS_ROUNDED_1C.variable}>
       <body className="bg-orange-50 dark:bg-zinc-800 dark:text-zinc-200">

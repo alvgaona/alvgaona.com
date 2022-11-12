@@ -12,7 +12,7 @@ const variants = {
 }
 
 
-const AnimatedLayout = ({ children }: { children: React.ReactNode }) => (
+const AnimatedLayout = ({ children }: { children: React.ReactNode }): JSX.Element => (
     <AnimatePresence
         initial={true}
         onExitComplete={() => {

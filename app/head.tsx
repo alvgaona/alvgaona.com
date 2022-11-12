@@ -5,7 +5,7 @@ const siteMetadata = {
     url: "https://alvgaona.com"
 }
 
-export default async () => {  
+export default async (): Promise<React.ReactNode> => {  
     return (
       <>
         <title>{siteMetadata.title}</title>
