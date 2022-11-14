@@ -1,4 +1,3 @@
-
 import Image from 'next/image'
 import alvgaona from '../public/alvgaona.jpg'
 import Link from 'next/link'
@@ -7,7 +6,7 @@ import RocheLogo from '../public/roche.svg'
 import AsappLogo from '../public/asapp.svg'
 import TelecomLogo from '../public/telecom.svg'
 
-export default () => {
+export default (): React.ReactNode => {
   return (
     <>
       <section className="flex flex-col items-start">

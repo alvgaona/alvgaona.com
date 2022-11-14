@@ -1,11 +1,10 @@
-import React from 'react'
 import Link from 'next/link'
 import { FaResearchgate as ResearchGate } from 'react-icons/fa'
 import { BsLink } from 'react-icons/bs'
 import { SiGooglescholar as GoogleScholar } from 'react-icons/si'
 import { IoMdArrowForward } from 'react-icons/io'
 
-const Anchor = ({ href }: { href: string }) => (
+const Anchor = ({ href }: { href: string }): JSX.Element => (
   <div className="opacity-0 mb-auto curosr-pointer mr-1 hover:opacity-100 hover:transition hover:duration-200 hover:ease-in-out pt-2">
     <Link href={href}>
       <BsLink />
@@ -13,7 +12,7 @@ const Anchor = ({ href }: { href: string }) => (
   </div>
 )
 
-const Publication = ({ title, reference, href }: { title: string, reference: string, href: string }) => (
+const Publication = ({ title, reference, href }: { title: string, reference: string, href: string }): JSX.Element => (
   <div className="flex flex-col">
     <p id="hss" className="font-mplus inline text-b-gray-200 font-semibold text-2xl">
       {title}
