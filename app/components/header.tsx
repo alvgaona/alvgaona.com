@@ -21,7 +21,7 @@ export const Header = (): JSX.Element => (
               <Link href="/" scroll={false}>About</Link>
             </NavItem>
             <NavItem>
-              <Link href="/works">Works</Link>
+              <Link href="/projects">Projects</Link>
             </NavItem>
             <NavItem>
               <Link href="/publications" scroll={false}>Publications</Link>

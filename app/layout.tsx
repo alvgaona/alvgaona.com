@@ -1,14 +1,15 @@
 'use client'
 
 import '../styles/globals.scss'
-import Navbar from '../components/header'
-import Footer from '../components/footer'
-import { M_PLUS_Rounded_1c } from '@next/font/google'
+import Navbar from './components/header'
+import Footer from './components/footer'
+import { M_PLUS_Rounded_1c } from 'next/font/google'
 
 const M_PLUS_ROUNDED_1C = M_PLUS_Rounded_1c({
   variable: '--font-mplus',
   weight: ['100', '300', '400', '500', '700', '800', '900'],
   display: 'fallback',
+  subsets: ['vietnamese']
 })
 
 export default function RootLayout({

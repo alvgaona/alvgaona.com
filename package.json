@@ -11,18 +11,15 @@
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
-    "@mui/lab": "^5.0.0-alpha.105",
-    "@mui/material": "^5.10.11",
-    "@next/font": "^13.0.3",
     "autoprefixer": "^10.4.13",
     "framer-motion": "^7.6.4",
     "gray-matter": "^4.0.3",
     "lorem-ipsum": "^2.0.8",
-    "next": "13.0.3",
+    "next": "^13.4.1",
     "postcss": "^8.4.18",
     "postcss-import": "^15.0.0",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-icons": "^4.6.0",
     "sass": "^1.55.0",
     "sharp": "^0.31.1",
@@ -35,6 +32,8 @@
     "@types/react-dom": "18.0.8",
     "eslint": "8.26.0",
     "eslint-config-next": "13.0.0",
+    "prettier": "^2.8.8",
+    "prettier-plugin-tailwindcss": "^0.2.8",
     "typescript": "4.8.4"
   }
 }

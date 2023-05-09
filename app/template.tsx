@@ -1,6 +1,6 @@
 'use client'
 
-import AnimatedLayout from '../components/animated-layout'
+import AnimatedLayout from './components/animated-layout'
 
 export default function Template({
   // Templates must accept a children prop.
