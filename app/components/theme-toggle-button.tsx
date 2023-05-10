@@ -1,60 +1,63 @@
 import { useEffect, useState } from 'react';
-import { IoSunny, IoMoon } from 'react-icons/io5';
+import { IoMoon, IoSunny } from 'react-icons/io5';
 
-const themes = ['light', 'dark']
+const themes = ['light', 'dark'];
 
 const ThemeToggleButton = (): JSX.Element => {
-    const [isMounted, setIsMounted] = useState(false)
-    const [theme, setTheme] = useState(() => {
-
-        // If it's executed in the server, return undefined
-        if (typeof window === 'undefined') {
-            return undefined
-        }
-
-        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-            return localStorage.getItem('theme')
-        }
-
-        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            return 'dark'
-        }
-        return 'light'
-    })
-
-    const toggleTheme = () => {
-        const t = theme === 'light' ? 'dark' : 'light'
-        localStorage.setItem('theme', t)
-        setTheme(t)
+  const [isMounted, setIsMounted] = useState(false);
+  const [theme, setTheme] = useState(() => {
+    // If it's executed in the server, return undefined
+    if (typeof window === 'undefined') {
+      return undefined;
     }
 
-    useEffect(() => {
-        const root = document.documentElement
-        if (theme === 'light') {
-            root.classList.remove('dark')
-        } else {
-            root.classList.add('dark')
-        }
-    }, [theme])
+    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+      return localStorage.getItem('theme');
+    }
 
-    useEffect(() => setIsMounted(true), [])
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark';
+    }
+    return 'light';
+  });
 
-    return isMounted ? (
-        <div className="inline-flex items-center p-[1px] rounded-3xl bg-orange-300 dark:bg-zinc-600">
-            {themes.map(t => {
-                const checked = t === theme
+  const toggleTheme = () => {
+    const t = theme === 'light' ? 'dark' : 'light';
+    localStorage.setItem('theme', t);
+    setTheme(t);
+  };
 
-                return (
-                    <button key={t} className={`${checked ? 'bg-white text-black' : ''} cursor-pointer rounded-3xl p-2`}
-                        onClick={toggleTheme}
-                        arial-label="Toggle theme"
-                    >
-                        {t === 'light' ? <IoSunny /> : <IoMoon />}
-                    </button>
-                )
-            })}
-        </div>
-    ) : <div />;
-}
+  useEffect(() => {
+    const root = document.documentElement;
+    if (theme === 'light') {
+      root.classList.remove('dark');
+    } else {
+      root.classList.add('dark');
+    }
+  }, [theme]);
 
-export default ThemeToggleButton
+  useEffect(() => setIsMounted(true), []);
+
+  return isMounted ? (
+    <div className="inline-flex items-center rounded-3xl bg-orange-300 p-[1px] dark:bg-zinc-600">
+      {themes.map((t) => {
+        const checked = t === theme;
+
+        return (
+          <button
+            key={t}
+            className={`${checked ? 'bg-white text-black' : ''} cursor-pointer rounded-3xl p-2`}
+            onClick={toggleTheme}
+            arial-label="Toggle theme"
+          >
+            {t === 'light' ? <IoSunny /> : <IoMoon />}
+          </button>
+        );
+      })}
+    </div>
+  ) : (
+    <div />
+  );
+};
+
+export default ThemeToggleButton;

@@ -1,12 +1,12 @@
 const metadata = {
-    title: "Publications",
-}
+  title: 'Publications',
+};
 
-export default async () => {  
-    return (
-      <>
-        <title>{metadata.title}</title>
-        <meta property="og:title" content={metadata.title} key="og:title"/>
-      </>
-    )
-  }
+export default async () => {
+  return (
+    <>
+      <title>{metadata.title}</title>
+      <meta property="og:title" content={metadata.title} key="og:title" />
+    </>
+  );
+};

@@ -1,4 +1,4 @@
-import ComingSoon from "../components/coming-soon";
+import ComingSoon from '../components/coming-soon';
 
 const Posts = (): React.ReactNode => <ComingSoon />;
 
