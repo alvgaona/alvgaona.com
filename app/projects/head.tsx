@@ -1,5 +1,5 @@
 const metadata = {
-  title: 'Publications',
+  title: 'Projects',
 };
 
 const Head = async () => {

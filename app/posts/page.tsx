@@ -1,7 +1,5 @@
 import ComingSoon from '../components/coming-soon';
 
-export default (): React.ReactNode => {
-  return (
-    <ComingSoon />
-  )
-}
+const Posts = (): React.ReactNode => <ComingSoon />;
+
+export default Posts;

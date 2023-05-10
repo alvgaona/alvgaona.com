@@ -5,7 +5,8 @@
 // @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;200;300;400;500;600;700&display=swap');
 
 :root {
-  ---system-ui: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  ---system-ui: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol';
 }
 
 html,
@@ -26,5 +27,5 @@ body {
 
 // https://github.com/vercel/next.js/discussions/41745#discussioncomment-3964086
 div#data-nextjs-scroll-focus-boundary {
-  display: contents
+  display: contents;
 }
