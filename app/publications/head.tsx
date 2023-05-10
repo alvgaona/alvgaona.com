@@ -2,7 +2,7 @@ const metadata = {
   title: 'Publications',
 };
 
-export default async () => {
+const Head = async () => {
   return (
     <>
       <title>{metadata.title}</title>
@@ -10,3 +10,5 @@ export default async () => {
     </>
   );
 };
+
+export default Head;

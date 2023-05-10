@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-export default (): JSX.Element => (
+const ComingSoon = (): JSX.Element => (
   <>
     <div className="my-24 flex flex-col items-center justify-center">
       <h1 className="font-mplus text-3xl font-bold">Page is under construction</h1>
@@ -14,3 +14,5 @@ export default (): JSX.Element => (
     </div>
   </>
 );
+
+export default ComingSoon;

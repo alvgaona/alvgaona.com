@@ -47,7 +47,7 @@ const Publications = (): React.ReactNode => (
         My deep-seated commitment to making a positive impact on the world fuels my drive to explore and harness the
         power of technology to achieve this goal. Whether it involves developing new algorithms or analyzing complex
         datasets using cutting-edge machine learning techniques, I am passionate about leveraging technology to improve
-        people's lives.
+        people&apos;s lives.
       </p>
       <div className="flex flex-col font-mplus">
         <span className="my-4 font-bold underline underline-offset-4">Research profiles</span>
