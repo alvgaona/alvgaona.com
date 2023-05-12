@@ -1,10 +1,33 @@
 {
+  "root": {
+    "takeMeHome": "Take me home"
+  },
   "navbar": {
     "about": "About",
     "projects": "Projects",
     "publications": "Publications",
     "posts": "Posts",
     "source": "Source"
+  },
+  "notFound": {
+    "title": "Oops! The page you were looking for has gone on a spontaneous adventure and hasn't returned yet.",
+    "subtitle": "Please try a different path for now while we search for it."
+  },
+  "comingSoon": {
+    "title": "I'm building something amazing! Please excuse the dust as I work on the finishing touches.",
+    "subtitle": "I can't wait to share it with you soon. Stay tuned!",
+    "takeMeHome": "Take me home"
+  },
+  "publications": {
+    "intro": {
+      "0": "Research is a passion of mine, and I consider it a significant component of my life. I relish the challenge of discovering original solutions to complex problems, with a particular focus on the fascinating fields of Control Systems, Signal Processing, and Machine Learning.",
+      "1": "My journey into research began with my first publication in the field of signal processing for biomedical signals. I firmly believe that there is a wealth of untapped potential in applying learning algorithms within the biomedical universe. Not only can we continue to enhance our knowledge of the intricacies of the human body, but we can also empower healthcare experts with advanced tools and skills to revolutionize the industry.",
+      "2": "My deep-seated commitment to making a positive impact on the world fuels my drive to explore and harness the power of technology to achieve this goal. Whether it involves developing new algorithms or analyzing complex datasets using cutting-edge machine learning techniques, I am passionate about leveraging technology to improve people's lives."
+    },
+    "researchProfiles": {
+      "title": "Research Profiles"
+    },
+    "goTo": "Go to"
   },
   "home": {
     "role": "Electrical Engineer / Developer / Researcher",

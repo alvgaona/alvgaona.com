@@ -1,10 +1,33 @@
 {
+  "root": {
+    "takeMeHome": "Llévame al inicio"
+  },
   "navbar": {
     "about": "Acerca",
     "projects": "Proyectos",
     "publications": "Publicaciones",
     "posts": "Posts",
     "source": "Código"
+  },
+  "notFound": {
+    "title": "¡Ups! La página que estabas buscando se fue de aventura espontánea y aún no ha regresado.",
+    "subtitle": "Por favor, intenta otro camino mientras la buscamos."
+  },
+  "comingSoon": {
+    "title": "¡Estoy construyendo algo increíble! Por favor, disculpen el polvo mientras trabajo en los últimos detalles.",
+    "subtitle": "No puedo esperar para compartirlo contigo pronto. ¡Mantente al tanto!",
+    "takeMeHome": "Llévame al inicio"
+  },
+  "publications": {
+    "intro": {
+      "0": "La investigación es una de mis pasiones, y la considero una parte significativa de mi vida. Disfruto el desafío de descubrir soluciones originales a problemas complejos, con un enfoque particular en los fascinantes campos de Sistemas de Control, Procesamiento de Señales y Aprendizaje Automático.",
+      "1": "Mi camino hacia la investigación comenzó con mi primera publicación en el campo del procesamiento de señales para señales biomédicas. Creo firmemente que existe una gran cantidad de potencial sin explotar en la aplicación de algoritmos de aprendizaje dentro del universo biomédico. No solo podemos continuar mejorando nuestro conocimiento de las complejidades del cuerpo humano, sino que también podemos capacitar a los expertos en salud con herramientas y habilidades avanzadas para revolucionar la industria.",
+      "2": "Mi compromiso arraigado de hacer un impacto positivo en el mundo impulsa mi impulso para explorar y aprovechar el poder de la tecnología para lograr este objetivo. Ya sea que se trate de desarrollar nuevos algoritmos o analizar conjuntos de datos complejos utilizando técnicas de aprendizaje automático de vanguardia, me apasiona aprovechar la tecnología para mejorar la vida de las personas."
+    },
+    "researchProfiles": {
+      "title": "Perfiles de Investigación"
+    },
+    "goTo": "Ir a"
   },
   "home": {
     "role": "Ingeniero Electrónico / Desarrollador / Investigador",

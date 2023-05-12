@@ -1,10 +1,33 @@
 {
+  "root": {
+    "takeMeHome": "Bring mich nach Hause"
+  },
   "navbar": {
     "about": "Über mich",
     "projects": "Projekte",
     "publications": "Veröffentlichungen",
     "posts": "Beiträge",
     "source": "Quelle"
+  },
+  "notFound": {
+    "title": "Hoppla! Die von Ihnen gesuchte Seite hat sich auf ein spontanes Abenteuer begeben und ist noch nicht zurückgekehrt.",
+    "subtitle": "Bitte versuchen Sie vorerst einen anderen Pfad, während wir danach suchen."
+  },
+  "comingSoon": {
+    "title": "Ich baue etwas Unglaubliches! Bitte entschuldigen Sie den Staub, während ich die letzten Feinheiten ausarbeite.",
+    "subtitle": "Ich kann es kaum erwarten, es bald mit Ihnen zu teilen. Bleiben Sie dran!",
+    "takeMeHome": "Bring mich nach Hause"
+  },
+  "publications": {
+    "intro": {
+      "0": "Forschung ist meine Leidenschaft und ich betrachte sie als einen bedeutenden Bestandteil meines Lebens. Ich genieße die Herausforderung, originelle Lösungen für komplexe Probleme zu entdecken, insbesondere in den faszinierenden Bereichen der Regelungstechnik, Signalverarbeitung und des Maschinellen Lernens.",
+      "1": "Meine Forschungsreise begann mit meiner ersten Veröffentlichung im Bereich der Signalverarbeitung für biomedizinische Signale. Ich bin fest davon überzeugt, dass ein Schatz an ungenutztem Potenzial in der Anwendung von Lernalgorithmen im biomedizinischen Universum liegt. Wir können nicht nur unser Wissen über die Feinheiten des menschlichen Körpers weiter verbessern, sondern auch Gesundheitsexperten mit fortschrittlichen Werkzeugen und Fähigkeiten ausstatten, um die Branche zu revolutionieren.",
+      "2": "Meine tief verwurzelte Verpflichtung, einen positiven Einfluss auf die Welt auszuüben, treibt mich an, die Kraft der Technologie zu erforschen und zu nutzen, um dieses Ziel zu erreichen. Ob es darum geht, neue Algorithmen zu entwickeln oder komplexe Datensätze mit modernsten Maschinenlernverfahren zu analysieren, ich bin leidenschaftlich daran interessiert, Technologie zu nutzen, um das Leben der Menschen zu verbessern."
+    },
+    "researchProfiles": {
+      "title": "Forschungsprofile"
+    },
+    "goTo": "Gehe zu"
   },
   "home": {
     "role": "Elektroingenieur / Entwickler / Forscher",

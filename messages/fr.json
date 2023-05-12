@@ -1,10 +1,33 @@
 {
+  "root": {
+    "takeMeHome": "Retour à l'accueil"
+  },
   "navbar": {
     "about": "À propos",
     "projects": "Projets",
     "publications": "Publications",
     "posts": "Articles",
     "source": "Source"
+  },
+  "notFound": {
+    "title": "Oops! La page que vous cherchez est partie pour une aventure spontanée et n'est pas encore revenue.",
+    "subtitle": "Veuillez essayer un autre chemin pour le moment pendant que nous la cherchons."
+  },
+  "comingSoon": {
+    "title": "Je suis en train de construire quelque chose d'incroyable ! Veuillez excuser la poussière pendant que je peaufine les derniers détails.",
+    "subtitle": "Je suis impatient de vous le faire découvrir bientôt. Restez à l'écoute !",
+    "takeMeHome": "Retour à l'accueil"
+  },
+  "publications": {
+    "intro": {
+      "0": "La recherche est ma passion, et je la considère comme une composante importante de ma vie. J'aime relever le défi de découvrir des solutions originales à des problèmes complexes, avec une attention particulière aux domaines fascinants des systèmes de contrôle, du traitement du signal et de l'apprentissage automatique.",
+      "1": "Mon parcours dans la recherche a commencé avec ma première publication dans le domaine du traitement du signal pour les signaux biomédicaux. Je crois fermement qu'il existe un potentiel inexploité dans l'application d'algorithmes d'apprentissage dans l'univers biomédical. Non seulement nous pouvons continuer à améliorer nos connaissances sur les subtilités du corps humain, mais nous pouvons également doter les experts en soins de santé d'outils et de compétences avancées pour révolutionner l'industrie.",
+      "2": "Mon engagement profond à avoir un impact positif sur le monde alimente mon désir d'explorer et de maîtriser le pouvoir de la technologie pour atteindre cet objectif. Qu'il s'agisse de développer de nouveaux algorithmes ou d'analyser des ensembles de données complexes à l'aide de techniques d'apprentissage automatique de pointe, je suis passionné par l'utilisation de la technologie pour améliorer la vie des gens."
+    },
+    "researchProfiles": {
+      "title": "Profils de recherche"
+    },
+    "goTo": "Aller à"
   },
   "home": {
     "role": "Ingénieur Électrique / Développeur / Chercheur",
