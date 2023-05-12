@@ -1,0 +1,45 @@
+{
+  "navbar": {
+    "about": "Über mich",
+    "projects": "Projekte",
+    "publications": "Veröffentlichungen",
+    "posts": "Beiträge",
+    "source": "Quelle"
+  },
+  "home": {
+    "role": "Elektroingenieur / Entwickler / Forscher",
+    "greet": "Hallo! Ich bin ein Software-Entwickler aus",
+    "background": {
+      "title": "Hintergrund",
+      "content": {
+        "first": "Ich bin ein leidenschaftlicher Software-Ingenieur, der für ein innovatives Unternehmen im Bereich maschinelles Lernen arbeitet. Mein Hauptaugenmerk liegt auf der Gestaltung und Entwicklung leistungsstarker und skalierbarer maschineller Lernservices, die zuverlässig und robust sind. Tatsächlich trage ich seit 2020 zu PyTorch, meinem Lieblings-Deep-Learning-Framework, bei und verbessere es ständig, um das Leben sowohl für Benutzer als auch für Entwickler einfacher zu machen.",
+        "second": "Obwohl ich mich auf Backend-Engineering spezialisiere, liebe ich es auch, neue Frontend-Technologien zu erforschen und auf dem neuesten Stand zu bleiben. In letzter Zeit beschäftige ich mich mit dem aufregenden React-Ökosystem, das ich sehr unterhaltsam und herausfordernd finde.",
+        "third": "Ich bin auch stolzer Schöpfer von discord.cf, einem innovativen Framework, mit dem jeder auf Cloudflare basierende Discord-Bots erstellen kann. Entdecken Sie mehr über dieses bahnbrechende Tool!",
+        "fourth": "Neben meinen Software-Engineering-Fähigkeiten bin ich auch an aufregenden Forschungsprojekten beteiligt. Ich habe zahlreiche Interessen und einige Veröffentlichungen, die Sie in Ihrer Freizeit erkunden können."
+      }
+    },
+    "freeTime": {
+      "title": "Freizeit",
+      "content": "Wenn ich nicht gerade am Codieren oder Forschen bin, entspanne ich mich gerne beim Sport. Basketball und Fußball sind meine Favoriten, aber ich bin auch ein riesiger Formel-1-Fan. Tatsächlich halte ich mich gerne über alle neuesten Nachrichten und Rennen auf dem Laufenden!"
+    },
+    "lifeTimeline": {
+      "title": "Lebenslauf",
+      "content": {
+        "1991": "Geboren in Buenos Aires, Argentinien.",
+        "2015": "Begann meine Karriere als Software-Ingenieur bei Telecom.",
+        "2019": {
+          "first": "Abschluss eines Graduiertenstudiums in Elektrotechnik an der",
+          "second": "Fakultät für Ingenieurwissenschaften, Universidad de Buenos Aires."
+        },
+        "2019bis": "Eintritt in das Roche Sequencing-Team als Senior Software Engineer.",
+        "2022": "Wechsel zu ASAPP als Lead Software Engineer."
+      }
+    },
+    "learnMore": "Mehr erfahren",
+    "checkThemOut": "Schauen Sie sich diese an!",
+    "viewProjects": "Projekte ansehen"
+  },
+  "footer": {
+    "allRightsReserved": "Alle Rechte vorbehalten"
+  }
+}

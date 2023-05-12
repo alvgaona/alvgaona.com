@@ -1,0 +1,45 @@
+{
+  "navbar": {
+    "about": "À propos",
+    "projects": "Projets",
+    "publications": "Publications",
+    "posts": "Articles",
+    "source": "Source"
+  },
+  "home": {
+    "role": "Ingénieur Électrique / Développeur / Chercheur",
+    "greet": "Salut ! Je suis un développeur de logiciels basé à",
+    "background": {
+      "title": "Contexte",
+      "content": {
+        "first": "Je suis un ingénieur en logiciel passionné travaillant pour une entreprise de pointe en apprentissage automatique. Mon objectif principal est de concevoir et de développer des services d'apprentissage automatique performants et évolutifs qui sont fiables et robustes. En fait, je contribue à PyTorch, mon framework de deep learning préféré, depuis 2020, l'améliorant constamment pour faciliter la vie des utilisateurs et des développeurs.",
+        "second": "Bien que je me spécialise dans l'ingénierie backend, j'aime aussi explorer de nouvelles technologies frontend et rester à jour avec les dernières tendances. Récemment, j'ai lu sur l'excitant écosystème React, que je trouve assez amusant et stimulant.",
+        "third": "Je suis également le fier créateur de discord.cf, un cadre innovant qui permet à quiconque de construire ses propres bots Discord sur Cloudflare. Découvrez-en plus sur cet outil révolutionnaire !",
+        "fourth": "En dehors de mes compétences en génie logiciel, je suis également impliqué dans des projets de recherche passionnants. J'ai de nombreux centres d'intérêt et quelques publications que vous pouvez explorer à votre guise."
+      }
+    },
+    "freeTime": {
+      "title": "Temps Libre",
+      "content": "Quand je ne suis pas occupé à coder ou à faire de la recherche, j'aime me détendre avec des sports. Le basketball et le football sont mes choix préférés, mais je suis aussi un grand fan de Formule 1. En fait, j'aime suivre toutes les dernières nouvelles et courses !"
+    },
+    "lifeTimeline": {
+      "title": "Chronologie de Vie",
+      "content": {
+        "1991": "Né à Buenos Aires, Argentine.",
+        "2015": "Commencé mon parcours en génie logiciel chez Telecom.",
+        "2019": {
+          "first": "Obtenu une Maîtrise en Ingénierie Électrique à la",
+          "second": "Faculté de Génie, Université de Buenos Aires."
+        },
+        "2019bis": "Rejoint l'équipe de Roche Sequencing en tant qu'ingénieur logiciel senior.",
+        "2022": "Passé chez ASAPP en tant qu'ingénieur logiciel principal."
+      }
+    },
+    "learnMore": "En savoir plus",
+    "checkThemOut": "Vérifiez-les!",
+    "viewProjects": "Voir les projets"
+  },
+  "footer": {
+    "allRightsReserved": "Tous droits réservés"
+  }
+}

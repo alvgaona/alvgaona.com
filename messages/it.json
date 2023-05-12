@@ -1,0 +1,45 @@
+{
+  "navbar": {
+    "about": "Su di me",
+    "projects": "Progetti",
+    "publications": "Pubblicazioni",
+    "posts": "Articoli",
+    "source": "Fonte"
+  },
+  "home": {
+    "role": "Ingegnere Elettrico / Sviluppatore / Ricercatore",
+    "greet": "Ciao! Sono uno sviluppatore software con sede a",
+    "background": {
+      "title": "Su di me",
+      "content": {
+        "first": "Sono un appassionato ingegnere software che lavora per un'azienda di machine learning all'avanguardia. Il mio focus principale è progettare e sviluppare servizi di machine learning ad alta performance e scalabili, affidabili e robusti. Infatti, dal 2020 contribuisco a PyTorch, il mio framework preferito per il deep learning, migliorandolo costantemente per rendere la vita più facile sia agli utenti che ai developer.",
+        "second": "Anche se mi specializzo nell'ingegneria del backend, amo esplorare le nuove tecnologie front-end e rimanere aggiornato sulle ultime tendenze. Di recente, sto leggendo sull'entusiasmante ecosistema React, che trovo divertente e stimolante.",
+        "third": "Sono anche un fiero creatore di discord.cf, un framework innovativo che consente a chiunque di costruire i propri bot Discord su Cloudflare. Scopri di più su questo strumento rivoluzionario!",
+        "fourth": "Oltre alle mie competenze nell'ingegneria del software, sono coinvolto in progetti di ricerca entusiasmanti. Ho numerosi interessi e alcune pubblicazioni che puoi esplorare in tutta tranquillità."
+      }
+    },
+    "freeTime": {
+      "title": "Tempo libero",
+      "content": "Quando non sono occupato a programmare o a fare ricerca, mi piace rilassarmi con gli sport. Il basket e il calcio sono le mie scelte preferite, ma sono anche un grande fan di Formula 1. Infatti, mi piace tenere d'occhio tutte le ultime notizie e le gare!"
+    },
+    "lifeTimeline": {
+      "title": "Cronologia della vita",
+      "content": {
+        "1991": "Nato a Buenos Aires, in Argentina.",
+        "2015": "Inizio il mio percorso nell'ingegneria del software in Telecom.",
+        "2019": {
+          "first": "Ho completato un Master in Ingegneria Elettrica presso la",
+          "second": "Facoltà di Ingegneria dell'Università di Buenos Aires."
+        },
+        "2019bis": "Mi sono unito al team Roche Sequencing come Senior Software Engineer.",
+        "2022": "Sono passato ad ASAPP come Lead Software Engineer."
+      }
+    },
+    "learnMore": "Scopri di più",
+    "checkThemOut": "Scoprili!",
+    "viewProjects": "Vedi i progetti"
+  },
+  "footer": {
+    "allRightsReserved": "Tutti i diritti riservati"
+  }
+}

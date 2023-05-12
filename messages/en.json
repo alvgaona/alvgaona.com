@@ -1,0 +1,45 @@
+{
+  "navbar": {
+    "about": "About",
+    "projects": "Projects",
+    "publications": "Publications",
+    "posts": "Posts",
+    "source": "Source"
+  },
+  "home": {
+    "role": "Electrical Engineer / Developer / Researcher",
+    "greet": "Hi! I'm a Software Developer based in",
+    "background": {
+      "title": "Background",
+      "content": {
+        "first": "I'm a passionate software engineer working for a cutting-edge machine learning company. My primary focus is on designing and developing high-performing and scalable machine learning services that are reliable and robust. In fact, I've been contributing to PyTorch, my favourite deep learning framework, since 2020, constantly improving it to make life easier for both users and developers alike.",
+        "second": "Although I specialize in backend engineering, I also love exploring new front-end technologies and staying up to date with the latest trends. Recently, I've been reading up on the exciting React ecosystem, which I find quite fun and challenging.",
+        "third": "I'm also a proud creator of discord.cf, an innovative framework that enables anyone to build their own Discord bots on top of Cloudflare. Discover more about this game-changing tool!",
+        "fourth": "Aside from my software engineering skills, I'm also involved in exciting research projects. I have numerous interests and a few publications that you can explore at your leisure."
+      }
+    },
+    "freeTime": {
+      "title": "Free Time",
+      "content": "When I'm not busy coding or researching, I love to unwind with sports. Basketball and football are my go-to choices, but I'm also a huge Formula 1 fan. In fact, I enjoy keeping up with all the latest news and races!"
+    },
+    "lifeTimeline": {
+      "title": "Life Timeline",
+      "content": {
+        "1991": "Born in Buenos Aires, Argentina.",
+        "2015": "Started my software engineering journey at Telecom.",
+        "2019": {
+          "first": "Completed a Graduate Degree in Electrical Engineering at the",
+          "second": "Faculty of Engineering, Universidad de Buenos Aires."
+        },
+        "2019bis": "Joined the Roche Sequencing team as a Senior Software Engineer.",
+        "2022": "Moved onto ASAPP as a Lead Software Engineer."
+      }
+    },
+    "learnMore": "Learn more",
+    "checkThemOut": "Check them out!",
+    "viewProjects": "View projects"
+  },
+  "footer": {
+    "allRightsReserved": "All rights reserved"
+  }
+}
