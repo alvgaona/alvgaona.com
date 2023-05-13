@@ -48,7 +48,7 @@ const Language = () => {
   );
 };
 
-const SelectItem = ({ children, value }: { children: React.ReactElement; value: string }) => {
+const SelectItem = ({ children, value }: { children: any; value: string }) => {
   const locale = useLocale();
   const iconRef = useRef<HTMLInputElement>(null);
 
