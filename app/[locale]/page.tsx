@@ -3,11 +3,10 @@ import Link from 'next/link';
 import { IoMdArrowForward } from 'react-icons/io';
 import alvgaona from '../../public/alvgaona.jpg';
 
-import { useLocale, useTranslations } from 'next-intl';
+import { useTranslations } from 'next-intl';
 
 const Home = (): React.ReactNode => {
   const t = useTranslations('home');
-  const locale = useLocale();
 
   return (
     <>
@@ -22,15 +21,10 @@ const Home = (): React.ReactNode => {
         <div className="flex w-full flex-row justify-center">
           <span className="border-1 my-5 rounded-md bg-gray-800 px-12 py-4 font-mplus text-sm font-medium text-white dark:bg-gray-600">
             {t('greet')}{' '}
-            {locale != 'jp' ? (
-              <Link
-                className="text-sky-300 underline underline-offset-4"
-                href="https://en.wikipedia.org/wiki/Argentina"
-              >
-                Argentina.
-              </Link>
-            ) : null}
-            📍
+            <Link className="text-sky-300 underline underline-offset-4" href="https://en.wikipedia.org/wiki/Argentina">
+              Argentina
+            </Link>
+            . 📍
           </span>
         </div>
       </section>
@@ -93,13 +87,13 @@ const Home = (): React.ReactNode => {
           <div className="flex flex-row">
             <span className="mr-4 font-mplus font-medium">2019</span>
             <span>
-              {locale != 'jp' ? t('lifeTimeline.content.2019.first') : t('lifeTimeline.content.2019.full')}{' '}
-              {locale != 'jp' ? <Link
+              {t('lifeTimeline.content.2019.first')}{' '}
+              <Link
                 href="https://www.fi.uba.ar/"
                 className="underline decoration-orange-300 underline-offset-4 hover:animate-pulse"
               >
                 {t('lifeTimeline.content.2019.second')}
-              </Link> : null}
+              </Link>
             </span>
           </div>
           <div className="flex flex-row items-center">
