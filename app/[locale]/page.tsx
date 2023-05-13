@@ -1,7 +1,9 @@
+'use client'
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { IoMdArrowForward } from 'react-icons/io';
-import alvgaona from '../../public/alvgaona.jpg';
+import avatar from '../../public/alvgaona.jpg';
 
 import { useTranslations } from 'next-intl';
 
@@ -16,7 +18,7 @@ const Home = (): React.ReactNode => {
             <span className="mb-1 font-mplus text-5xl font-bold">Alvaro Gaona</span>
             <p>{t('role')}</p>
           </div>
-          <Image className="h-32 w-auto self-end rounded-full" alt="avatar" src={alvgaona} priority />
+          <Image className="h-32 w-auto self-end rounded-full" alt="avatar" src={avatar} priority />
         </div>
         <div className="flex w-full flex-row justify-center">
           <span className="border-1 my-5 rounded-md bg-gray-800 px-12 py-4 font-mplus text-sm font-medium text-white dark:bg-gray-600">

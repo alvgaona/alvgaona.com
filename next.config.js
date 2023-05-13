@@ -2,12 +2,7 @@
 
 const path = require('path');
 
-const withNextIntl = require('next-intl/plugin')(
-  // This is the default (also the `src` folder is supported out of the box)
-  './i18n.ts'
-);
-
-const nextConfig = withNextIntl({
+const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   experimental: {
@@ -25,6 +20,6 @@ const nextConfig = withNextIntl({
 
     return config;
   },
-});
+};
 
 module.exports = nextConfig;
