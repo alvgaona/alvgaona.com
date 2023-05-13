@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from 'next-intl/link';
 
 const Logo = (): JSX.Element => (
   <span className="font-mplus">

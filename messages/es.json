@@ -1,0 +1,74 @@
+{
+  "root": {
+    "title": "alvgaona",
+    "takeMeHome": "Llévame al inicio"
+  },
+  "navbar": {
+    "about": "Acerca",
+    "projects": "Proyectos",
+    "publications": "Publicaciones",
+    "posts": "Artículos",
+    "source": "Código"
+  },
+  "language": {
+    "title": "Idioma",
+    "english": "Inglés",
+    "spanish": "Español"
+  },
+  "notFound": {
+    "title": "¡Ups! La página que estabas buscando se fue de aventura espontánea y aún no ha regresado.",
+    "subtitle": "Por favor, intenta otro camino mientras la buscamos."
+  },
+  "comingSoon": {
+    "title": "¡Estoy construyendo algo increíble! Por favor, disculpen el polvo mientras trabajo en los últimos detalles.",
+    "subtitle": "No puedo esperar para compartirlo contigo pronto. ¡Mantente al tanto!",
+    "takeMeHome": "Llévame al inicio"
+  },
+  "publications": {
+    "intro": {
+      "0": "La investigación es una de mis pasiones, y la considero una parte significativa de mi vida. Disfruto el desafío de descubrir soluciones originales a problemas complejos, con un enfoque particular en los fascinantes campos de Sistemas de Control, Procesamiento de Señales y Aprendizaje Automático.",
+      "1": "Mi camino hacia la investigación comenzó con mi primera publicación en el campo del procesamiento de señales para señales biomédicas. Creo firmemente que existe una gran cantidad de potencial sin explotar en la aplicación de algoritmos de aprendizaje dentro del universo biomédico. No solo podemos continuar mejorando nuestro conocimiento de las complejidades del cuerpo humano, sino que también podemos capacitar a los expertos en salud con herramientas y habilidades avanzadas para revolucionar la industria.",
+      "2": "Mi compromiso arraigado de hacer un impacto positivo en el mundo impulsa mi impulso para explorar y aprovechar el poder de la tecnología para lograr este objetivo. Ya sea que se trate de desarrollar nuevos algoritmos o analizar conjuntos de datos complejos utilizando técnicas de aprendizaje automático de vanguardia, me apasiona aprovechar la tecnología para mejorar la vida de las personas."
+    },
+    "researchProfiles": {
+      "title": "Perfiles de Investigación"
+    },
+    "goTo": "Ir a"
+  },
+  "home": {
+    "role": "Ingeniero Electrónico / Desarrollador / Investigador",
+    "greet": "¡Hola! Soy un desarrollador de software basado en",
+    "background": {
+      "title": "Sobre mi",
+      "content": {
+        "first": "Soy un ingeniero de software apasionado que trabaja para una empresa de punta en aprendizaje automático. Mi enfoque principal se centra en el diseño y desarrollo de servicios de aprendizaje automático de alto rendimiento y escalables que sean confiables y robustos. De hecho, he estado contribuyendo a PyTorch, mi marco de aprendizaje profundo favorito, desde 2020, mejorándolo constantemente para hacer la vida más fácil tanto para usuarios como para desarrolladores.",
+        "second": "Aunque me especializo en ingeniería de backend, también me encanta explorar nuevas tecnologías de frontend y mantenerme al día con las últimas tendencias. Recientemente, he estado leyendo sobre el emocionante ecosistema React, que encuentro bastante divertido y desafiante.",
+        "third": "También soy el orgulloso creador de discord.cf, un marco innovador que permite a cualquiera construir sus propios bots de Discord sobre Cloudflare. ¡Descubre más sobre esta herramienta!",
+        "fourth": "Aparte de mis habilidades en ingeniería de software, también estoy involucrado en proyectos de investigación. Tengo numerosos intereses y algunas publicaciones que puedes explorar a tu gusto."
+      }
+    },
+    "freeTime": {
+      "title": "Tiempo Libre",
+      "content": "Cuando no estoy ocupado programando o investigando, me encanta relajarme con deportes. El baloncesto y el fútbol son mis opciones preferidas, pero también soy un gran fanático de la Fórmula 1. De hecho, ¡disfruto manteniéndome al día con todas las últimas noticias y carreras!"
+    },
+    "lifeTimeline": {
+      "title": "Línea de Tiempo",
+      "content": {
+        "1991": "Nacido en Buenos Aires, Argentina.",
+        "2015": "Comencé mi carrera en ingeniería de software en Telecom.",
+        "2019": {
+          "first": "Me gradué en Ingenería Electrónica en la",
+          "second": "Facultad de Ingeniería de la Universidad de Buenos Aires."
+        },
+        "2019bis": "Me uní al equipo de Secuenciamiento en Roche como Ingeniero de Software Senior.",
+        "2022": "Continué mi camino en ASAPP como Ingeniero de Software Líder."
+      }
+    },
+    "learnMore": "Mira más",
+    "checkThemOut": "¡Echa un vistazo!",
+    "viewProjects": "Mis proyectos"
+  },
+  "footer": {
+    "allRightsReserved": "Derechos Reservados"
+  }
+}
