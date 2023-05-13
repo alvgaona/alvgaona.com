@@ -1,7 +1,7 @@
-'use client'
+'use client';
 
+import Link from 'next-intl/link';
 import Image from 'next/image';
-import Link from 'next/link';
 import { IoMdArrowForward } from 'react-icons/io';
 import avatar from '../../public/alvgaona.jpg';
 
@@ -32,7 +32,7 @@ const Home = (): React.ReactNode => {
       </section>
       <section className="flex flex-col items-start justify-start">
         <div className="mt-6 flex w-full flex-col gap-6">
-          <span className="font-mplus text-xl font-bold underline underline-offset-4">{t('background.title')}</span>
+          <span className="font-mplus text-xl font-bold underline underline-offset-[6px]">{t('background.title')}</span>
           <p className="text-justify">
             {t('background.content.first')}{' '}
             <Link
@@ -71,11 +71,13 @@ const Home = (): React.ReactNode => {
           </p>
         </div>
         <div className="mt-6 flex w-full flex-col">
-          <span className="mb-4 font-mplus text-xl font-bold underline underline-offset-4">{t('freeTime.title')}</span>
+          <span className="mb-4 font-mplus text-xl font-bold underline underline-offset-[6px]">
+            {t('freeTime.title')}
+          </span>
           <p className="text-justify">{t('freeTime.content')}</p>
         </div>
         <div className="mt-6 flex w-full flex-col">
-          <span className="mb-4 font-mplus text-xl font-bold underline underline-offset-4">
+          <span className="mb-4 font-mplus text-xl font-bold underline underline-offset-[6px]">
             {t('lifeTimeline.title')}
           </span>
           <div className="flex flex-row">

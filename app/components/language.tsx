@@ -1,16 +1,18 @@
 'use client';
 
-import { LanguageIcon } from '@heroicons/react/24/outline';
+import { CheckIcon, LanguageIcon } from '@heroicons/react/24/outline';
 import * as Select from '@radix-ui/react-select';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { usePathname } from 'next-intl/client';
 import { useRouter } from 'next/navigation';
-import React, { Ref } from 'react';
+import { useEffect, useRef } from 'react';
 
 const Language = () => {
   const locale = useLocale();
   const pathname = usePathname();
   const router = useRouter();
+
+  const t = useTranslations('language');
 
   const onValueChange = (value: string) => {
     router.push(`/${value}/${pathname}`);
@@ -31,17 +33,13 @@ const Language = () => {
         <Select.Content
           position="popper"
           sideOffset={5}
-          className="z-20 overflow-hidden rounded-md shadow-[0px_10px_38px_-10px_rgba(22,_23,_24,_0.35),0px_10px_20px_-15px_rgba(22,_23,_24,_0.2)] dark:bg-zinc-600"
+          className="z-20 overflow-hidden rounded-md bg-orange-200 dark:bg-zinc-600"
         >
           <Select.Viewport className="p-1">
             <Select.Group>
-              <Select.Label className="px-6 text-xs leading-6">Language</Select.Label>
-              <SelectItem className="cursor-pointer px-6 text-sm leading-6 outline-none" value="en">
-                English
-              </SelectItem>
-              <SelectItem className="cursor-pointer px-6 text-sm leading-6 outline-none" value="es">
-                Spanish
-              </SelectItem>
+              <Select.Label className="px-6 text-xs leading-6 text-slate-400">{t('title')}</Select.Label>
+              <SelectItem value="en">{t('english')}</SelectItem>
+              <SelectItem value="es">{t('spanish')}</SelectItem>
             </Select.Group>
           </Select.Viewport>
         </Select.Content>
@@ -50,17 +48,26 @@ const Language = () => {
   );
 };
 
-const SelectItem = React.forwardRef(
-  (
-    { children, className, value, ...props }: { children: any; value: string; className: string },
-    forwardedRef: Ref<HTMLDivElement> | null,
-  ) => {
-    return (
-      <Select.Item className={className} value={value} {...props} ref={forwardedRef}>
-        <Select.ItemText>{children}</Select.ItemText>
-      </Select.Item>
-    );
-  },
-);
+const SelectItem = ({ children, value }: { children: React.ReactElement; value: string }) => {
+  const locale = useLocale();
+  const iconRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (locale == value) {
+      iconRef.current?.classList.remove('hidden');
+    } else {
+      iconRef.current?.classList.add('hidden');
+    }
+  }, [locale, value]);
+
+  return (
+    <Select.Item className="flex cursor-pointer items-center px-6 text-sm leading-6 outline-none" value={value}>
+      <Select.ItemText>{children}</Select.ItemText>
+      <div ref={iconRef} className="absolute left-0 inline-flex w-[25px] items-center justify-center">
+        <CheckIcon className="h-4 w-4" />
+      </div>{' '}
+    </Select.Item>
+  );
+};
 
 export default Language;

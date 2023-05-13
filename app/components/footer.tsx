@@ -1,16 +1,18 @@
-'use client'
+'use client';
 
 import { useTranslations } from 'next-intl';
-import Link from 'next/link';
+import Link from 'next-intl/link';
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 const Footer = (): JSX.Element => {
-  const t = useTranslations('footer')
+  const t = useTranslations('footer');
 
   return (
     <footer className="pb-10">
       <div className="flex h-14 items-center justify-center self-center text-sm">
-        <span>{`© ${new Date().getFullYear()} Alvaro Gaona.`} {t('allRightsReserved')}.</span>
+        <span>
+          {`© ${new Date().getFullYear()} Alvaro Gaona.`} {t('allRightsReserved')}.
+        </span>
       </div>
       <div className="flex flex-row justify-center self-center">
         <li className="inline-flex cursor-default">

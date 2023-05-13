@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { useEffect, useState } from 'react';
 import { IoMoon, IoSunny } from 'react-icons/io5';
@@ -41,7 +41,7 @@ const ThemeToggleButton = (): JSX.Element => {
   useEffect(() => setIsMounted(true), []);
 
   return isMounted ? (
-    <div className="inline-flex items-center rounded-3xl bg-orange-300 p-[1px] dark:bg-zinc-600">
+    <div className="inline-flex items-center rounded-3xl bg-orange-200 p-[1px] dark:bg-zinc-600">
       {themes.map((t) => {
         const checked = t === theme;
 

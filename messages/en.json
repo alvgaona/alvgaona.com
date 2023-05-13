@@ -10,6 +10,11 @@
     "posts": "Posts",
     "source": "Source"
   },
+  "language": {
+    "title": "Language",
+    "english": "English",
+    "spanish": "Spanish"
+  },
   "notFound": {
     "title": "Oops! The page you were looking for has gone on a spontaneous adventure and hasn't returned yet.",
     "subtitle": "Please try a different path for now while we search for it."

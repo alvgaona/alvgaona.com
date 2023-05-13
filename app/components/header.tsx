@@ -1,7 +1,7 @@
-'use client'
+'use client';
 
 import { useTranslations } from 'next-intl';
-import Link from 'next/link';
+import Link from 'next-intl/link';
 import React from 'react';
 import { FaGithub as Github } from 'react-icons/fa';
 import Language from './language';
@@ -48,8 +48,8 @@ export const Header = (): JSX.Element => {
               </NavItem>
             </ul>
           </div>
-          <div className="flex gap-4 items-center justify-self-end">
-            <Language/>
+          <div className="flex items-center gap-4 justify-self-end">
+            <Language />
             <ThemeToggleButton />
           </div>
         </nav>
