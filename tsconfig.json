@@ -6,7 +6,7 @@
       "@assets/*": ["assets/*"],
       "@layouts/*": ["layouts/*"],
       "@pages/*": ["pages/*"],
-      "@components/*": ["components/*"],
+      "@components/*": ["components/*"]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"

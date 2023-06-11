@@ -1,5 +1,5 @@
+import { MoonIcon, SunIcon } from '@heroicons/react/24/solid';
 import { useEffect, useState } from 'react';
-import { SunIcon, MoonIcon } from '@heroicons/react/24/solid';
 
 const themes = ['light', 'dark'];
 
@@ -48,11 +48,17 @@ const ThemeToggleButton = (): JSX.Element => {
             id="theme-toggle"
             role="button"
             key={t}
-            className={`${checked ? 'bg-white text-black' : ''} cursor-pointer rounded-3xl p-2`}
+            className={`${
+              checked ? 'bg-white text-black' : ''
+            } cursor-pointer rounded-3xl p-2`}
             onClick={toggleTheme}
             arial-label="Theme toggle"
           >
-            {t === 'light' ? <SunIcon className="h-4 w-4" /> : <MoonIcon className="h-4 w-4" />}
+            {t === 'light' ? (
+              <SunIcon className="h-5 w-5" />
+            ) : (
+              <MoonIcon className="h-5 w-5" />
+            )}
           </button>
         );
       })}

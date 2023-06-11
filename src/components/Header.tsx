@@ -11,17 +11,13 @@ const Header = () => {
           <div className="flex h-12 flex-row items-center">
             <ul className="flex h-full flex-row items-center justify-evenly gap-4">
               <li className="font-mplus hover:underline hover:underline-offset-4">
-                <a href="/">
-                  About
-                </a>
+                <a href="/">About</a>
               </li>
               <li className="font-mplus hover:underline hover:underline-offset-4">
                 <a href="/projects">Projects</a>
               </li>
               <li className="font-mplus hover:underline hover:underline-offset-4">
-                <a href="/publications">
-                  Publications
-                </a>
+                <a href="/publications">Publications</a>
               </li>
               <li className="font-mplus hover:underline hover:underline-offset-4">
                 <a href="/posts">Posts</a>
@@ -29,7 +25,10 @@ const Header = () => {
               <li className="font-mplus hover:underline hover:underline-offset-4">
                 <div className="flex flex-row items-center justify-evenly">
                   <img src={github.src} alt="github" width="18" height="18" />
-                  <a className="ml-1" href="https://github.com/alvgaona/alvgaona.com">
+                  <a
+                    className="ml-1"
+                    href="https://github.com/alvgaona/alvgaona.com"
+                  >
                     Source
                   </a>
                 </div>
@@ -42,7 +41,7 @@ const Header = () => {
         </nav>
       </div>
     </header>
-  )
+  );
 };
 
 export default Header;

@@ -4,7 +4,11 @@ if (typeof window !== 'undefined') {
   window.history.scrollRestoration = 'manual';
 }
 
-const AnimatedLayout = ({ children }: { children: React.ReactNode }): JSX.Element => (
+const AnimatedLayout = ({
+  children,
+}: {
+  children: React.ReactNode;
+}): JSX.Element => (
   <AnimatePresence
     initial={true}
     onExitComplete={() => {
