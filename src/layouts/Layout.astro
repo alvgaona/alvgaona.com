@@ -1,0 +1,72 @@
+---
+import '@fontsource/m-plus-rounded-1c';
+import Header from '@components/Header';
+import Footer from '@components/Footer';
+import AnimatedLayout from '@components/AnimatedLayout';
+
+export interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+
+const metadata = {
+  title: 'Alvaro Gaona',
+  description: 'Personal website',
+  author: '@alvgaona',
+  url: 'https://alvgaona.com',
+};
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={metadata.description}>
+		<meta name="viewport" content="width=device-width" />
+		<meta property="og:title" content={metadata.title} />
+    <meta property="og:description" content={metadata.description} />
+    <meta property="og:url" content={metadata.url} />
+    <meta property="og:type" content="website" />
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:title" content={metadata.title} />
+    <meta property="twitter:description" content={metadata.description} />
+    <meta property="twitter:creator" content={metadata.author} />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>{title}</title>
+	</head>
+	<body class="bg-orange-50 dark:bg-zinc-800 dark:text-zinc-200">
+		<Header client:load />
+		<AnimatedLayout client:load>
+			<main class="pt-[56px]">
+				<article class="mx-auto max-w-2xl px-8">
+					<slot />
+				</article>
+			</main>
+		</AnimatedLayout>
+		<Footer client:load />
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		--system-ui: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+		--font-mplus: 'M PLUS Rounded 1c'
+	}
+
+	html,
+	body {
+		font-family: var(--system-ui);
+		height: 100%;
+	}
+
+	body {
+		font-weight: 300;
+		font-size: 1rem;
+		line-height: 1.5rem;
+		text-decoration: none;
+		text-transform: none;
+		color: #060606;
+	}
+</style>

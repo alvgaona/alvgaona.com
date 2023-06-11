@@ -2,11 +2,14 @@
   "useTabs": false,
   "tabWidth": 2,
   "semi": true,
-  "printWidth": 120,
+  "printWidth": 80,
   "singleQuote": true,
   "quoteProps": "as-needed",
   "trailingComma": "all",
   "endOfLine": "lf",
-  "plugins": ["prettier-plugin-organize-imports", "prettier-plugin-tailwindcss"],
+  "plugins": [
+    "prettier-plugin-organize-imports",
+    "prettier-plugin-tailwindcss"
+  ],
   "pluginSearchDirs": false
 }
