@@ -1,6 +1,11 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import avatar from '../assets/avatar.jpg';
+import Layout from '@layouts/Layout.astro';
+import avatar from '@assets/avatar.jpg';
+import roche from '@assets/roche.svg';
+import asapp from '@assets/asapp.svg';
+import argentina from '@assets/argentina.png';
+import telecom from '@assets/telecom.svg';
+import fiuba from '@assets/fiuba.png';
 import { ArrowSmallRightIcon } from '@heroicons/react/24/solid';
 ---
 
@@ -114,16 +119,18 @@ import { ArrowSmallRightIcon } from '@heroicons/react/24/solid';
       >
         Life Timeline
       </span>
-      <div class="flex flex-row">
-        <span class="mr-4 font-mplus font-medium">1991</span>
+      <div class="flex flex-row gap-2">
+        <span class="font-mplus font-medium">1991</span>
         Born in Buenos Aires, Argentina.
+        <img src={argentina.src} alt="Argentina Flag" width="24" />
       </div>
-      <div class="flex flex-row">
-        <span class="mr-4 font-mplus font-medium">2015</span>
+      <div class="flex flex-row gap-2">
+        <span class="font-mplus font-medium">2015</span>
         Started my software engineering journey at Telecom.
+        <img src={telecom.src} alt="Telecom logo" width="24" />
       </div>
-      <div class="flex flex-row">
-        <span class="mr-4 font-mplus font-medium">2019</span>
+      <div class="flex flex-row gap-2">
+        <span class="font-mplus font-medium">2019</span>
         <span>
           Completed a Graduate Degree in Electrical Engineering at the{' '}
           <a
@@ -134,13 +141,15 @@ import { ArrowSmallRightIcon } from '@heroicons/react/24/solid';
           </a>
         </span>
       </div>
-      <div class="flex flex-row items-center">
-        <span class="mr-4 font-mplus font-medium">2019</span>
+      <div class="flex flex-row items-center gap-2">
+        <span class="font-mplus font-medium">2019</span>
         Joined the Roche Sequencing team as a Senior Software Engineer.
+        <img src={roche.src} width="42" />
       </div>
-      <div class="flex flex-row items-center">
-        <span class="mr-4 font-mplus font-medium">2022</span>
+      <div class="flex flex-row items-center gap-2">
+        <span class="font-mplus font-medium">2022</span>
         Moved onto ASAPP as a Lead Software Engineer.
+        <img src={asapp.src} width="24" height="24" />
       </div>
     </div>
   </section>
