@@ -1,9 +1,9 @@
 ---
 import Layout from '@layouts/Layout.astro';
-import { FaResearchgate as ResearchGate } from 'react-icons/fa';
-import { SiGooglescholar as GoogleScholar } from 'react-icons/si';
 import Anchor from './Anchor.astro';
 import Publication from './Publication.astro'
+import researchgate from '@assets/researchgate.svg';
+import googlescholar from '@assets/scholar.svg';
 ---
 
 <Layout title="Publications">
@@ -16,22 +16,22 @@ import Publication from './Publication.astro'
         <span class="my-4 font-bold underline underline-offset-4">Research Profiles</span>
         <a
           href="https://www.researchgate.net/profile/Alvaro-Gaona"
-          class="mr-auto flex w-auto flex-row items-center rounded-lg px-4 py-4 decoration-blue-700 hover:bg-zinc-200 hover:underline hover:underline-offset-4 dark:hover:bg-zinc-600"
+          class="mr-auto gap-1 flex w-auto rounded-lg px-4 py-4 decoration-blue-700 hover:bg-zinc-200 hover:underline hover:underline-offset-4 dark:hover:bg-zinc-600"
         >
-          <GoogleScholar class="mt-[2px] text-2xl [&>path]:fill-[#4285F4]" />
+          <img src={googlescholar.src} class="mt-[2px] text-2xl [&>path]:fill-[#4285F4]" width="24" height="24"/>
           <span class="ml-1 font-medium text-teal-500 dark:text-teal-300">@alvaro-gaona</span>
         </a>
         <a
           href="https://scholar.google.com/citations?user=unBAfxAAAAAJ"
-          class="mr-auto flex flex-row items-center rounded-lg px-4 py-4 decoration-blue-700 hover:bg-zinc-200 hover:underline hover:underline-offset-4 dark:hover:bg-zinc-600"
+          class="mr-auto flex gap-1 rounded-lg px-4 py-4 decoration-blue-700 hover:bg-zinc-200 hover:underline hover:underline-offset-4 dark:hover:bg-zinc-600"
         >
-          <ResearchGate class="mt-[2px] text-2xl [&>path]:fill-[#00CCBB]" />
+          <img src={researchgate.src} class="mt-[2px] text-2xl [&>path]:fill-[#00CCBB]" width="24" height="24" />
           <span class="ml-1 font-medium text-teal-500 dark:text-teal-300">@Alvaro-Gaona</span>
         </a>
       </div>
     </div>
-    <div class="ml-4 flex flex-col">
-      <div>
+    <div class="ml-4 flex flex-col gap-4">
+      <div class="flex">
         <Anchor href="/publications#fault-tolerant-solutions-gtc22" />
         <Publication
           title="Fault Tolerant Solutions for Multirotor Unmanned Aerial Vehicles in NVIDIA® Jetson™ TX2"
@@ -40,7 +40,7 @@ import Publication from './Publication.astro'
         />
       </div>
   
-      <div>
+      <div class="flex">
         <Anchor href="/publications#prototyping-multirotor" />
         <Publication
           title="Prototyping of a multirotor UAV for precision landing under rotor failures"
@@ -49,7 +49,7 @@ import Publication from './Publication.astro'
         />
       </div>
   
-      <div>
+      <div class="flex">
         <Anchor href="/publication#heart-sounds-segmentation" />
         <Publication
           title="Deep Recurrent Learning for Heart Sound Segmentation based on Instantaneous Frequency Features"

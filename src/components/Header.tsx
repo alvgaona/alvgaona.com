@@ -1,4 +1,4 @@
-import { FaGithub as Github } from 'react-icons/fa';
+import github from '@assets/github.svg';
 import Logo from './Logo';
 import ThemeToggleButton from './ThemeToggleButton';
 
@@ -28,7 +28,7 @@ const Header = () => {
               </li>
               <li className="font-mplus hover:underline hover:underline-offset-4">
                 <div className="flex flex-row items-center justify-evenly">
-                  <Github />
+                  <img src={github.src} alt="github" width="18" height="18" />
                   <a className="ml-1" href="https://github.com/alvgaona/alvgaona.com">
                     Source
                   </a>

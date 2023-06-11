@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { IoMoon, IoSunny } from 'react-icons/io5';
+import { SunIcon, MoonIcon } from '@heroicons/react/24/solid';
 
 const themes = ['light', 'dark'];
 
@@ -52,7 +52,7 @@ const ThemeToggleButton = (): JSX.Element => {
             onClick={toggleTheme}
             arial-label="Theme toggle"
           >
-            {t === 'light' ? <IoSunny /> : <IoMoon />}
+            {t === 'light' ? <SunIcon className="h-4 w-4" /> : <MoonIcon className="h-4 w-4" />}
           </button>
         );
       })}

@@ -1,11 +1,13 @@
 ---
-import { IoMdArrowForward } from 'react-icons/io';
+import { ArrowRightIcon } from '@heroicons/react/24/solid';
 
 export interface Props {
 	title: string;
   reference: string;
   href: string;
 }
+
+ArrowRightIcon
 
 const { title, reference, href } = Astro.props;
 ---
@@ -19,8 +21,8 @@ const { title, reference, href } = Astro.props;
     href={href}
     class="transform pt-4 underline underline-offset-4 transition duration-200 hover:translate-x-1"
   >
-    <span class="flex items-center">
-      <IoMdArrowForward class="mr-1" /> Go to
+    <span class="flex gap-1 items-center">
+      <ArrowRightIcon className="h-4 w-6" /> Go to
     </span>
   </a>
 </div>

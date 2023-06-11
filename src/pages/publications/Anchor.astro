@@ -1,5 +1,5 @@
 ---
-import { BsLink } from 'react-icons/bs';
+import { LinkIcon } from '@heroicons/react/24/solid';
 
 export interface Props {
   href: string;
@@ -10,6 +10,6 @@ const { href } = Astro.props;
 
 <div class="mb-auto mr-1 cursor-pointer pt-2 opacity-0 hover:opacity-100 hover:transition hover:duration-200 hover:ease-in-out">
   <a href={href}>
-    <BsLink />
+    <LinkIcon className="h-4 w-4" />
   </a>
 </div>
