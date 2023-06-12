@@ -1,0 +1,23 @@
+---
+import Menu from './Menu';
+import ThemeToggleButton from './ThemeToggleButton.astro';
+---
+
+<header class="fixed z-10 w-full shadow-md backdrop-blur-md">
+  <div class="mx-auto max-w-2xl">
+    <nav class="flex justify-between text-base first:items-center">
+      <a href="/">
+        <span
+          class="rounded-full border-2 gap-[1px] flex border-black p-1 text-lg dark:border-zinc-400 font-mplus"
+        >
+          <span>A</span>
+          <span>G</span>
+        </span>
+      </a>
+      <Menu />
+      <div class="flex items-center gap-4 justify-self-end">
+        <ThemeToggleButton />
+      </div>
+    </nav>
+  </div>
+</header>
