@@ -1,17 +1,17 @@
 ---
 import Menu from './Menu';
 import ThemeToggleButton from './ThemeToggleButton.astro';
+import logo from '@assets/alvgaona-logo-inverted.svg';
 ---
 
 <header class="fixed z-10 w-full shadow-md backdrop-blur-md">
   <div class="mx-auto max-w-2xl">
-    <nav class="flex justify-between text-base first:items-center">
+    <nav class="flex justify-between text-base first:items-center px-6">
       <a href="/">
         <span
-          class="flex gap-[1px] rounded-full border-2 border-black p-1 font-mplus text-lg dark:border-zinc-400"
+          class="flex gap-[1px] p-1 dark:border-zinc-400"
         >
-          <span>A</span>
-          <span>G</span>
+          <img src={logo.src} class="h-8"/>
         </span>
       </a>
       <Menu />
