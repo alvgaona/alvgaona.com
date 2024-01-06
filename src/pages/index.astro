@@ -25,23 +25,16 @@ import { ArrowSmallRightIcon } from '@heroicons/react/24/solid';
     </div>
     <div class="flex w-full flex-row justify-center">
       <span
-        class="border-1 my-5 rounded-md bg-gray-800 px-12 py-4 font-mplus text-sm font-medium text-white dark:bg-gray-600"
+        class="border-1 my-5 rounded-md px-12 py-4 text-sm font-medium text-white bg-slate-gray"
       >
-        Hi! I'm a Robotics Engineer based in{' '}
-        <a
-          class="text-sky-300 underline underline-offset-4"
-          href="https://en.wikipedia.org/wiki/Argentina"
-        >
-          Argentina
-        </a>
-        . 📍
+        Hi! I'm a Robotics Engineer based in Argentina 📍
       </span>
     </div>
   </section>
   <section class="flex flex-col items-start justify-start">
     <div class="mt-6 flex w-full flex-col gap-6">
       <span
-        class="font-mplus text-xl font-bold underline underline-offset-[6px]"
+        class="font-mplus text-xl font-bold underline underline-offset-[6px] decoration-dusty-gray"
         >Background</span
       >
       <p class="text-justify">
@@ -57,7 +50,7 @@ import { ArrowSmallRightIcon } from '@heroicons/react/24/solid';
         PyTorch library since 2020, where I've had the opportunity to contribute
         to its growth and development.{' '}
         <a
-          class="underline decoration-orange-300 underline-offset-4 hover:animate-pulse"
+          class="underline decoration-liquid-lava underline-offset-4 hover:animate-pulse"
           href="https://github.com/pytorch/pytorch/search?q=is%3Apr+author%3Aalvgaona+author%3Aalvarogaona&type=issues"
         >
           Check my contributions.
@@ -72,7 +65,7 @@ import { ArrowSmallRightIcon } from '@heroicons/react/24/solid';
       </p>
       <a
         href="/projects"
-        class="border-1 justify-center self-center rounded-lg bg-teal-500 px-8 py-2 font-mplus font-medium text-white transition-colors duration-500 hover:bg-teal-600 hover:text-white"
+        class="border-1 justify-center self-center rounded-lg dark:bg-teal-300 bg-liquid-lava px-8 py-2 text-sm font-mplus text-white font-bold dark:text-dark-void transition-colors duration-500 hover:dark:bg-teal-600 hover:bg-orange-200 hover:text-gluon-gray hover:text-white"
       >
         View projects
       </a>
@@ -83,17 +76,17 @@ import { ArrowSmallRightIcon } from '@heroicons/react/24/solid';
         <br />
         <a
           href="/publications"
-          class="mt-2 inline-flex flex-row items-center text-orange-500 underline underline-offset-4 hover:animate-pulse"
+          class="mt-2 inline-flex flex-row items-center decoration-liquid-lava underline underline-offset-4 hover:animate-pulse"
         >
           Learn more <ArrowSmallRightIcon
-            className="ml-1 mt-1 self-center h-5 w-5"
+            className="ml-1 mt-1 self-center h-5 w-5 text-liquid-lava"
           />
         </a>
       </p>
     </div>
     <div class="mt-6 flex w-full flex-col">
       <span
-        class="mb-4 font-mplus text-xl font-bold underline underline-offset-[6px]"
+        class="mb-4 font-mplus text-xl font-bold underline underline-offset-[6px] decoration-dusty-gray"
       >
         Free Time
       </span>
@@ -106,19 +99,23 @@ import { ArrowSmallRightIcon } from '@heroicons/react/24/solid';
     </div>
     <div class="mt-6 flex w-full flex-col">
       <span
-        class="mb-4 font-mplus text-xl font-bold underline underline-offset-[6px]"
+        class="mb-4 font-mplus text-xl font-bold underline underline-offset-[6px] decoration-dusty-gray"
       >
         Life Timeline
       </span>
       <div class="flex flex-row gap-2">
         <span class="font-mplus font-medium">1991</span>
-        Born in Buenos Aires, Argentina.
-        <img src={argentina.src} alt="Argentina Flag" width="24" />
+        Born in 
+        <a href="https://maps.app.goo.gl/gF59GhC9XhGf7M6S7" class="underline decoration-liquid-lava underline-offset-4 hover:animate-pulse">
+          Buenos Aires, Argentina
+        </a>
       </div>
       <div class="flex flex-row gap-2">
         <span class="font-mplus font-medium">2015</span>
-        Started my software engineering journey at Telecom.
-        <img src={telecom.src} alt="Telecom logo" width="24" />
+        Started my software engineering journey at 
+        <a href="https://www.telecom.com.ar" class="underline decoration-liquid-lava underline-offset-4 hover:animate-pulse">
+          Telecom Argentina
+        </a>
       </div>
       <div class="flex flex-row gap-2">
         <span class="font-mplus font-medium">2019</span>
@@ -126,7 +123,7 @@ import { ArrowSmallRightIcon } from '@heroicons/react/24/solid';
           Completed a Graduate Degree in Electrical Engineering at the{' '}
           <a
             href="https://www.fi.uba.ar/"
-            class="underline decoration-orange-300 underline-offset-4 hover:animate-pulse"
+            class="underline decoration-liquid-lava underline-offset-4 hover:animate-pulse"
           >
             Faculty of Engineering, Universidad de Buenos Aires.
           </a>
@@ -134,19 +131,22 @@ import { ArrowSmallRightIcon } from '@heroicons/react/24/solid';
       </div>
       <div class="flex flex-row items-center gap-2">
         <span class="font-mplus font-medium">2019</span>
-        Joined the Roche Sequencing team as a Senior Software Engineer.
-        <img src={roche.src} width="42" />
+        Joined the <a href="https://sequencing.roche.com/" class="underline decoration-liquid-lava underline-offset-4 hover:animate-pulse">Roche Sequencing</a> team as a Senior Software Engineer.
       </div>
       <div class="flex flex-row items-center gap-2">
         <span class="self-start font-mplus font-medium">2021</span>
-        Became part of the Laboratory of Robotics and Artificial Intelligence at
-        the Universidad de San Andrés.
-        <img src={} width="42" />
+        <div>
+          Became part of the 
+          <a href="https://udesa.edu.ar/linar" class="underline decoration-liquid-lava underline-offset-4 hover:animate-pulse">
+            Laboratory of Robotics and Artificial Intelligence
+          </a> at
+          the Universidad de San Andrés.
+        </div>
       </div>
       <div class="flex flex-row items-center gap-2">
         <span class="font-mplus font-medium">2022</span>
-        Moved onto ASAPP as a Lead Software Engineer.
-        <img src={asapp.src} width="24" height="24" />
+        Moved onto <a href="https://www.asapp.com/" class="underline decoration-liquid-lava underline-offset-4 hover:animate-pulse">ASAPP</a>
+        as a Lead Machine Learning Engineer.
       </div>
     </div>
   </section>
