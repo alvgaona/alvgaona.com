@@ -7,13 +7,11 @@ import black_logo from '@/assets/alvgaona-logo-black-transparent.png';
 
 <header class="fixed z-10 w-full shadow-md backdrop-blur-md">
   <div class="mx-auto max-w-2xl">
-    <nav class="flex justify-between text-base first:items-center px-6">
+    <nav class="flex justify-between px-6 text-base first:items-center">
       <a href="/">
-        <span
-          class="flex gap-[1px] p-1 dark:border-zinc-400"
-        >
-          <img src={white_logo.src} class="h-6 hidden dark:block"/>
-          <img src={black_logo.src} class="h-6 dark:hidden"/>
+        <span class="flex gap-[1px] p-1 dark:border-zinc-400">
+          <img src={white_logo.src} class="hidden h-6 dark:block" />
+          <img src={black_logo.src} class="h-6 dark:hidden" />
         </span>
       </a>
       <Menu />
