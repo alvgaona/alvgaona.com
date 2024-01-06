@@ -1,4 +1,4 @@
-import github from '@assets/github.svg';
+import github from '@/assets/github.svg';
 
 const Menu = () => (
   <div className="flex h-12 flex-row items-center">

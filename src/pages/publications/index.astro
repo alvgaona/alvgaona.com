@@ -1,9 +1,9 @@
 ---
-import Layout from '@layouts/Layout.astro';
+import Layout from '@/layouts/Layout.astro';
 import Anchor from './Anchor.astro';
 import Publication from './Publication.astro';
-import researchgate from '@assets/researchgate.svg';
-import googlescholar from '@assets/scholar.svg';
+import researchgate from '@/assets/researchgate.svg';
+import googlescholar from '@/assets/scholar.svg';
 ---
 
 <Layout>
@@ -76,7 +76,7 @@ import googlescholar from '@assets/scholar.svg';
       </div>
 
       <div class="flex">
-        <Anchor href="/publication#heart-sounds-segmentation" />
+        <Anchor href="/publications#heart-sounds-segmentation" />
         <Publication
           title="Deep Recurrent Learning for Heart Sound Segmentation based on Instantaneous Frequency Features"
           reference="A. J. Gaona, P. D. Arini, ”Deep Recurrent Learning for Heart Sounds Segmentation based on Instantaneous Frequency Features”. Revista Elektron, Vol. 4, No. 2, pp 52‑57 (2020)."

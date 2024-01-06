@@ -8,8 +8,10 @@ import vercel from '@astrojs/vercel/static';
 export default defineConfig({
   output: 'static',
   adapter: vercel(),
-  experimental: {
-    assets: true,
-  },
-  integrations: [tailwind(), react()],
+  integrations: [
+    tailwind({
+      applyBaseStyles: false,
+    }),
+    react(),
+  ],
 });
