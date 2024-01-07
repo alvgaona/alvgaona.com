@@ -14,13 +14,14 @@ type Props = {
   footer: string;
   fallback: string;
   avatar: string;
+  href: string;
 };
 
 const SomeCard = (props: Props) => (
   <HoverCard>
     <HoverCardTrigger asChild className="!delay-0">
       <a
-        href="https://www.asapp.com/"
+        href={props.href}
         className="underline decoration-liquid-lava underline-offset-4 hover:animate-pulse"
       >
         {props.text}
