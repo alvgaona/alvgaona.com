@@ -24,10 +24,10 @@ function setPreference() {
 }
 
 function reflectPreference() {
-  if (themeValue == 'dark') {
-    document.firstElementChild.classList.add('dark');
-  } else {
+  if (themeValue == 'light' && window.location.href.includes('/posts')) {
     document.firstElementChild.classList.remove('dark');
+  } else {
+    document.firstElementChild.classList.add('dark');
   }
 
   document.querySelector('#theme-btn')?.setAttribute('data-theme', themeValue);

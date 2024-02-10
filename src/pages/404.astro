@@ -1,8 +1,9 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import MainLayout from '@/layouts/MainLayout.astro';
+import { Button } from '@/components/ui/button';
 ---
 
-<Layout title="404">
+<MainLayout title="404">
   <div class="my-24 flex flex-col items-center justify-center">
     <h1 class="text-center font-mplus text-2xl font-bold">
       Oops! The page you were looking for has gone on a spontaneous adventure
@@ -11,11 +12,14 @@ import Layout from '../layouts/Layout.astro';
     <p class="text-md border-b-1 mt-4 border-solid px-4 pb-4">
       Please try a different path for now while we search for it.
     </p>
-    <a
-      href="/"
-      class="rounded-lg bg-teal-500 p-4 font-mplus font-normal leading-5 text-white outline-none transition-colors duration-500 hover:bg-teal-600"
-    >
-      Take me home
+    <a href="/" class="flex items-center justify-center">
+      <Button
+        className="rounded-md !bg-red-500/0 !border-red-500 shadow shadow-red-500 text-md active:shadow-none"
+        variant="outline"
+        size="lg"
+      >
+        Take me home
+      </Button>
     </a>
   </div>
-</Layout>
+</MainLayout>

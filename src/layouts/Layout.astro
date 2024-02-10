@@ -5,9 +5,12 @@ import '@fontsource/m-plus-rounded-1c';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import AnimatedLayout from '@/components/AnimatedLayout';
+import { Toaster } from '@/components/ui/sonner';
+
+const { pageTitle } = Astro.props;
 
 const metadata = {
-  title: 'alvgaona',
+  title: pageTitle ?? 'alvgaona',
   description: 'Personal website',
   author: '@alvgaona',
   url: 'https://alvgaona.com',
@@ -33,14 +36,22 @@ const metadata = {
     <title>{metadata.title}</title>
     <script is:inline src="/toggle-theme.js"></script>
   </head>
-  <body class="bg-snow dark:bg-dark-void dark:text-snow text-dark-void">
+  <body class="bg-white dark:bg-strafe-dark dark:text-white">
     <Header />
     <AnimatedLayout client:load>
-      <main class="pt-[56px]">
-        <article class="mx-auto max-w-2xl px-8">
-          <slot />
-        </article>
-      </main>
+      <slot />
+      <Toaster
+        client:load
+        toastOptions={{
+          unstyled: true,
+          className:
+            'border-2 dark:border-zinc-700 border-zinc-300 shadow dark:shadow-zinc-700 shadow-zinc-300 rounded-md',
+          classNames: {
+            toast: 'dark:bg-strafe-dark bg-white',
+            title: 'text-red-400 text-xs pr-24 py-3 pl-4 w-full',
+          },
+        }}
+      />
     </AnimatedLayout>
     <Footer />
   </body>
