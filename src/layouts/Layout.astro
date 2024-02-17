@@ -38,22 +38,24 @@ const metadata = {
   </head>
   <body class="bg-white dark:bg-strafe-dark dark:text-white">
     <Header />
-    <AnimatedLayout client:load>
-      <slot />
-      <Toaster
-        client:load
-        toastOptions={{
-          unstyled: true,
-          className:
-            'border-2 dark:border-zinc-700 border-zinc-300 shadow dark:shadow-zinc-700 shadow-zinc-300 rounded-md',
-          classNames: {
-            toast: 'dark:bg-strafe-dark bg-white',
-            title: 'text-red-400 text-xs pr-24 py-3 pl-4 w-full',
-          },
-        }}
-      />
-    </AnimatedLayout>
-    <Footer />
+    <div class="grid h-full">
+      <AnimatedLayout client:load>
+        <slot />
+        <Toaster
+          client:load
+          toastOptions={{
+            unstyled: true,
+            className:
+              'border-2 dark:border-zinc-700 border-zinc-300 shadow dark:shadow-zinc-700 shadow-zinc-300 rounded-md',
+            classNames: {
+              toast: 'dark:bg-strafe-dark bg-white',
+              title: 'text-red-400 text-xs pr-24 py-3 pl-4 w-full',
+            },
+          }}
+        />
+      </AnimatedLayout>
+      <Footer />
+    </div>
   </body>
 </html>
 
@@ -67,7 +69,7 @@ const metadata = {
   html,
   body {
     font-family: var(--system-ui);
-    height: 100%;
+    height: 100svh;
   }
 
   body {
