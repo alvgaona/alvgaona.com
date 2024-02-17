@@ -1,5 +1,6 @@
 ---
-import Layout from '@/layouts/Layout.astro';
+import MainLayout from '@/layouts/MainLayout.astro';
+import { Button } from '@/components/ui/button';
 import avatar from '@/assets/avatar.jpg';
 import roche from '@/assets/roche.svg';
 import udesa from '@/assets/udesa.svg';
@@ -10,7 +11,7 @@ import { ArrowSmallRightIcon } from '@heroicons/react/24/solid';
 import { SomeCard } from '@/components/SomeCard';
 ---
 
-<Layout title="Home">
+<MainLayout title="About | alvgaona">
   <section class="flex flex-col items-start gap-6">
     <div class="mt-6 flex w-full flex-row items-center justify-around">
       <div class="flex flex-col">
@@ -25,18 +26,11 @@ import { SomeCard } from '@/components/SomeCard';
         height={avatar.height}
       />
     </div>
-    <div class="flex w-full flex-row justify-center">
-      <span
-        class="border-1 my-5 rounded-md bg-slate-gray px-12 py-4 text-sm font-medium text-white"
-      >
-        Hi! I'm a Robotics Engineer based in Argentina 📍
-      </span>
-    </div>
   </section>
   <section class="flex flex-col items-start justify-start">
     <div class="mt-6 flex w-full flex-col gap-6">
       <span
-        class="font-mplus text-xl font-bold underline decoration-dusty-gray underline-offset-[6px]"
+        class="font-mplus text-xl font-bold underline decoration-[#E76346] decoration-4 underline-offset-[6px]"
         >Background</span
       >
       <p class="text-justify">
@@ -52,7 +46,7 @@ import { SomeCard } from '@/components/SomeCard';
         PyTorch library since 2020, where I've had the opportunity to contribute
         to its growth and development.{' '}
         <a
-          class="underline decoration-liquid-lava underline-offset-4 hover:animate-pulse"
+          class="underline decoration-[#E76346] underline-offset-4 hover:animate-pulse"
           href="https://github.com/pytorch/pytorch/search?q=is%3Apr+author%3Aalvgaona+author%3Aalvarogaona&type=issues"
         >
           Check my contributions.
@@ -65,11 +59,14 @@ import { SomeCard } from '@/components/SomeCard';
         knowledge allows me to effectively showcase my side projects within the
         community.
       </p>
-      <a
-        href="/projects"
-        class="border-1 justify-center self-center rounded-lg bg-liquid-lava px-8 py-2 font-mplus text-sm font-bold text-white transition-colors duration-500 hover:animate-pulse dark:bg-teal-300 dark:text-dark-void"
-      >
-        View projects
+      <a href="/projects" class="flex items-center justify-center">
+        <Button
+          className="rounded-md !bg-red-500/0 !border-red-500 shadow shadow-red-500 text-md active:shadow-none"
+          variant="outline"
+          size="lg"
+        >
+          View projects
+        </Button>
       </a>
       <p class="text-justify">
         Aside from my software engineering skills, I'm also involved in exciting
@@ -78,7 +75,7 @@ import { SomeCard } from '@/components/SomeCard';
         <br />
         <a
           href="/publications"
-          class="mt-2 inline-flex flex-row items-center underline decoration-liquid-lava underline-offset-4 hover:animate-pulse"
+          class="mt-2 inline-flex flex-row items-center underline decoration-[#E76346] underline-offset-4 hover:animate-pulse"
         >
           Learn more <ArrowSmallRightIcon
             className="ml-1 mt-1 self-center h-5 w-5 text-liquid-lava"
@@ -88,7 +85,7 @@ import { SomeCard } from '@/components/SomeCard';
     </div>
     <div class="mt-6 flex w-full flex-col">
       <span
-        class="mb-4 font-mplus text-xl font-bold underline decoration-dusty-gray underline-offset-[6px]"
+        class="mb-4 font-mplus text-xl font-bold underline decoration-[#E76346] decoration-4 underline-offset-[6px]"
       >
         Free Time
       </span>
@@ -99,95 +96,5 @@ import { SomeCard } from '@/components/SomeCard';
         races!
       </p>
     </div>
-    <div class="mt-6 flex w-full flex-col">
-      <span
-        class="mb-4 font-mplus text-xl font-bold underline decoration-dusty-gray underline-offset-[6px]"
-      >
-        Life Timeline
-      </span>
-      <div class="flex flex-row gap-2">
-        <span class="font-mplus font-medium">1991</span>
-        Born in Buenos Aires, Argentina
-      </div>
-      <div class="flex flex-row gap-2">
-        <span class="font-mplus font-medium">2015</span>
-        Started my software engineering journey at
-        <SomeCard
-          client:load
-          text="Telecom Argentina"
-          username="@telecom"
-          paragraph="Biggest telecommunications company in Argentina"
-          footer="Joined December 2015",
-          href="https://www.telecom.com.ar/",
-          avatar={telecom.src}
-          fallback="TC"
-        />
-      </div>
-      <div class="flex flex-row gap-2">
-        <span class="font-mplus font-medium">2019</span>
-        <span>
-          Completed a Graduate Degree in Electrical Engineering at the{' '}
-          <SomeCard
-            client:load
-            text="Faculty of Engineering, Universidad de Buenos Aires."
-            username="@FIUBA"
-            paragraph="Top faculty of engineering in Argentina."
-            footer="Graduated December 2019",
-            href="https://fi.uba.ar/",
-            avatar=""
-            fallback="FB"
-          />
-        </span>
-      </div>
-      <div class="flex flex-row items-center gap-2">
-        <span class="self-start font-mplus font-medium">2019</span>
-        <SomeCard
-          client:load
-          text="Roche Sequencing"
-          username="@RocheSequencing"
-          paragraph="Next-generation sequencing (NGS) to drive advances in translational and clinical research."
-          footer="Joined December 2019",
-          href="https://sequencing.roche.com/",
-          avatar={roche.src}
-          fallback="RS"
-        /> team as a Senior Software Engineer.
-      </div>
-      <div class="flex flex-row items-center gap-2">
-        <span class="self-start font-mplus font-medium">2021</span>
-        <div>
-          Became part of the
-          <SomeCard
-            client:load
-            text="Laboratory of Robotics and Artificial Intelligence"
-            username="@udesa-ai"
-            paragraph="A leading laboratory in AI and Robotics innovation."
-            footer="Joined July 2021",
-            href="https://udesa.edu.ar/linar"
-            avatar={udesa.src}
-            fallback="LR"
-          />
-          <a
-            href="https://udesa.edu.ar/linar"
-            class="underline decoration-liquid-lava underline-offset-4 hover:animate-pulse"
-          >
-          </a> at the Universidad de San Andrés.
-        </div>
-      </div>
-      <div class="flex flex-row items-center gap-2">
-        <span class="font-mplus font-medium">2022</span>
-        Moved onto
-        <SomeCard
-          client:load
-          text="ASAPP"
-          username="@asappinc"
-          paragraph="Cutting-edge AI for contact centers"
-          footer="Joined August 2022",
-          href="https://www.asapp.com/"
-          avatar={asapp.src}
-          fallback="AP"
-        />
-        as a Lead Machine Learning Engineer.
-      </div>
-    </div>
   </section>
-</Layout>
+</MainLayout>

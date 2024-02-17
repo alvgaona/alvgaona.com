@@ -3,16 +3,22 @@ import { MoonIcon, SunIcon } from '@heroicons/react/24/solid';
 ---
 
 <div
-  class="inline-flex items-center rounded-3xl bg-orange-200 p-[1px] dark:bg-dusty-gray"
+  class="inline-flex items-center rounded-3xl border border-stone-400 p-[1px] dark:border-[#28282C] dark:bg-[#1C1B20]"
 >
-  <button id="theme-btn" arial-label="auto" class="flex items-center">
+  <button
+    id="theme-btn"
+    arial-label="auto"
+    class="flex items-center gap-1 px-[1.5px] py-[1px]"
+  >
     <div
-      class="cursor-pointer rounded-3xl bg-white p-2 text-black dark:bg-dusty-gray dark:text-white"
+      class="cursor-pointer rounded-3xl bg-[#EEEDEF]/40 p-2 text-[#1C1B20] text-slate-600 dark:bg-[#1C1B20] dark:text-gray-500"
     >
-      <SunIcon className="h-5 w-5" />
+      <SunIcon className="h-3 w-3" />
     </div>
-    <div class="cursor-pointer rounded-3xl p-2 text-black dark:bg-white">
-      <MoonIcon className="h-5 w-5" />
+    <div
+      class="cursor-pointer rounded-3xl p-2 text-slate-800 dark:bg-[#28282C] dark:text-white"
+    >
+      <MoonIcon className="h-3 w-3" />
     </div>
   </button>
 </div>

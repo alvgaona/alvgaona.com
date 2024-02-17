@@ -22,12 +22,14 @@ const config = {
         mplus: ['var(--font-mplus)', 'Verdana', 'sans-serif'],
       },
       colors: {
-        'dark-void': '#151419',
-        'liquid-lava': '#f56e0f',
-        'gluon-gray': '#1b1b1e',
-        'slate-gray': '#262626',
-        'dusty-gray': '#878787',
-        snow: '#fbfbfb',
+        'strafe-dark': '#161618',
+        'strafe-light': '#EFE7DD',
+      },
+      borderRadius: {
+        lg: 'var(--radius)',
+        md: 'calc(var(--radius) - 2px)',
+        sm: 'calc(var(--radius) - 4px)',
+        xs: 'calc(var(--radius) - 6px)',
       },
       keyframes: {
         'accordion-down': {
@@ -45,7 +47,7 @@ const config = {
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography')],
 } satisfies Config;
 
 export default config;
