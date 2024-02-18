@@ -7,7 +7,9 @@ import { getCollection } from 'astro:content';
 import ThemeToggleButton from '@/components/ThemeToggleButton.astro';
 
 const pageTitle = 'My Astro Learning Blog';
-const allPosts = await getCollection('posts');
+const allPosts = (await getCollection('posts')).filter(
+  (post) => post.data.published,
+);
 
 allPosts.sort((a, b) => b.data.pubDate - a.data.pubDate);
 ---
