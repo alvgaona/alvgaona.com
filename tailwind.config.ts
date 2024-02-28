@@ -19,7 +19,7 @@ const config = {
     },
     extend: {
       fontFamily: {
-        mplus: ['var(--font-mplus)', 'Verdana', 'sans-serif'],
+        mplus: ['var(--font-dm-sans)', 'Verdana', 'sans-serif'],
       },
       colors: {
         'strafe-dark': '#161618',
