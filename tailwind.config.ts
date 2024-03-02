@@ -21,6 +21,20 @@ const config = {
       typography: {
         DEFAULT: {
           css: {
+            p: {
+              '&>code': {
+                fontWeight: 300,
+                color: 'rgba(255,255,255,0.9)',
+                backgroundColor: '#252A2E',
+                padding: '0.125rem',
+                '&::before': {
+                  content: 'none',
+                },
+                '&::after': {
+                  content: 'none',
+                },
+              },
+            },
             blockquote: {
               border: 0,
               padding: '0.125rem 1rem',

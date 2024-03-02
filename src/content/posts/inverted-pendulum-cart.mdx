@@ -1,15 +1,16 @@
 ---
 title: Inverted Pendulum Cart
-pubDate: 2024-02-28
+pubDate: 2024-03-02
 description: LQR in Julia
 image:
-  url: https://pub-f074cead5eaf408790b463b05f6e8b32.r2.dev/inverted-cart-pendulum.jpg
+  url: /public/inverted-pendulum-cart-banner.png
   alt: Inverted Cart Pendulum Banner
 category: Control Theory
 published: true
 ---
 
-<h5 class="mb-3 text-sm">{frontmatter.description}</h5># {frontmatter.title}
+<h5 class="mb-3 text-sm">{frontmatter.description}</h5>
+# {frontmatter.title}
 
 The system in this example consists of an inverted pendulum mounted to a motorized cart. The inverted pendulum system is an example commonly found in control system textbooks and research literature. Its popularity derives in part from the fact that it is unstable without control, that is, the pendulum will simply fall over if the cart isn't moved to balance it. Additionally, the dynamics of the system are nonlinear. The objective of the control system is to balance the inverted pendulum by applying a force to the cart that the pendulum is attached to. A real-world example that relates directly to this inverted pendulum system is the attitude control of a booster rocket at takeoff.
 
@@ -33,7 +34,7 @@ We'll define a set of variables already established within the problem. Frequent
 - $\theta$: pendulum angle to the cart $[rad]$
 - $x$: cart position $[m]$
 
-## System Kinematics
+### System Kinematics
 
 Once we've defined the system qualitatively—using its free-body diagram—we need to translate this into equations. To begin, we should start from Newton's second law, right?
 
@@ -47,7 +48,7 @@ $$
 F = M a + b v + N
 $$
 
-> We're updating the variable names with a different notation commonly employed in control theory, specifically in state-space modeling.
+> **Side Note**: We're updating the variable names with a different notation commonly employed in control theory, specifically in state-space modeling.
 
 As previously defined, $x$ represents the position of the cart, and according to physics, we understand that $v = \frac{dx}{dt}$ and $a = \frac{d^2x}{dt^2}$.
 
@@ -278,11 +279,11 @@ vectors:
 
 Once more, the system exhibits instability, evidenced by the presence of a positive eigenvalue, and all its eigenvalues being real.
 
-## Controllability
+### Controllability
 
 Before delving into designing the controller itself, it's prudent to perform some preliminary checks. The primary question to consider is: can we steer the system to a specific state by applying a specific input? Formally, controllability for a Linear Time-Invariant (LTI) system can be defined as follows: an LTI system is controllable if, for every $x_1$, and every $T > 0$, there exists an input function $u(t)$, $0 < t \leq T$, such that the system transitions from $0$ at $t = 0$ to $x_1$ at $t = T$.
 
-### Controllability Proof
+#### Controllability Proof
 
 To establish the controllability of the system, it's necessary to compute the controllability matrix and subsequently analyze the rank of the output matrix. This process can be achieved using the `ctrb` function available in the `ControlSystems.jl` package.
 
@@ -292,7 +293,7 @@ rank(ctrb(A, B)) # 4
 
 As observed, the rank of the controllability matrix is 4. Consequently, there are no uncontrollable states. With this result, let’s continue constructing our controller.
 
-## Linear Quadratic Regulator
+### Linear Quadratic Regulator
 
 To control the plant we will do full-state feedback, i.e., every state variable is going to be measured, and used to control both the position of the cart and the angle of the pendulum.
 
@@ -378,7 +379,7 @@ sys = ss(Ac, Bc*Nbar, Cc, Dc)
 y, _, _, _ = lsim(sys, r, t)
 ```
 
-![Precompensated CL Angle](/public/asd)
+![Precompensated CL Angle](/public/precompensated-cl-step-response-2.png)
 
 ```julia
 plot(t, y2[1, :],
@@ -389,7 +390,7 @@ plot(t, y2[1, :],
   legend = false)
 ```
 
-![Precompensated CL Position](/public/asd)
+![Precompensated CL Position](/public/precompensated-cl-step-response.png)
 
 ```julia
 plot(t, y2[2, :],
@@ -491,7 +492,7 @@ sys = ss(Aca, Br, Cca, D)
 y, _, _, _ = lsim(sys, r, t)
 ```
 
-![Integral Action CL Position](/asd)
+![Integral Action CL Position](/public/ia-cl-step-response-2.png)
 
 ```julia
 plot(t, y[1, :],
@@ -502,7 +503,7 @@ plot(t, y[1, :],
   legend = false)
 ```
 
-![Integral Action CL Angle](/asd)
+![Integral Action CL Angle](/public/ia-cl-step-response.png)
 
 ```julia
 plot(t, y[2, :],
@@ -593,8 +594,6 @@ L = place(A', C', poles)'
 > If you happen to try this in MATLAB, please note that implementations of place may vary,
 > and as a result, the values of the $L$ gain may differ slightly between implementations.
 
-cm"""
-
 ### Observer-based System
 
 Now it's time to define the augmented system based on the integral action augmented system—yes, we've augmented the open-loop system twice.
@@ -674,7 +673,7 @@ sys = ss(Af - Bf*Kf, Bfr, Cf, Df);
 y, _, _, _ = lsim(sys, r, t)
 ```
 
-![Integral Action CL w/ L Observer Position](/public/asd)
+![Integral Action CL w/ L Observer Position](/public/observer-cl-step-response.png)
 
 ```julia
 plot(t, y4[1, :],
@@ -685,7 +684,7 @@ plot(t, y4[1, :],
   legend = false)
 ```
 
-![Integral Action CL w/ L Observer Angle](/public/asd)
+![Integral Action CL w/ L Observer Angle](/public/observer-cl-step-response-2.png)
 
 ```julia
 plot(t, y4[2, :],
