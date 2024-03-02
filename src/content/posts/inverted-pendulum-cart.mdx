@@ -3,7 +3,7 @@ title: Inverted Pendulum Cart
 pubDate: 2024-03-02
 description: LQR in Julia
 image:
-  url: /public/inverted-pendulum-cart-banner.png
+  url: /inverted-pendulum-cart-banner.png
   alt: Inverted Cart Pendulum Banner
 category: Control Theory
 published: true
@@ -379,7 +379,7 @@ sys = ss(Ac, Bc*Nbar, Cc, Dc)
 y, _, _, _ = lsim(sys, r, t)
 ```
 
-![Precompensated CL Angle](/public/precompensated-cl-step-response-2.png)
+![Precompensated CL Angle](/precompensated-cl-step-response-2.png)
 
 ```julia
 plot(t, y2[1, :],
@@ -390,7 +390,7 @@ plot(t, y2[1, :],
   legend = false)
 ```
 
-![Precompensated CL Position](/public/precompensated-cl-step-response.png)
+![Precompensated CL Position](/precompensated-cl-step-response.png)
 
 ```julia
 plot(t, y2[2, :],
@@ -492,7 +492,7 @@ sys = ss(Aca, Br, Cca, D)
 y, _, _, _ = lsim(sys, r, t)
 ```
 
-![Integral Action CL Position](/public/ia-cl-step-response-2.png)
+![Integral Action CL Position](/ia-cl-step-response-2.png)
 
 ```julia
 plot(t, y[1, :],
@@ -503,7 +503,7 @@ plot(t, y[1, :],
   legend = false)
 ```
 
-![Integral Action CL Angle](/public/ia-cl-step-response.png)
+![Integral Action CL Angle](/ia-cl-step-response.png)
 
 ```julia
 plot(t, y[2, :],
@@ -673,7 +673,7 @@ sys = ss(Af - Bf*Kf, Bfr, Cf, Df);
 y, _, _, _ = lsim(sys, r, t)
 ```
 
-![Integral Action CL w/ L Observer Position](/public/observer-cl-step-response.png)
+![Integral Action CL w/ L Observer Position](/observer-cl-step-response.png)
 
 ```julia
 plot(t, y4[1, :],
@@ -684,7 +684,7 @@ plot(t, y4[1, :],
   legend = false)
 ```
 
-![Integral Action CL w/ L Observer Angle](/public/observer-cl-step-response-2.png)
+![Integral Action CL w/ L Observer Angle](/observer-cl-step-response-2.png)
 
 ```julia
 plot(t, y4[2, :],
