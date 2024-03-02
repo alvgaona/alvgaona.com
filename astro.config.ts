@@ -2,6 +2,8 @@ import mdx from '@astrojs/mdx';
 import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
 import { defineConfig } from 'astro/config';
+import rehypeKatex from 'rehype-katex';
+import remarkMath from 'remark-math';
 
 import vercel from '@astrojs/vercel/static';
 
@@ -14,6 +16,9 @@ export default defineConfig({
       applyBaseStyles: false,
     }),
     react(),
-    mdx(),
+    mdx({
+      rehypePlugins: [rehypeKatex],
+      remarkPlugins: [remarkMath],
+    }),
   ],
 });

@@ -18,8 +18,43 @@ const config = {
       },
     },
     extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            p: {
+              '&>code': {
+                fontWeight: 300,
+                color: 'rgba(255,255,255,0.9)',
+                backgroundColor: '#252A2E',
+                padding: '0.125rem',
+                '&::before': {
+                  content: 'none',
+                },
+                '&::after': {
+                  content: 'none',
+                },
+              },
+            },
+            blockquote: {
+              border: 0,
+              padding: '0.125rem 1rem',
+              borderRadius: '0.875rem',
+              background: '#24292F',
+              '&>p': {
+                color: 'rgba(255,255,255,0.9)',
+                opacity: '60',
+                fontStyle: 'normal',
+                fontWeight: '300',
+                '&::before': {
+                  content: 'none',
+                },
+              },
+            },
+          },
+        },
+      },
       fontFamily: {
-        mplus: ['var(--font-mplus)', 'Verdana', 'sans-serif'],
+        mplus: ['var(--font-dm-sans)', 'Verdana', 'sans-serif'],
       },
       colors: {
         'strafe-dark': '#161618',

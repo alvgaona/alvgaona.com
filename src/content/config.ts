@@ -6,7 +6,6 @@ const postsCollection = defineCollection({
     title: z.string(),
     pubDate: z.date(),
     description: z.string(),
-    author: z.string(),
     image: z
       .object({
         url: z.string(),
@@ -14,6 +13,7 @@ const postsCollection = defineCollection({
       })
       .optional(),
     category: z.string(),
+    published: z.boolean(),
   }),
 });
 
