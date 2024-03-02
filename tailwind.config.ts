@@ -18,6 +18,27 @@ const config = {
       },
     },
     extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            blockquote: {
+              border: 0,
+              padding: '0.125rem 1rem',
+              borderRadius: '0.875rem',
+              background: '#24292F',
+              '&>p': {
+                color: 'rgba(255,255,255,0.9)',
+                opacity: '60',
+                fontStyle: 'normal',
+                fontWeight: '300',
+                '&::before': {
+                  content: 'none',
+                },
+              },
+            },
+          },
+        },
+      },
       fontFamily: {
         mplus: ['var(--font-dm-sans)', 'Verdana', 'sans-serif'],
       },
