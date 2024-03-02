@@ -1,0 +1,42 @@
+---
+title: Segmenting Heart Signals with Deep Learning
+pubDate: 1991-10-01
+description: Heart sounds segmentation
+image:
+  url: https://github.com/alvgaona/heart-sounds-segmentation/raw/matlab/images/labelled-pcg.png
+  alt: Labeled PCG
+category: research
+published: false
+---
+
+<h5 class="mb-3 text-sm">{frontmatter.description}</h5>
+
+# {frontmatter.title}
+
+tl;dr
+
+One of my real experiences in the field of AI was processing biological signals with deep learning.
+I met Dr. Pedro Arini, a researcher in the field of biomedical engineering and a great professor,
+who introduced me to the problem of phonocardiogram (PCG) segmentation.
+In this blog post, I will try to explain what this is about and all the possible details about
+the approach I developed.
+
+## The Phonocardiogram
+
+Almost everyone has heard the sound the heart makes when it pumps blood through our entire body, right?
+Well, this sound is very unique as we can hear two beats, and in between, we hear "nothing".
+
+The first beat is called $S_1$ and the second beat is called $S_2$, and the time between $S_1$ and $S_2$ is called
+_systole interval_ and the time between $S_2$ and the next $S_1$ is called _diastole interval_.
+This is important as it'll be useful when we process the signals.
+
+Then, if we record the sound and plot it in a graph that is called a _phonocardiogram_.
+
+## A Little History
+
+The idea of heart sound segmentation dates back to 1997 where H. Liang _et al._ used a deterministic
+algorithm based on the normalized Shannon energy of a PCG signal achieiving a 93% correct ratio.
+
+$$
+x = 2
+$$

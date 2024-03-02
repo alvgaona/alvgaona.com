@@ -1,15 +1,22 @@
+---
+import { Button } from '@/components/ui/button';
+---
+
 <div class="my-24 flex flex-col items-center justify-center">
-  <h1 class="text-center font-mplus text-2xl font-bold">
+  <h1 class="font-dm-sans text-center text-2xl font-bold">
     I'm building something amazing! Please excuse the dust as I work on the
     finishing touches.
   </h1>
   <p class="text-md border-b-1 mt-4 border-solid px-4 pb-4">
     I can't wait to share it with you soon. Stay tuned!
   </p>
-  <a
-    href="/"
-    class="rounded-lg bg-teal-500 p-4 font-mplus font-normal leading-5 text-white outline-none transition-colors duration-500 hover:bg-teal-600"
-  >
-    Take me home
+  <a href="/" class="flex items-center justify-center">
+    <Button
+      className="rounded-md !bg-red-500/0 !border-red-500 shadow shadow-red-500 text-md active:shadow-none"
+      variant="outline"
+      size="lg"
+    >
+      Take me home
+    </Button>
   </a>
 </div>

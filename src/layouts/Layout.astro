@@ -1,13 +1,16 @@
 ---
 import '@/styles/globals.css';
 
-import '@fontsource/m-plus-rounded-1c';
+import '@fontsource-variable/dm-sans';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import AnimatedLayout from '@/components/AnimatedLayout';
+import { Toaster } from '@/components/ui/sonner';
+
+const { pageTitle } = Astro.props;
 
 const metadata = {
-  title: 'alvgaona',
+  title: pageTitle ?? 'alvgaona',
   description: 'Personal website',
   author: '@alvgaona',
   url: 'https://alvgaona.com',
@@ -30,19 +33,36 @@ const metadata = {
     <meta property="twitter:creator" content={metadata.author} />
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/png" href="/favicon.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css"
+      integrity="sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <title>{metadata.title}</title>
     <script is:inline src="/toggle-theme.js"></script>
   </head>
-  <body class="bg-snow dark:bg-dark-void dark:text-snow text-dark-void">
+  <body class="bg-white dark:bg-strafe-dark dark:text-white">
     <Header />
-    <AnimatedLayout client:load>
-      <main class="pt-[56px]">
-        <article class="mx-auto max-w-2xl px-8">
-          <slot />
-        </article>
-      </main>
-    </AnimatedLayout>
-    <Footer />
+    <div class="grid h-full">
+      <AnimatedLayout client:load>
+        <slot />
+        <Toaster
+          client:load
+          toastOptions={{
+            unstyled: true,
+            className:
+              'border-2 dark:border-zinc-700 border-zinc-300 shadow dark:shadow-zinc-700 shadow-zinc-300 rounded-md',
+            classNames: {
+              toast: 'dark:bg-strafe-dark bg-white',
+              title: 'text-red-400 text-xs pr-24 py-3 pl-4 w-full',
+            },
+          }}
+        />
+      </AnimatedLayout>
+      <Footer />
+    </div>
   </body>
 </html>
 
@@ -50,13 +70,13 @@ const metadata = {
   :root {
     --system-ui: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
       'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-    --font-mplus: 'M PLUS Rounded 1c';
+    --font-dm-sans: 'DM Sans Variable';
   }
 
   html,
   body {
     font-family: var(--system-ui);
-    height: 100%;
+    height: 100svh;
   }
 
   body {

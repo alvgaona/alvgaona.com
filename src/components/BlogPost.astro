@@ -1,0 +1,32 @@
+---
+import { AspectRatio } from '@/components/ui/aspect-ratio';
+const { slug, frontmatter } = Astro.props;
+---
+
+<a href={`/posts/${slug}/`}>
+  <div class="flex w-[400px] flex-col gap-4 rounded-md">
+    <AspectRatio ratio={16 / 9}>
+      <img
+        src={frontmatter.image.url}
+        alt={frontmatter.image.alt}
+        class="h-full w-full rounded-md object-cover"
+      />
+    </AspectRatio>
+    <div class="flex flex-col gap-1">
+      <div class="flex justify-between text-sm">
+        {frontmatter.description}
+        <span class="font-thin"
+          >Published on {
+            frontmatter.pubDate.toLocaleString('default', {
+              month: 'long',
+              year: 'numeric',
+              day: 'numeric',
+            })
+          }</span
+        >
+      </div>
+      <span class="font-dm-sans text-lg font-semibold">{frontmatter.title}</span
+      >
+    </div>
+  </div>
+</a>

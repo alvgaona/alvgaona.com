@@ -1,8 +1,44 @@
 ---
-import Layout from '@/layouts/Layout.astro';
-import ComingSoon from '@/components/ComingSoon.astro';
+import MainLayout from '@/layouts/MainLayout.astro';
+import { Separator } from '@/components/ui/separator';
+import BlogPost from '@/components/BlogPost.astro';
+import BlogPostItem from '@/components/BlogPostItem.astro';
+import { getCollection } from 'astro:content';
+import ThemeToggleButton from '@/components/ThemeToggleButton.astro';
+
+const pageTitle = 'My Astro Learning Blog';
+const allPosts = (await getCollection('posts')).filter(
+  (post) => post.data.published,
+);
+
+allPosts.sort((a, b) => b.data.pubDate - a.data.pubDate);
 ---
 
-<Layout>
-  <ComingSoon />
-</Layout>
+<MainLayout title="Posts | alvgaona" className="max-w-4xl">
+  <div class="mt-4 flex flex-col gap-12">
+    <div class="flex items-center justify-between">
+      <span class="text-[24px]">Posts</span>
+      <ThemeToggleButton />
+    </div>
+    <div class="flex flex-wrap justify-between gap-4">
+      {
+        allPosts
+          .slice(0, 4)
+          .map((post) => <BlogPost slug={post.slug} frontmatter={post.data} />)
+      }
+    </div>
+    {
+      allPosts.length > 4 && (
+        <div class="flex flex-col gap-2">
+          <span class="text-sm">More Posts</span>
+          <Separator />
+          <ul>
+            {allPosts.slice(4, allPosts.length).map((post) => (
+              <BlogPostItem slug={post.slug} frontmatter={post.data} />
+            ))}
+          </ul>
+        </div>
+      )
+    }
+  </div>
+</MainLayout>

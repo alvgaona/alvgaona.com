@@ -1,0 +1,40 @@
+---
+import Layout from './Layout.astro';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
+import ThemeToggleButton from '@/components/ThemeToggleButton.astro';
+import { ChevronLeft } from 'lucide-react';
+
+const { frontmatter } = Astro.props;
+---
+
+<Layout pageTitle={`Blog | ${frontmatter.title}`}>
+  <main class="mx-auto max-w-4xl pb-12 pt-[56px]">
+    <div class="mt-4 flex items-center justify-between">
+      <a href="/posts" class="flex items-center text-[16px]"
+        ><ChevronLeft className="h-4 w-4" /> Posts</a
+      >
+      <span class="text-[14px] font-thin">
+        Published on
+        {
+          frontmatter.pubDate.toLocaleString('default', {
+            month: 'long',
+            year: 'numeric',
+            day: 'numeric',
+          })
+        }
+      </span>
+      <ThemeToggleButton />
+    </div>
+    <AspectRatio ratio={16 / 9} className="mt-6">
+      <img
+        src={frontmatter.image.url}
+        alt={frontmatter.image.atl}
+        class="h-full w-full rounded-md object-cover"
+      />
+    </AspectRatio>
+    <article class="mx-auto max-w-2xl px-8">
+      <slot />
+      <article></article>
+    </article>
+  </main>
+</Layout>

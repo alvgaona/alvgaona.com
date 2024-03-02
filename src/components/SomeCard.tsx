@@ -22,15 +22,15 @@ const SomeCard = (props: Props) => (
     <HoverCardTrigger asChild className="!delay-0">
       <a
         href={props.href}
-        className="underline decoration-liquid-lava underline-offset-4 hover:animate-pulse"
+        className="underline decoration-[#E76346] underline-offset-4 hover:animate-pulse"
       >
         {props.text}
       </a>
     </HoverCardTrigger>
-    <HoverCardContent className="w-80 rounded-lg dark:!bg-slate-gray">
-      <div className="flex justify-evenly space-x-4 dark:bg-slate-gray">
+    <HoverCardContent className="dark:!bg-slate-gray w-80 rounded-lg">
+      <div className="dark:bg-slate-gray flex justify-evenly space-x-4">
         <Avatar>
-          <AvatarImage src={props.avatar} className="bg-dark-void p-1" />
+          <AvatarImage src={props.avatar} />
           <AvatarFallback>{props.fallback}</AvatarFallback>
         </Avatar>
         <div className="space-y-1">
