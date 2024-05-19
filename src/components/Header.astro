@@ -5,42 +5,20 @@ import black_logo from '@/assets/alvgaona-logo-black-transparent.png';
 ---
 
 <header class="fixed z-10 w-full shadow-md backdrop-blur-md">
-  <div class="mx-auto max-w-2xl">
-    <nav class="flex items-center justify-center px-6 text-base">
-      <div class="flex h-12 flex-row items-center">
-        <ul class="flex h-full flex-row items-center justify-evenly gap-4">
-          <li
-            class="font-dm-sans decoration-[#E76346] decoration-2 hover:underline hover:underline-offset-4"
-          >
-            <a href="/">About</a>
-          </li>
-          <li
-            class="font-dm-sans decoration-[#E76346] decoration-2 hover:underline hover:underline-offset-4"
-          >
-            <a href="/publications">Publications</a>
-          </li>
-          <li
-            class="font-dm-sans decoration-[#E76346] decoration-2 hover:underline hover:underline-offset-4"
-          >
-            <a href="/posts">Posts</a>
-          </li>
-          <li
-            class="font-dm-sans decoration-[#E76346] decoration-2 hover:underline hover:underline-offset-4"
-          >
-            <a href="https://resume.alvgaona.com">Resume</a>
-          </li>
-          <li
-            class="font-dm-sans decoration-[#E76346] decoration-2 hover:underline hover:underline-offset-4"
-          >
-            <div class="flex flex-row items-center justify-evenly">
-              <img src={github.src} alt="github" width="18" height="18" />
-              <a class="ml-1" href="https://github.com/alvgaona/alvgaona.com">
-                Source
-              </a>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </div>
+  <nav class="flex items-center justify-end px-6 text-base">
+    <div class="flex h-12 flex-row items-center">
+      <ul class="flex h-full flex-row items-center justify-evenly gap-4">
+        <li
+          class="font-dm-sans decoration-[#E76346] decoration-2 hover:underline hover:underline-offset-4"
+        >
+          <div class="flex flex-row items-center justify-evenly">
+            <img src={github.src} alt="github" width="18" height="18" />
+            <a class="ml-1" href="https://github.com/alvgaona/alvgaona.com">
+              Source
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
 </header>
