@@ -9,8 +9,7 @@ category: Control Theory
 published: true
 ---
 
-<h5 class="mb-3 text-sm">{frontmatter.description}</h5>
-# {frontmatter.title}
+<h5 class="mb-3 text-sm">{frontmatter.description}</h5># {frontmatter.title}
 
 The system in this example consists of an inverted pendulum mounted to a motorized cart. The inverted pendulum system is an example commonly found in control system textbooks and research literature. Its popularity derives in part from the fact that it is unstable without control, that is, the pendulum will simply fall over if the cart isn't moved to balance it. Additionally, the dynamics of the system are nonlinear. The objective of the control system is to balance the inverted pendulum by applying a force to the cart that the pendulum is attached to. A real-world example that relates directly to this inverted pendulum system is the attitude control of a booster rocket at takeoff.
 
@@ -212,9 +211,9 @@ d = I*(M+m) + M*m*l^2
 
 A= [
 	0 1 0 0;
-  0 -(I+m*l^2)*b/d m^2*g*l^2/d 0;
-  0 0 0 1;
-  0 -m*l*b/d m*g*l*(M+m)/d 0
+	0 -(I+m*l^2)*b/d m^2*g*l^2/d 0;
+	0 0 0 1;
+	0 -m*l*b/d m*g*l*(M+m)/d 0
 ];
 
 B = [0; (I+m*l^2)/d; 0; m*l/d];

@@ -4,28 +4,53 @@ import { ArrowRightIcon } from '@heroicons/react/24/solid';
 export interface Props {
   title: string;
   reference: string;
-  href: string;
+  article?: string;
+  video?: string;
+  poster?: string;
 }
 
 ArrowRightIcon;
 
-const { title, reference, href } = Astro.props;
+const { title, reference, article, video, poster } = Astro.props;
 ---
 
 <div class="flex flex-col">
-  <p
-    id="hss"
-    class="text-b-gray-200 font-dm-sans inline text-2xl font-semibold"
-  >
+  <p id="hss" class="text-b-gray-200 font-dm-sans inline text-xl font-medium">
     {title}
   </p>
   <p class="text-justify">{reference}</p>
-  <a
-    href={href}
-    class="transform pt-4 underline decoration-[#E76346] decoration-2 underline-offset-4 transition duration-200 hover:translate-x-1"
-  >
-    <span class="flex items-center gap-1">
-      <ArrowRightIcon className="h-4 w-6" /> Go to
-    </span>
-  </a>
+  <div class="flex items-center gap-3">
+    {
+      article && (
+        <a
+          href={article}
+          class="transform pt-4 underline decoration-[#E76346] decoration-2 underline-offset-4 transition duration-200 hover:-translate-y-1"
+        >
+          <span class="flex items-center gap-1"> Article</span>
+        </a>
+      )
+    }
+
+    {
+      poster && (
+        <a
+          href={poster}
+          class="transform pt-4 underline decoration-[#E76346] decoration-2 underline-offset-4 transition duration-200 hover:-translate-y-1"
+        >
+          <span class="flex items-center gap-1"> Poster</span>
+        </a>
+      )
+    }
+
+    {
+      video && (
+        <a
+          href={video}
+          class="transform pt-4 underline decoration-[#E76346] decoration-2 underline-offset-4 transition duration-200 hover:-translate-y-1"
+        >
+          <span class="flex items-center gap-1"> Video</span>
+        </a>
+      )
+    }
+  </div>
 </div>
