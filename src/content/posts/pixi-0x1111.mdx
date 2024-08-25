@@ -1,0 +1,57 @@
+---
+title: My thoughts on Pixi
+pubDate: 2024-08-25
+tags: ['programming', 'python', 'c/c++']
+published: false
+---
+
+import { Info, Tags } from 'lucide-react';
+
+# {frontmatter.title}
+
+<div class="flex items-center gap-2">
+  <div class="flex items-center gap-1">
+    <Tags size={16} />
+    <div class="flex items-center gap-2">
+      {frontmatter.tags.map((t) => (
+        <a href="">
+          <span># {t}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</div>
+
+tl;dr
+
+My experience with Pixi has began not long ago.
+During my time at the Laboratory of Artificial Intelligence and Robotics (LINAR) as part of the research team,
+a very good friend of mine had told me about RoboStack when we were having trouble installing ROS distributions
+on our personal machines and in our cluster of servers with GPU support.
+A couple years ago it was extremely daunting to install ROS in any of the supported operating systems;
+in particular, Ubuntu distributions were the mainly supported OS at the time and it still remains that way.
+Ubuntu is probably the first distribution that you mostly everyone will install on their very first days of using a Linux distribution,
+and I think it's the right way to go, it's easy to set up and the UX/UI is good enough.
+However, as you start becoming a more advanced user you will see that it has many limitations.
+I believe the most annoying "feature" of Ubuntu is that its dependencies get old, and many of them are fixed to the
+Ubuntu distribution.
+This is the case for Python and ROS, and two technologies came to help us here: RoboStack, and pyenv.
+
+## RoboStack
+
+Open Robotics created this project called RoboStack to bundle ROS packages and make it available on multiple platforms:
+
+1. Linux
+2. Mac
+3. Windows
+
+It's backed by Conda and all the features this package manager provides.
+I have to recognize the hard work that's been put into Conda, it's paved the way for the better package managers, but
+it was a too slow for me, and buggy at the time.
+It's possible the team has improved the performance and solved many bugs but I haven't come back to using conda directly.
+To me it was no surprise RoboStack leveraged `conda` to install another package manager called `mamba`.
+This cross-platform package manager is the one that is used to install any ROS distribution in any OS.
+This was mind blowing to me when we tested this in the laboratory, we could have the latest ROS distribution
+on Ubuntu 2021 for instance, and even so, multiple ROS distributions on the same machine.
+This was possible as there is this concept of isolated environments that you could activate and deactivate.
+This feature is nowadays extremely useful for people in other fields such as signal processing, data science, and so on.

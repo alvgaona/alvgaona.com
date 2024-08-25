@@ -21,4 +21,10 @@ export default defineConfig({
       remarkPlugins: [remarkMath],
     }),
   ],
+  markdown: {
+    syntaxHighlight: 'shiki',
+    shikiConfig: {
+      theme: 'vitesse-dark',
+    },
+  },
 });

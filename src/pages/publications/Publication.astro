@@ -15,8 +15,8 @@ const { title, reference, article, video, poster } = Astro.props;
 ---
 
 <div class="flex flex-col">
-  <p id="hss" class="text-b-gray-200 font-dm-sans inline text-xl font-medium">
-    {title}
+  <p id="hss" class="text-b-gray-200 text-md inline font-bold italic">
+    &bdquo;{title}&ldquo;
   </p>
   <p class="text-justify">{reference}</p>
   <div class="flex items-center gap-3">
@@ -24,7 +24,7 @@ const { title, reference, article, video, poster } = Astro.props;
       article && (
         <a
           href={article}
-          class="transform pt-4 underline decoration-[#E76346] decoration-2 underline-offset-4 transition duration-200 hover:-translate-y-1"
+          class="transform pt-4 underline decoration-[#FFC799] decoration-2 underline-offset-4 transition duration-200 hover:-translate-y-1"
         >
           <span class="flex items-center gap-1"> Article</span>
         </a>
@@ -35,7 +35,7 @@ const { title, reference, article, video, poster } = Astro.props;
       poster && (
         <a
           href={poster}
-          class="transform pt-4 underline decoration-[#E76346] decoration-2 underline-offset-4 transition duration-200 hover:-translate-y-1"
+          class="transform pt-4 underline decoration-[#FFC799] decoration-2 underline-offset-4 transition duration-200 hover:-translate-y-1"
         >
           <span class="flex items-center gap-1"> Poster</span>
         </a>
@@ -46,7 +46,7 @@ const { title, reference, article, video, poster } = Astro.props;
       video && (
         <a
           href={video}
-          class="transform pt-4 underline decoration-[#E76346] decoration-2 underline-offset-4 transition duration-200 hover:-translate-y-1"
+          class="transform pt-4 underline decoration-[#FFC799] decoration-2 underline-offset-4 transition duration-200 hover:-translate-y-1"
         >
           <span class="flex items-center gap-1"> Video</span>
         </a>

@@ -10,7 +10,10 @@ const {
 
 <Layout pageTitle={title}>
   <main
-    class={cn('pt-[56px] mx-auto max-w-2xl px-8 pb-12 relative', className)}
+    class={cn(
+      'pt-[56px] mx-auto max-w-2xl px-8 pb-12 relative font-cmono text-gray-200',
+      className,
+    )}
   >
     <slot />
   </main>

@@ -22,7 +22,7 @@ const SomeCard = (props: Props) => (
     <HoverCardTrigger asChild className="!delay-0">
       <a
         href={props.href}
-        className="underline decoration-[#E76346] underline-offset-4 hover:animate-pulse"
+        className="underline decoration-[#FFC799] underline-offset-4 hover:animate-pulse"
       >
         {props.text}
       </a>

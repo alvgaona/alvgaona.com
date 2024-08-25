@@ -1,19 +1,26 @@
 ---
 title: Balancio
 pubDate: 1991-10-01
-description: A self-balancing robot
-image:
-  url: https://pub-f074cead5eaf408790b463b05f6e8b32.r2.dev/balancio-banner.jpg
-  alt: A sample photo
-category: Robotics
-published: false
+tags: ['robotics', 'hardware']
 ---
 
 import Video from '@/components/Video';
-
-<h5 class="mb-3 text-sm">{frontmatter.description}</h5>
+import { Info, Tags } from 'lucide-react';
 
 # {frontmatter.title}
+
+<div class="flex items-center gap-2">
+  <div class="flex items-center gap-1">
+    <Tags size={16} />
+    <div class="flex items-center gap-2">
+      {frontmatter.tags.map((t) => (
+        <a href="">
+          <span># {t}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</div>
 
 <Video
   client:load

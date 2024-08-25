@@ -1,7 +1,6 @@
 ---
 import '@/styles/globals.css';
 
-import '@fontsource-variable/dm-sans';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import AnimatedLayout from '@/components/AnimatedLayout';
@@ -43,8 +42,8 @@ const metadata = {
     <title>{metadata.title}</title>
     <script is:inline src="/toggle-theme.js"></script>
   </head>
-  <body class="bg-white dark:bg-strafe-dark dark:text-white">
-    <Header />
+  <body class="bg-white font-cmono dark:bg-vesper-dark dark:text-white">
+    <!-- <Header /> -->
     <div class="grid h-full">
       <AnimatedLayout client:load>
         <slot />
@@ -53,10 +52,10 @@ const metadata = {
           toastOptions={{
             unstyled: true,
             className:
-              'border-2 dark:border-zinc-700 border-zinc-300 shadow dark:shadow-zinc-700 shadow-zinc-300 rounded-md',
+              'border-2 dark:border-vesper-gold border-vesper-gold shadow dark:shadow-vesper-gold shadow-vesper-hold rounded-md',
             classNames: {
-              toast: 'dark:bg-strafe-dark bg-white',
-              title: 'text-red-400 text-xs pr-24 py-3 pl-4 w-full',
+              toast: 'dark:bg-vesper-dark',
+              title: 'text-xs pr-24 py-3 pl-4 w-full',
             },
           }}
         />
@@ -70,7 +69,7 @@ const metadata = {
   :root {
     --system-ui: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
       'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-    --font-dm-sans: 'DM Sans Variable';
+    --font-commit-mono: 'CommitMono';
   }
 
   html,
@@ -81,9 +80,41 @@ const metadata = {
 
   body {
     font-weight: 300;
-    font-size: 1rem;
+    font-size: 0.875rem;
     line-height: 1.5rem;
     text-decoration: none;
     text-transform: none;
+  }
+
+  @font-face {
+    font-family: 'CommitMono';
+    src: url('/fonts/CommitMono-400-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'CommitMono';
+    src: url('/fonts/CommitMono-400-Italic.otf') format('opentype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'CommitMono';
+    src: url('/fonts/CommitMono-700-Regular.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'CommitMono';
+    src: url('/fonts/CommitMono-700-Italic.otf') format('opentype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
   }
 </style>

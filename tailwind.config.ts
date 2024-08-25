@@ -1,6 +1,8 @@
 import daisyui from 'daisyui';
 import type { Config } from 'tailwindcss';
 
+import defaultTheme from 'tailwindcss/defaultTheme';
+
 const config = {
   darkMode: ['class'],
   content: [
@@ -22,30 +24,21 @@ const config = {
       typography: {
         DEFAULT: {
           css: {
-            p: {
-              '&>code': {
-                fontWeight: 300,
-                color: 'rgba(255,255,255,0.9)',
-                backgroundColor: '#252A2E',
-                padding: '0.125rem',
-                '&::before': {
-                  content: 'none',
-                },
-                '&::after': {
-                  content: 'none',
-                },
-              },
+            fontSize: '0.875rem',
+            h1: {
+              margin: 0,
             },
             blockquote: {
-              border: 0,
-              padding: '0.125rem 1rem',
+              padding: '1rem 1rem',
               borderRadius: '0.875rem',
-              background: '#24292F',
+              background: '#121212',
+              borderColor: '#92f3d9',
               '&>p': {
                 color: 'rgba(255,255,255,0.9)',
                 opacity: '60',
                 fontStyle: 'normal',
                 fontWeight: '300',
+                margin: 0,
                 '&::before': {
                   content: 'none',
                 },
@@ -55,11 +48,12 @@ const config = {
         },
       },
       fontFamily: {
-        mplus: ['var(--font-dm-sans)', 'Verdana', 'sans-serif'],
+        cmono: ['var(--font-commit-mono)', ...defaultTheme.fontFamily.mono],
       },
       colors: {
-        'strafe-dark': '#161618',
-        'strafe-light': '#EFE7DD',
+        'vesper-dark': '#101010',
+        'vesper-gold': '#FFC799',
+        'vesper-sky': '#92f3d9',
       },
       borderRadius: {
         lg: 'var(--radius)',

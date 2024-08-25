@@ -3,8 +3,6 @@ import MainLayout from '@/layouts/MainLayout.astro';
 import avatar from '@/assets/avatar.jpg';
 import Publication from './publications/Publication.astro';
 
-import { Dot } from 'lucide-react';
-import BlogPost from '@/components/BlogPost.astro';
 import BlogPostItem from '@/components/BlogPostItem.astro';
 import { getCollection } from 'astro:content';
 
@@ -15,17 +13,23 @@ const allPosts = (await getCollection('posts')).filter(
 allPosts.sort((a, b) => b.data.pubDate - a.data.pubDate);
 ---
 
-<MainLayout title="Alvaro Gaona" className="max-w-4xl">
+<MainLayout
+  title="Home • Alvaro Gaona"
+  className="flex flex-col max-w-4xl gap-10"
+>
   <section class="flex flex-col items-start gap-6">
-    <div class="mt-6 flex w-full flex-row items-center justify-around">
-      <div class="flex flex-col">
-        <span class="font-dm-sans mb-1 text-5xl font-bold">Alvaro Gaona</span>
-        <p class="flex items-center">
-          Eletronics Engineer <Dot /> Robotics Engineer <Dot /> Software Engineer
+    <div class="mb-12 ml-4 mt-6 flex items-center">
+      <div class="flex w-2/3 flex-col justify-self-start">
+        <span class="mb-1 text-2xl font-bold">ALVARO GAONA</span>
+        <span class="text-vesper-gold">---</span>
+        <p>
+          I'm Alvaro, I'm an electronics and robotics engineer. I'm into
+          software and algorithms related to autonomous systems, such as
+          control, navigation, mapping, et cetera.
         </p>
       </div>
       <img
-        class="h-32 w-auto self-end rounded-full"
+        class="ml-auto h-32 w-auto rounded-full"
         alt="avatar"
         src={avatar.src}
         width={avatar.width}
@@ -33,10 +37,23 @@ allPosts.sort((a, b) => b.data.pubDate - a.data.pubDate);
       />
     </div>
   </section>
-  <div class="divider"></div>
   <section class="ml-4 mt-8 flex flex-col items-start gap-4">
     <h1
-      class="text-2xl underline decoration-[#E76346] decoration-4 underline-offset-[6px]"
+      class="text-xl underline decoration-[#FFC799] decoration-2 underline-offset-[6px]"
+    >
+      Posts
+    </h1>
+    <ul>
+      {
+        allPosts.map((post) => (
+          <BlogPostItem slug={post.slug} frontmatter={post.data} />
+        ))
+      }
+    </ul>
+  </section>
+  <section class="ml-4 mt-8 flex flex-col items-start gap-4">
+    <h1
+      class="text-xl font-bold underline decoration-[#FFC799] decoration-2 underline-offset-[6px]"
     >
       Publications
     </h1>
@@ -51,7 +68,7 @@ allPosts.sort((a, b) => b.data.pubDate - a.data.pubDate);
       <Publication
         title="Prototyping of a multirotor UAV for precision landing under rotor failures"
         reference="A. J. Gaona, C. D. Pose, J. I. Giribet, R. Bunge, ”Prototyping of a multirotor UAV for precision landing under rotor failures”. Jornadas Argentinas de Robótica 2022 (JAR XI). Bariloche, Argentina"
-        article="https://www.researchgate.net/publication/370604067_Prototyping_of_a_multirotor_UAV_for_precision_landing_under_rotor_failures#fullTextFileContent"
+        article="https://arxiv.org/pdf/2408.01676"
         video="https://www.youtube.com/watch?v=RSMMCVYldGk"
       />
 
@@ -61,34 +78,5 @@ allPosts.sort((a, b) => b.data.pubDate - a.data.pubDate);
         article="http://elektron.fi.uba.ar/index.php/elektron/article/view/101/212"
       />
     </div>
-  </section>
-  <div class="divider"></div>
-  <section class="ml-4 mt-8 flex flex-col items-start gap-4">
-    <h1
-      class="text-2xl underline decoration-[#E76346] decoration-4 underline-offset-[6px]"
-    >
-      Posts
-    </h1>
-    <div class="flex flex-col gap-4"></div>
-    <div class="flex flex-wrap justify-between gap-4">
-      {
-        allPosts
-          .slice(0, 4)
-          .map((post) => <BlogPost slug={post.slug} frontmatter={post.data} />)
-      }
-    </div>
-    {
-      allPosts.length > 4 && (
-        <div class="flex flex-col gap-2">
-          <span class="text-sm">More Posts</span>
-          <div class="divider" />
-          <ul>
-            {allPosts.slice(4, allPosts.length).map((post) => (
-              <BlogPostItem slug={post.slug} frontmatter={post.data} />
-            ))}
-          </ul>
-        </div>
-      )
-    }
   </section>
 </MainLayout>
