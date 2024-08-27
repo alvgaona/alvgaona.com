@@ -9,6 +9,7 @@ import vercel from '@astrojs/vercel/static';
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://alvgaona.com",
   output: 'static',
   adapter: vercel(),
   integrations: [
