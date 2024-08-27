@@ -6,31 +6,39 @@ import Footer from '@/components/Footer.astro';
 import AnimatedLayout from '@/components/AnimatedLayout';
 import { Toaster } from '@/components/ui/sonner';
 
-const { pageTitle } = Astro.props;
+const { meta } = Astro.props;
 
-const metadata = {
-  title: pageTitle ?? 'alvgaona',
-  description: 'Personal website',
-  author: '@alvgaona',
-  url: 'https://alvgaona.com',
-};
+const canonicalUrl = Astro.url.pathname;
+const socialImageUrl = meta?.ogImage ? meta.ogImage : "asd"
+
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content={metadata.description} />
+    <meta charset="utf-8" />
+    <meta name="description" content={meta.description} />
     <meta name="viewport" content="width=device-width" />
-    <meta property="og:title" content={metadata.title} />
-    <meta property="og:description" content={metadata.description} />
-    <meta property="og:url" content={metadata.url} />
-    <meta property="og:type" content="website" />
-    <meta property="twitter:card" content="summary" />
-    <meta property="twitter:title" content={metadata.title} />
-    <meta property="twitter:description" content={metadata.description} />
-    <meta property="twitter:creator" content={metadata.author} />
     <meta name="generator" content={Astro.generator} />
+    <meta property="og:title" content={meta.title} />
+    <meta property="og:description" content={meta.description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalUrl} />
+    <meta property="twitter:title" content={meta.title} />
+    <meta property="twitter:description" content={meta.description} />
+    <meta property="twitter:image" content={socialImageUrl} />
+
+    <title>{meta.title}</title>
+
+    <!-- RSS auto-discovery -->
+    <link rel="alternate" type="application/rss+xml" title={meta.title} href="/rss.xml" />
+
+    <script is:inline src="/toggle-theme.js"></script>
+
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link
       rel="stylesheet"
@@ -39,8 +47,6 @@ const metadata = {
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <title>{metadata.title}</title>
-    <script is:inline src="/toggle-theme.js"></script>
   </head>
   <body class="bg-white font-cmono dark:bg-vesper-dark dark:text-white">
     <!-- <Header /> -->

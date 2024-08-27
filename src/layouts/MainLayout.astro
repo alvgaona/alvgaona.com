@@ -5,10 +5,11 @@ import { cn } from '@/lib/utils';
 const {
   className = 'max-w-2xl',
   title,
-}: { className?: string; title: string } = Astro.props;
+  description,
+} = Astro.props;
 ---
 
-<Layout pageTitle={title}>
+<Layout meta={{title, description }}>
   <main
     class={cn(
       'pt-[56px] mx-auto max-w-2xl px-8 pb-12 relative font-cmono text-gray-200',
