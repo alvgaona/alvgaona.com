@@ -10,7 +10,10 @@ const { meta } = Astro.props;
 
 const siteTitle = `${meta.title} • Alvaro Gaona`;
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
-const socialImageUrl = new URL(meta?.ogImage ? meta.ogImage : '/social-card.jpg', Astro.url).href;
+const socialImageUrl = new URL(
+  meta?.ogImage ? meta.ogImage : '/social-card.jpg',
+  Astro.url,
+).href;
 ---
 
 <!DOCTYPE html>
