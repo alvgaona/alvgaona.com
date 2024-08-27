@@ -28,6 +28,9 @@ const config = {
             h1: {
               margin: 0,
             },
+            video: {
+              margin: 0,
+            },
             blockquote: {
               padding: '1rem 1rem',
               borderRadius: '0.875rem',

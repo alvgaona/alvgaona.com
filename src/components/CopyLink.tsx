@@ -17,7 +17,7 @@ const CopyLink = () => {
   return (
     <Button
       onClick={onClick}
-      className="flex gap-2 rounded-md !border-[#FFC799] !bg-[#FFC799]/0 text-sm shadow shadow-[#FFC799] active:shadow-none"
+      className="flex gap-2 rounded-md !border-[#FFC799] !bg-[#FFC799]/0 text-xs shadow shadow-[#FFC799] active:shadow-none"
       variant="outline"
       size="sm"
     >
