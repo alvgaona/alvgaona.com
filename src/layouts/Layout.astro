@@ -8,9 +8,9 @@ import { Toaster } from '@/components/ui/sonner';
 
 const { meta } = Astro.props;
 
+const siteTitle = `${meta.title} • Alvaro Gaona`;
 const canonicalUrl = Astro.url.pathname;
-const socialImageUrl = meta?.ogImage ? meta.ogImage : "asd"
-
+const socialImageUrl = meta?.ogImage ? meta.ogImage : '/social-card.jpg';
 ---
 
 <!DOCTYPE html>
@@ -20,10 +20,29 @@ const socialImageUrl = meta?.ogImage ? meta.ogImage : "asd"
     <meta name="description" content={meta.description} />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+
+    <!-- Open Graph / Facebook -->
+    <meta
+      property="og:type"
+      content={meta?.articleDate ? 'article' : 'website'}
+    />
     <meta property="og:title" content={meta.title} />
     <meta property="og:description" content={meta.description} />
     <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Alvaro Gaona" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:description" content={meta.description} />
+    <meta property="og:image" content={socialImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    {
+      meta?.articleDate && (
+        <>
+          <meta property="article:author" content="Alvaro Gaona" />
+          <meta property="article:published_time" content={meta.articleDate} />
+        </>
+      )
+    }
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
@@ -32,10 +51,15 @@ const socialImageUrl = meta?.ogImage ? meta.ogImage : "asd"
     <meta property="twitter:description" content={meta.description} />
     <meta property="twitter:image" content={socialImageUrl} />
 
-    <title>{meta.title}</title>
+    <title>{siteTitle}</title>
 
     <!-- RSS auto-discovery -->
-    <link rel="alternate" type="application/rss+xml" title={meta.title} href="/rss.xml" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Alvaro Gaona"
+      href="/rss.xml"
+    />
 
     <script is:inline src="/toggle-theme.js"></script>
 

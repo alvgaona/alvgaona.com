@@ -4,7 +4,14 @@ import Layout from './Layout.astro';
 const { frontmatter } = Astro.props;
 ---
 
-<Layout meta={{title:`Blog • ${frontmatter.title}`, ogImage: frontmatter.ogImage, description: frontmatter.description}}>
+<Layout
+  meta={{
+    title: `Blog • ${frontmatter.title}`,
+    ogImage: frontmatter.ogImage,
+    description: frontmatter.description,
+    articleDate: frontmatter.pubDate.toISOString(),
+  }}
+>
   <main class="mx-auto max-w-4xl pb-12 pt-[56px]">
     <div class="mt-4 flex items-center justify-between">
       <div class="breadcrumbs text-sm">

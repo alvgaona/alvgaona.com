@@ -4,7 +4,7 @@ description: A bit of modeling and control
 pubDate: 2024-03-02
 published: true
 tags: ['julia', 'control', 'programming']
-ogImage: ""
+ogImage: ''
 ---
 
 import { Info, Tags } from 'lucide-react';
@@ -17,7 +17,7 @@ import { AspectRatio } from '@/components/ui/aspect-ratio';
     <Tags size={16} />
     <div class="flex items-center gap-2">
       {frontmatter.tags.map((t) => (
-        <a href="">
+        <a href={`/tags?value=${t}`}>
           <span># {t}</span>
         </a>
       ))}
