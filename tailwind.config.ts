@@ -24,6 +24,7 @@ const config = {
       typography: {
         DEFAULT: {
           css: {
+            color: '#f0f0f0',
             fontSize: '0.875rem',
             h1: {
               margin: 0,
