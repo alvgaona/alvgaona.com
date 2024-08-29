@@ -4,6 +4,7 @@ import '@/styles/globals.css';
 import Footer from '@/components/Footer.astro';
 import AnimatedLayout from '@/components/AnimatedLayout';
 import { Toaster } from '@/components/ui/sonner';
+import { Grain } from '@/components/Grain';
 import siteMeta from '@/site-meta';
 
 const { meta } = Astro.props;
@@ -65,7 +66,6 @@ const socialImageUrl = new URL(
     />
 
     <script is:inline src="/toggle-theme.js"></script>
-
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link
       rel="stylesheet"
@@ -76,6 +76,7 @@ const socialImageUrl = new URL(
     />
   </head>
   <body class="bg-vesper-dark font-cmono text-white">
+    <Grain />
     <div class="grid h-full">
       <AnimatedLayout client:load>
         <slot />
