@@ -5,13 +5,15 @@ import { defineConfig } from 'astro/config';
 import rehypeKatex from 'rehype-katex';
 import remarkMath from 'remark-math';
 
-import vercel from '@astrojs/vercel/static';
+import vercel from '@astrojs/vercel/serverless';
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://alvgaona.com',
-  output: 'static',
-  adapter: vercel(),
+  output: 'server',
+  adapter: vercel({
+    webAnalytics: { enabled: true },
+  }),
   integrations: [
     tailwind({
       applyBaseStyles: false,
