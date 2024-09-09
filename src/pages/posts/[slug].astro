@@ -4,17 +4,18 @@ import { CopyLink } from '@/components/CopyLink';
 import MarkdownLayout from '@/layouts/MarkdownLayout.astro';
 import Prose from '@/components/Prose.astro';
 
-export async function getStaticPaths() {
-  const blogEntries = await getCollection('posts');
-  return blogEntries
-    .filter((entry) => entry.data.published)
-    .map((entry) => ({
-      params: { slug: entry.slug },
-      props: { entry },
-    }));
+const { slug } = Astro.params;
+
+const allPosts = await getCollection('posts');
+
+const entry = allPosts.find(
+  (post) => post.slug === slug && post.data.published,
+);
+
+if (!entry) {
+  return Astro.redirect('/not-found');
 }
 
-const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 
