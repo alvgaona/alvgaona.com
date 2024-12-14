@@ -1,0 +1,780 @@
+---
+title: Zed, Pixi and ROS2
+description: A modern robotics development stack
+pubDate: 2024-11-12
+tags: ['c/c++', 'python', 'pixi', 'zed', 'ros2']
+ogImage: https://pub-9f1fe13d7d3744ac9ba1c96fb5a148d0.r2.dev/ogimage-zed-pixi-ros2.png
+published: true
+---
+
+import Video from '@/components/Video';
+import { Info, Tags } from 'lucide-react';
+
+<h5 class="mb-3 text-sm">{frontmatter.description}</h5>
+
+# {frontmatter.title}
+
+<div class="flex items-center gap-2">
+  <div class="flex items-center gap-1">
+    <Tags size={16} />
+    <div class="flex items-center gap-2">
+      {frontmatter.tags.map((t) => (
+        <a href={`/tags?value=${t}`}>
+          <span># {t}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</div>
+
+tl;dr
+
+For nearly a year now, I've been using the Zed editor as my primary development tool.
+It has dramatically boosted my productivity across both my day job and side projects.
+Along the way, I discovered Pixi, which has become my favorite package manager.
+As someone quite involved in robotics, Pixi has been transformative for my workflow,
+particularly because it makes ROS2 available out of the box with minimal setup hassle.
+The fact that it enables true cross-platform ROS2 development is revolutionary - we're
+witnessing a real paradigm shift in robotics development.
+
+I recently began working on implementing EKF Mono SLAM, a well-known algorithm in
+robotics computer vision. Though I've delayed this project for a while, I'm now
+ready to complete it. To maximize efficiency, I decided to leverage my preferred
+toolkit: Zed, Pixi, and ROS2.
+
+However, this side project is just an excuse to demonstrate using Zed, Pixi and ROS2.
+While integrating these tools wasn't trivial and took time to configure properly, the
+investment was absolutely worth it. There's still room for improved
+interoperability between them, but the current workflow is already quite powerful.
+
+<Video
+  client:load
+  ratio={16 / 9}
+  url="https://pub-9f1fe13d7d3744ac9ba1c96fb5a148d0.r2.dev/zed-pixi-ros2.webm"
+/>
+
+## Zed
+
+Let's start by setting up the Zed editor.
+While the initial configuration might take some getting used to, especially for those
+familiar with IDEs like CLion, PyCharm, or VS Code, the payoff in productivity is
+absolutely worth it.
+
+### Extensions
+
+First things first - let's get some extensions installed. Since I'll be
+juggling CMake, XML, and other config files, these will make our life so much easier.
+
+Just hit `Ctrl+Shift P` (or `Cmd+Shift P` for Mac folks)
+to pop open the command menu, then run `zed: extensions`.
+
+<blockquote class="justify-text flex items-center gap-6">
+  <div class="flex-shrink-0">
+    <Info />
+  </div>
+  Pro tip: you can also use `Ctrl+Shift X` / `Cmd+Shift X` as a shortcut to jump
+  straight to extensions.
+</blockquote>
+
+Here are the must-have extensions for our setup:
+
+- NeoCMake
+- XML
+- TOML
+
+And feel free to browse around the extension store - there are tons of cool ones
+that might catch your eye.
+
+### Settings
+
+When working with CMake projects, you'll need to deal with `CMakeLists.txt` files. By
+default, Zed doesn't know these are CMake files since they use the .txt extension. To
+fix this, I'll need to update Zed's settings.
+
+Open the command menu and search for `zed: open settings`. This will bring up a JSON
+file that's probably empty if you're new to Zed. Add these lines to tell Zed how to
+handle CMakeLists.txt files:
+
+```json
+{
+  "file_types": {
+    "CMake": ["CMakeLists.txt"]
+  }
+}
+```
+
+### LSP
+
+Zed ships with clangd to handle C/C++ completion and diagnostics. While it might not have all
+the bells and whistles of other language servers, clangd does exactly what you need it
+to do. Code completion, jumping to definitions, and catching errors all work smoothly -
+and that's what helps you write better code faster.
+
+You'll want to set up `clang-tidy` and `clang-format` to make your code look clean and
+consistent. First step is creating a `.clangd` file in your project's root folder. Let's
+look at what goes in it.
+
+```text
+CompileFlags:
+    CompilationDatabase: build
+    Compiler: clang++
+Diagnostics:
+    MissingIncludes: None
+    UnusedIncludes: None
+    ClangTidy:
+        Add: ["*"]
+        Remove: [
+            "llvmlibc-*",
+            "fuchsia-*",
+            "google-build-*",
+            "modernize-use-trailing-return-type",
+            "readability-identifier-length",
+            "readability-magic-numbers",
+            "cppcoreguidelines-avoid-magic-numbers",
+            "cppcoreguidelines-special-member-functions",
+            "hicpp-special-member-functions",
+            "misc-non-private-member-variables-in-classes",
+            "cppcoreguidelines-non-private-member-variables-in-classes",
+            "cppcoreguidelines-prefer-member-initializer",
+            "altera-unroll-loops",
+        ]
+Index:
+    Background: Build
+```
+
+Here's the deal - the `CompilationDatabase: build` tells clangd to search in the build directory
+for a file named `compile_commands.json`, generated by CMake to help
+clangd track everything in the project. Don't worry, I'll show you how to set this up -
+it's pretty crucial for getting things working smoothly. While I'm using `clang++` as
+my compiler, you can totally pick whatever compiler works for you.
+
+I ended up setting `MissingIncludes: None` and `UnusedInclude: None` because clang gets
+a bit fussy with header files. You see, some headers bundle up other headers, and clang
+likes to complain that certain types aren't being used directly. Super annoying! Give
+these settings a try yourself and you'll see what I'm talking about.
+
+For the `clang-tidy` setup, I kept things pretty straightforward. I turned on all checks
+with `Add: ["*"]`, then just filtered out the ones I don't want in my project using
+`Remove: [...]`. Nice and simple.
+
+Now, let's talk about `clang-format`. Here's the setup I like to use. Keep in mind that
+formatting preferences are pretty personal - what works for me might not work for you or
+your team. Feel free to tweak these settings to match your style.
+
+```yaml
+---
+Language: Cpp
+BasedOnStyle: Google
+ColumnLimit: 80
+BinPackArguments: false
+BinPackParameters: false
+AllowAllParametersOfDeclarationOnNextLine: true
+AllowAllArgumentsOnNextLine: true
+AlignAfterOpenBracket: BlockIndent
+NamespaceIndentation: All
+```
+
+## Pixi
+
+Alright, now that I've got Zed set up just the way I want it, let's chat about Pixi.
+If you've used modern package managers like uv or Poetry, you'll feel right at home with
+Pixi - especially if you're coming from Python. For C/C++ folks, there might be a bit
+of a learning curve, but stick with me.
+
+Getting started is super simple. Just head over to [pixi.sh](https://pixi.sh), grab the
+installer, and once installed, run:
+
+```sh
+pixi init
+```
+
+This creates two important files in your project:
+
+- `pixi.toml`
+- `.gitattributes`
+
+The star of the show here is `pixi.toml` - think of it as your project's control center.
+This is where you'll list all your project info and keep track of what packages you
+need. The cool thing about Pixi is that it plays nice with both PyPI and [conda-forge](https://conda-forge.org/).
+While I won't dive into the nitty-gritty of conda-forge right now, trust me - it's a
+game-changer for C/C++ projects.
+
+The `pixi.toml` file will look like this:
+
+```toml
+[project]
+authors = ["Your Name <your-name@email.com>"]
+channels = ["conda-forge"]
+description = "Add a short description here"
+name = "project-name"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+```
+
+You can define platform restrictions, add [conda channels](https://pixi.sh/latest/advanced/channel_priority/),
+and more metadata. Pretty easy, isn't it? In the ROS2 section I'll touch dependencies, tasks, and channels.
+
+## ROS2
+
+Alright, here comes the fun part - this is where everything comes together. I'll
+be mixing C++ ROS2 nodes with some Python magic for my launch files. Since these
+launch files are Python-based, I'll also dive into getting Python LSP working
+smoothly in Zed.
+
+First up, I need to tell ROS2 where to find its packages by tweaking our TOML file.
+There's an awesome community maintaining ROS packages in what's called
+`robostack-staging` - think of it as a treasure chest of ready-to-use ROS goodies.
+Let's add that channel to the project. Here's how my TOML looks for the EKF Mono SLAM
+project:
+
+```toml
+[project]
+name = "ekf_mono_slam"
+version = "0.1.0"
+description = "Visual Mono SLAM with 1-Point RANSAC EKF"
+authors = ["Alvaro <alvgaona@gmail.com>"]
+channels = ["conda-forge", "robostack-staging"]
+platforms = ["osx-64", "linux-64"]
+
+[tasks]
+
+[dependencies]
+```
+
+Now for the good stuff - let's grab all the packages I need. Just run this command
+and watch the magic happen:
+
+```sh
+pixi add ros-humble-desktop \
+    colcon-common-extensions \
+    ninja \
+    cmake \
+    pkg-config \
+    compilers \
+    ros-humble-ament-cmake-auto \
+    spdlog \
+    clang-format
+```
+
+By default, Pixi plays nicely with conda packages. But if you need something
+from PyPI instead, no worries. Just add `--pypi` when you're installing the package.
+For example:
+
+```sh
+pixi add numpy --pypi
+```
+
+A `pixi.lock` file will be added to your project. This is important to lock dependencies
+and make things reproducible.
+
+The `[dependencies]` section will look like this:
+
+```toml
+[dependencies]
+ros-humble-desktop = ">=0.10.0,<0.11"
+colcon-common-extensions = ">=0.3.0,<0.4"
+ninja = ">=1.12.0,<1.13"
+cmake = ">=3.28.3,<3.29"
+pkg-config = ">=0.29.2,<0.30"
+compilers = ">=1.7.0,<1.8"
+ros-humble-ament-cmake-auto = ">=1.3.7,<1.4"
+spdlog = ">=1.12.0,<1.13"
+clang-format = ">=18.1.3,<18.2"
+```
+
+<blockquote class="justify-text flex items-center gap-4">
+  <div class="flex-shrink-0">
+    <Info />
+  </div>
+  The versions may vary but you get the gist of it.
+</blockquote>
+
+### ROS package & nodes
+
+Let's set up the ROS package structure. First up, I need a solid folder layout. Here's my
+favorite way to organize everything:
+
+```text
+ekf-mono-slam/
+├── CMakeLists.txt
+├── include/
+├── launch/
+├── msg/
+├── package.xml
+├── src/
+├── srv/
+└── test/
+```
+
+It's pretty straightforward - you'll put your `.cpp` files in `src/` and headers in
+`include/`. The other folders follow ROS conventions: `launch/` for startup files, `msg/`
+and `srv/` for custom messages, and `test/` for your test files.
+
+Next up is the all-important `package.xml` - think of it as your project's ID card. Here's
+what it looks like:
+
+```xml
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>ekf_mono_slam</name>
+  <version>0.1.0</version>
+  <description>Visual Mono SLAM with 1-Point RANSAC EKF</description>
+  <maintainer email="alvgaona@gmail.com">Alvaro J. Gaona</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>std_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>geometry_msgs</depend>
+
+  <build_depend>rosidl_default_generators</build_depend>
+  <exec_depend>rosidl_default_runtime</exec_depend>
+  <member_of_group>rosidl_interface_packages</member_of_group>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+  <test_depend>ament_cmake_gtest</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
+```
+
+I'm using `ament_cmake` as my build tool and pulling in some standard ROS message types
+I'll need. To create my own custom messages - which is pretty cool - I need these three
+special lines:
+
+```xml
+<build_depend>rosidl_default_generators</build_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+```
+
+And finally, I toss in some test dependencies and tell ROS this is a CMake project with
+that export tag at the bottom. Nice and clean. 🚀
+
+### CMakeLists.txt
+
+This section is extemely important and not very straightforward. I kept several hours trying to make all work.
+So [here](https://github.com/alvgaona/ekf-mono-slam/blob/8e10233ec916a4bc4060c625eadce52fbc747ad0/src/ekf-mono-slam/CMakeLists.txt) it goes.
+
+Let's break down the CMakeLists.txt file into nice, digestible chunks. The whole thing
+might look scary at first, but I'll take it step by step.
+
+1. The project foundation
+
+This is where I set up the basics - like telling CMake what version I need and making
+sure I'm using modern C++20. The generated compile commands file helps the editor understand the
+code better as explained before.
+
+```cmake
+cmake_minimum_required(VERSION 3.8)
+project(ekf_mono_slam)
+
+if(NOT CMAKE_CXX_STANDARD)
+    set(CMAKE_CXX_STANDARD 20)
+    set(CMAKE_CXX_STANDARD_REQUIRED ON)
+endif()
+
+if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+    add_compile_options(-Wall -Wextra -Wpedantic)
+endif()
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+```
+
+2. Getting the tools ready
+
+Here I define all the packages the package needs. Think of it like making sure you have all your
+tools before starting a big project. I need ROS2 stuff, computer vision libraries,
+and some extras for logging and math. Since I'm using Pixi I won't need to have a
+system-level install of OpenCV, Eigen, and spdlog. This is all installed and managed by Pixi
+which in the old days it wasn't possible.
+
+```cmake
+find_package(ament_cmake REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(std_msgs REQUIRED)
+find_package(sensor_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(cv_bridge REQUIRED)
+find_package(image_transport REQUIRED)
+find_package(Eigen3 3.4.0 REQUIRED)
+find_package(OpenCV 4.9.0 REQUIRED)
+find_package(spdlog 1.12.0 REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
+```
+
+3. Organizing the code
+
+I sort my source files into neat little groups. Each `GLOB_RECURSE` command looks
+through its folder and grabs all the .cpp files it finds. This keeps things tidy
+and makes it easy to add new files later.
+
+```cmake
+file(GLOB_RECURSE config_src src/configuration/*.cpp)
+file(GLOB_RECURSE math_src src/math/*.cpp)
+file(GLOB_RECURSE filter_src src/filter/*.cpp)
+file(GLOB_RECURSE image_src src/image/*.cpp)
+file(GLOB_RECURSE feature_src src/feature/*.cpp)
+file(GLOB_RECURSE visual_src src/visual/*.cpp)
+```
+
+This makes it easier for anyone new to browse through a C/C++ ROS2 project.
+Here's how the folders and files are laid out:
+
+```text
+ekf-mono-slam/
+├── CMakeLists.txt
+├── include/
+│   ├── configuration/
+│   ├── ekf_node.h
+│   ├── feature/
+│   ├── feature_detector_node.h
+│   ├── file_sequence_image_node.h
+│   ├── filter/
+│   ├── image/
+│   ├── math/
+│   └── visual/
+├── launch/
+│   └── vslam.launch.py
+├── msg/
+│   ├── CovarianceMatrix.msg
+│   ├── ImageFeatureMeasurement.msg
+│   ├── ImageFeatureMeasurementArray.msg
+│   ├── ImageFeaturePrediction.msg
+│   ├── ImagePoint.msg
+│   └── State.msg
+├── package.xml
+├── src/
+│   ├── ekf_node.cpp
+│   ├── feature/
+│   ├── feature_detector_node.cpp
+│   ├── file_sequence_image_node.cpp
+│   ├── filter/
+│   ├── image/
+│   ├── math/
+│   └── visual/
+├── srv
+│   └── FeatureDetect.srv
+└── test
+    ├── resources/
+    ├── utest_feature.cpp
+    ├── utest_filter.cpp
+    ├── utest_image.cpp
+    └── utest_math.cpp
+```
+
+The node files live directly under `src/` and `include/`. All the supporting code goes
+into the other folders. This supporting code works independently of ROS - it just provides
+the core functionality that the nodes use.
+
+4. Setting up custom messages
+
+This part lets us create our own message types for ROS2. These messages help our nodes
+talk to each other. The typesupport stuff at the end helps C++ understand these custom
+messages.
+
+```cmake
+set(msg_files
+  "msg/State.msg"
+  "msg/ImagePoint.msg"
+  "msg/CovarianceMatrix.msg"
+  "msg/ImageFeatureMeasurement.msg"
+  "msg/ImageFeatureMeasurementArray.msg"
+  "msg/ImageFeaturePrediction.msg"
+)
+
+set(srv_files
+  "srv/FeatureDetect.srv"
+)
+
+rosidl_generate_interfaces(${PROJECT_NAME}
+  ${msg_files}
+  ${srv_files}
+  DEPENDENCIES
+  sensor_msgs
+  std_msgs
+)
+
+rosidl_get_typesupport_target(cpp_typesupport_target ${PROJECT_NAME} rosidl_typesupport_cpp)
+```
+
+5. Building the image node
+
+This node handles loading and managing image sequences. I tell it what source files to
+use, what libraries it needs, and where to find all its header files.
+
+```cmake
+add_executable(file_sequence_image src/file_sequence_image_node.cpp ${config_src} ${image_src})
+ament_target_dependencies(file_sequence_image PUBLIC rclcpp std_msgs sensor_msgs cv_bridge image_transport)
+target_link_libraries(file_sequence_image PUBLIC ${OpenCV_LIBRARIES} spdlog::spdlog)
+target_include_directories(file_sequence_image
+  PUBLIC
+  "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+  "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>"
+  ${OpenCV_INCLUDE_DIRS}
+)
+```
+
+6. Setting up the feature detector
+
+Same idea as the image node, but this one spots interesting landmarks in our images that
+the system can track. It needs access to OpenCV for computer vision stuff.
+
+```cmake
+add_executable(feature_detector src/feature_detector_node.cpp ${feature_src} ${visual_src})
+ament_target_dependencies(feature_detector PUBLIC rclcpp std_msgs sensor_msgs cv_bridge)
+target_link_libraries(feature_detector PUBLIC ${OpenCV_LIBRARIES} spdlog::spdlog ${cpp_typesupport_target})
+target_include_directories(feature_detector
+  PUBLIC
+  "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+  "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>"
+  ${OpenCV_INCLUDE_DIRS}
+  ${EIGEN3_INCLUDE_DIRS}
+)
+```
+
+7. Building the main EKF node
+
+This is the star player - the Extended Kalman Filter node. It needs pretty much
+everything I've defined: math libraries, computer vision, and ROS messaging.
+
+```cmake
+add_executable(ekf src/ekf_node.cpp ${filter_src} ${math_src} ${feature_src} ${visual_src})
+ament_target_dependencies(ekf PUBLIC rclcpp std_msgs sensor_msgs geometry_msgs cv_bridge image_transport)
+target_link_libraries(ekf PUBLIC ${OpenCV_LIBRARIES} spdlog::spdlog ${cpp_typesupport_target})
+target_include_directories(ekf
+  PUBLIC
+  "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+  "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>"
+  ${OpenCV_INCLUDE_DIRS}
+  ${EIGEN3_INCLUDE_DIRS}
+)
+```
+
+8. Making the package installable
+
+I tell ROS where to put my finished programs and launch files when someone installs
+my package. Pretty standard stuff.
+
+```cmake
+install(TARGETS
+  file_sequence_image
+  ekf
+  feature_detector
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+install(DIRECTORY
+  launch
+  DESTINATION share/${PROJECT_NAME}
+)
+```
+
+9. Getting ready for testing
+
+Last but not least, I need to set up my test suite. I'll grab all the test files, but skip
+the node files since I don't want to test those directly. GMock helps us write
+better tests.
+
+```cmake
+if(BUILD_TESTING)
+    set(test_src
+      "test/utest_math.cpp"
+      "test/utest_feature.cpp"
+      "test/utest_filter.cpp"
+      "test/utest_image.cpp"
+    )
+    file(GLOB_RECURSE src_for_test src/*.cpp)
+    list(FILTER src_for_test EXCLUDE REGEX "src/.*_node.cpp")
+
+    find_package(ament_cmake_gmock REQUIRED)
+
+    ament_add_gmock(slam_test ${test_src} ${src_for_test})
+    ament_target_dependencies(slam_test std_msgs OpenCV)
+    target_link_libraries(slam_test spdlog::spdlog)
+    target_include_directories(slam_test PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>
+    ${EIGEN3_INCLUDE_DIRS}
+  )
+endif()
+
+ament_package()
+```
+
+### Launch files
+
+Since the launch files use Python, I need to get Python LSP working in Zed.
+Zed uses Pyright for Python language support, and setting it up with Pixi is pretty
+straightforward. Remember that Pixi manages dependencies through conda environments,
+storing everything in a `.pixi` folder at your project's root.
+
+To point Pyright to the right Python interpreter, create a `pyrightconfig.json` file in
+your project root:
+
+```json
+{
+  "venvPath": ".pixi/envs",
+  "venv": "default"
+}
+```
+
+The `venv` setting should match your conda environment name. You can adjust this based on
+how you've configured your Pixi project.
+
+Just for the sake of completion, I'm just showing you a ROS2 launch file.
+
+```python
+from launch import LaunchDescription
+from launch_ros.actions import Node
+from launch.actions import DeclareLaunchArgument
+from launch.substitutions import LaunchConfiguration
+
+
+def generate_launch_description():
+    return LaunchDescription(
+        [
+            DeclareLaunchArgument(
+                "image_dir", default_value="./resources/desk_translation/"
+            ),
+            Node(
+                package="ekf_mono_slam",
+                executable="file_sequence_image",
+                name="file_sequence_image",
+                namespace="slam",
+                output="screen",
+                parameters=[
+                    {"image_dir": LaunchConfiguration("image_dir")},
+                ],
+                arguments=["--ros-args", "--log-level", "info"],
+            ),
+            Node(
+                package="ekf_mono_slam",
+                executable="ekf",
+                name="ekf",
+                namespace="slam",
+                output="screen",
+                arguments=["--ros-args", "--log-level", "info"],
+            ),
+            Node(
+                package="ekf_mono_slam",
+                executable="feature_detector",
+                name="feature_detector",
+                namespace="slam",
+                output="screen",
+                arguments=["--ros-args", "--log-level", "info"],
+            ),
+        ]
+    )
+```
+
+## Building & testing
+
+Building and testing ROS2 packages uses colcon, which can be a bit tricky at first. Here's a
+reliable command to build your package:
+
+```sh
+colcon build \
+  --symlink-install \
+  --event-handler \
+  console_direct+ \
+  --cmake-args \
+  -G Ninja \
+  -DPython3_EXECUTABLE=$CONDA_PREFIX/bin/python
+```
+
+And when you want to run the tests:
+
+```sh
+colcon test --ctest-args tests ekf_mono_slam && ./build/ekf_mono_slam/slam_test
+```
+
+<blockquote class="justify-text flex items-center gap-6">
+  <div class="flex-shrink-0">
+    <Info />
+  </div>
+  Note: Make sure the test executable name matches what you defined in your CMake
+  setup.
+</blockquote>
+
+Those commands are pretty lengthy to type out each time. I can make my life easier by adding
+them as Pixi tasks. I just open `pixi.toml` and add these under the `[tasks]` section:
+
+```toml
+[tasks]
+build = { cmd = [
+  "colcon",
+  "build",
+  "--symlink-install",
+  "--event-handler",
+  "console_direct+",
+  "--cmake-args",
+  "-G Ninja",
+  "-DPython3_EXECUTABLE=$CONDA_PREFIX/bin/python",
+] }
+test = { cmd = [
+  "colcon",
+  "test",
+  "--ctest-args",
+  "tests",
+  "ekf_mono_slam",
+  "&&",
+  "./build/ekf_mono_slam/slam_test",
+] }
+```
+
+Now you can build and test with a simple command:
+
+```sh
+pixi run build && pixi run test
+```
+
+## Final thoughts
+
+After experiencing this powerful trio of Zed, Pixi, and ROS2, I can't imagine going back to my old robotics
+development. Zed's speed and efficiency, paired with Pixi's seamless dependency
+management and ROS2's robust robotics framework, creates a development environment
+that's both powerful and pleasant to use.
+
+While setting up this stack requires some initial investment, the productivity gains
+are well worth it. The ability to work cross-platform with consistent environments,
+combined with modern development tools, has eliminated many of the traditional
+pain points in robotics development.
+
+A particularly exciting aspect of this setup is [Zed's remote development capabilities](https://zed.dev/blog/remote-development)
+and [AI assistance](https://zed.dev/blog/zed-ai). When working with robotic platforms,
+being able to seamlessly connect to and develop directly on robot hardware through Zed Remote
+is invaluable. The built-in AI copilot also helps tremendously with ROS2 boilerplate code and
+common robotics patterns, making development even more efficient.
+
+It's worth noting that Pixi isn't just for robotics - it's an excellent package manager
+for any C/C++ project. Through conda-forge, it provides easy access to thousands of
+pre-built libraries and tools, eliminating the traditional headaches of C/C++ dependency
+management. Whether you're building a game engine, a scientific computing application,
+or a systems tool, Pixi can dramatically simplify your build and dependency setup.
+
+While the project itself is still a work in progress, you can find enough code and
+configurations in my [EKF Mono SLAM repository](https://github.com/alvgaona/ekf-mono-slam)
+to explore and understand how this development stack works together. I encourage you to
+experiment with these tools and adapt them to your own workflow.
+
+The future of robotics development is moving toward more integrated, cross-platform
+solutions, and I believe this stack represents a significant step in that direction.
+Whether you're building SLAM systems, working on robot control, or developing new
+algorithms, this modern development environment can help you work more effectively.
+
+Feel free to reach out if you have questions or want to share your own experiences
+with this setup. Happy coding! 🤖
+
+## Related posts
+
+- [My thoughts on Pixi](https://alvgaona.com/posts/pixi-0x1111/)

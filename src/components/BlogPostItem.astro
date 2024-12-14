@@ -2,21 +2,21 @@
 const { frontmatter, slug, url } = Astro.props;
 ---
 
-<a href={`/posts/${slug}/`}>
-  <li>
-    <div class="grid grid-cols-2 gap-x-1">
-      <span class="grid-col-1">
-        {
-          frontmatter.pubDate.toLocaleString('default', {
-            month: 'short',
-            year: 'numeric',
-            day: 'numeric',
-          })
-        }
-      </span>
-      <span class="grid-col-1 underline underline-offset-4"
+<li>
+  <div class="grid grid-cols-4 gap-x-24">
+    <span class="col-span-1">
+      {
+        frontmatter.pubDate.toLocaleString('default', {
+          month: 'short',
+          year: 'numeric',
+          day: 'numeric',
+        })
+      }
+    </span>
+    <a href={`/posts/${slug}/`} class="col-span-3">
+      <span class="break-normal underline underline-offset-4"
         >{frontmatter.title}</span
       >
-    </div>
-  </li>
-</a>
+    </a>
+  </div>
+</li>
