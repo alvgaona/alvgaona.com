@@ -3,10 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --radius: 0.5rem;
+    --radius: 0.5rem;
 }
 
 * {
-  box-sizing: border-box;
-  min-width: 0;
+    box-sizing: border-box;
 }
