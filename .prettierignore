@@ -1,8 +1,0 @@
-**/node_modules/
-**/dist/
-*.md
-*.html
-*.css
-*.yaml
-*.yml
-*.mdx
