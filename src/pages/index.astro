@@ -7,10 +7,10 @@ import BlogPostItem from '@/components/BlogPostItem.astro';
 import { getCollection } from 'astro:content';
 
 const allPosts = (await getCollection('posts')).filter(
-  (post) => post.data.published,
+  post => post.data.published,
 );
 
-allPosts.sort((a, b) => b.data.pubDate - a.data.pubDate);
+allPosts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 ---
 
 <MainLayout
@@ -46,7 +46,7 @@ allPosts.sort((a, b) => b.data.pubDate - a.data.pubDate);
     </h1>
     <ul>
       {
-        allPosts.map((post) => (
+        allPosts.map(post => (
           <BlogPostItem slug={post.slug} frontmatter={post.data} />
         ))
       }
