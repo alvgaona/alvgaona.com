@@ -1,0 +1,154 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": [
+        "config:base",
+        ":dependencyDashboard",
+        ":semanticCommits",
+        ":automergeDigests",
+        ":automergeBranch",
+        "group:monorepos"
+    ],
+    "packageRules": [
+        {
+            "description": "Group Astro packages",
+            "matchPackagePatterns": [
+                "^@astrojs/"
+            ],
+            "groupName": "Astro packages",
+            "schedule": [
+                "before 6am on monday"
+            ]
+        },
+        {
+            "description": "Group Radix UI packages",
+            "matchPackagePatterns": [
+                "^@radix-ui/"
+            ],
+            "groupName": "Radix UI packages",
+            "schedule": [
+                "before 6am on monday"
+            ]
+        },
+        {
+            "description": "Group React packages",
+            "matchPackageNames": [
+                "react",
+                "react-dom",
+                "@types/react",
+                "@types/react-dom"
+            ],
+            "groupName": "React packages",
+            "schedule": [
+                "before 6am on monday"
+            ]
+        },
+        {
+            "description": "Group TypeScript packages",
+            "matchPackageNames": [
+                "typescript",
+                "@types/node",
+                "@types/bun"
+            ],
+            "groupName": "TypeScript packages",
+            "schedule": [
+                "before 6am on monday"
+            ]
+        },
+        {
+            "description": "Group Tailwind CSS packages",
+            "matchPackagePatterns": [
+                "^tailwind",
+                "^@tailwindcss/"
+            ],
+            "groupName": "Tailwind CSS packages",
+            "schedule": [
+                "before 6am on monday"
+            ]
+        },
+        {
+            "description": "Group Biome packages",
+            "matchPackagePatterns": [
+                "^@biomejs/"
+            ],
+            "groupName": "Biome packages",
+            "schedule": [
+                "before 6am on monday"
+            ]
+        },
+        {
+            "description": "Group Vercel packages",
+            "matchPackagePatterns": [
+                "^@vercel/"
+            ],
+            "groupName": "Vercel packages",
+            "schedule": [
+                "before 6am on monday"
+            ]
+        },
+        {
+            "description": "Group font packages",
+            "matchPackagePatterns": [
+                "^@fontsource"
+            ],
+            "groupName": "Font packages",
+            "schedule": [
+                "before 6am on monday"
+            ]
+        },
+        {
+            "description": "Auto-merge patch updates for stable packages",
+            "matchUpdateTypes": [
+                "patch"
+            ],
+            "matchPackagePatterns": [
+                "^@astrojs/",
+                "^@radix-ui/",
+                "^@vercel/",
+                "^@biomejs/"
+            ],
+            "automerge": true,
+            "automergeType": "branch"
+        },
+        {
+            "description": "Pin major versions for core framework packages",
+            "matchPackageNames": [
+                "astro",
+                "react",
+                "react-dom",
+                "typescript"
+            ],
+            "matchUpdateTypes": [
+                "major"
+            ],
+            "enabled": false
+        }
+    ],
+    "lockFileMaintenance": {
+        "enabled": true,
+        "schedule": [
+            "before 6am on monday"
+        ]
+    },
+    "schedule": [
+        "every weekend"
+    ],
+    "timezone": "UTC",
+    "labels": [
+        "dependencies"
+    ],
+    "assignees": [],
+    "reviewers": [],
+    "prConcurrentLimit": 5,
+    "prHourlyLimit": 2,
+    "separateMinorPatch": true,
+    "separateMajorMinor": true,
+    "commitMessagePrefix": "chore:",
+    "commitMessageTopic": "update {{depName}}",
+    "commitMessageExtra": "to {{newVersion}}",
+    "branchPrefix": "renovate/",
+    "ignorePaths": [
+        "**/node_modules/**",
+        "**/dist/**",
+        "**/.astro/**"
+    ]
+}
