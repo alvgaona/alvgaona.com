@@ -1,12 +1,9 @@
 {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
     "extends": [
-        "config:base",
+        ":semanticCommitType(chores)",
         ":dependencyDashboard",
-        ":semanticCommits",
-        ":automergeDigests",
-        ":automergeBranch",
-        "group:monorepos"
+        ":automergeDisabled"
     ],
     "packageRules": [
         {
@@ -133,19 +130,7 @@
         "every weekend"
     ],
     "timezone": "UTC",
-    "labels": [
-        "dependencies"
-    ],
-    "assignees": [],
-    "reviewers": [],
-    "prConcurrentLimit": 5,
-    "prHourlyLimit": 2,
-    "separateMinorPatch": true,
-    "separateMajorMinor": true,
-    "commitMessagePrefix": "chore:",
-    "commitMessageTopic": "update {{depName}}",
-    "commitMessageExtra": "to {{newVersion}}",
-    "branchPrefix": "renovate/",
+    "prHourlyLimit": 5,
     "ignorePaths": [
         "**/node_modules/**",
         "**/dist/**",
