@@ -54,7 +54,7 @@
     },
     "files": {
         "includes": [
-            "src/**/*.{js,jsx,ts,tsx,json}",
+            "src/**/*.{js,jsx,ts,tsx,json,astro}",
             "*.{js,jsx,ts,tsx,json}",
             "astro.config.ts",
             "tailwind.config.ts"
