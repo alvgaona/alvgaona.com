@@ -54,7 +54,7 @@
     "@tailwindcss/typography": "^0.5.10",
     "@types/bun": "latest",
     "@types/node": "^20.10.6",
-    "daisyui": "^4.11.1",
+    "daisyui": "^5.0.0",
     "markdownlint": "^0.38.0"
   },
   "packageManager": "bun@1.1.39",
