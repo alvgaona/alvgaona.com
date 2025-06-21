@@ -1,76 +1,63 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.4.1/schema.json",
-  "organizeImports": {
-    "enabled": true
-  },
-  "linter": {
-    "enabled": true,
-    "rules": {
-      "recommended": true,
-      "a11y": {
-        "recommended": true
-      },
-      "complexity": {
-        "recommended": true
-      },
-      "correctness": {
-        "recommended": true
-      },
-      "performance": {
-        "recommended": true
-      },
-      "security": {
-        "recommended": true
-      },
-      "style": {
-        "recommended": true
-      },
-      "suspicious": {
-        "recommended": true
-      }
-    }
-  },
-  "formatter": {
-    "enabled": true,
-    "formatWithErrors": false,
-    "indentStyle": "space",
-    "indentWidth": 2,
-    "lineWidth": 120,
-    "lineEnding": "lf"
-  },
-  "javascript": {
+    "$schema": "https://biomejs.dev/schemas/2.0.0/schema.json",
+    "linter": {
+        "enabled": true,
+        "rules": {
+            "recommended": true,
+            "a11y": {
+                "recommended": true
+            },
+            "complexity": {
+                "recommended": true
+            },
+            "correctness": {
+                "recommended": true
+            },
+            "performance": {
+                "recommended": true
+            },
+            "security": {
+                "recommended": true
+            },
+            "style": {
+                "recommended": true
+            },
+            "suspicious": {
+                "recommended": true
+            }
+        }
+    },
     "formatter": {
-      "quoteStyle": "single",
-      "jsxQuoteStyle": "double",
-      "quoteProperties": "asNeeded",
-      "trailingCommas": "all",
-      "semicolons": "always",
-      "arrowParentheses": "always",
-      "bracketSpacing": true,
-      "bracketSameLine": false
+        "enabled": true,
+        "formatWithErrors": false,
+        "indentStyle": "space",
+        "indentWidth": 2,
+        "lineWidth": 120,
+        "lineEnding": "lf"
+    },
+    "javascript": {
+        "formatter": {
+            "quoteStyle": "single",
+            "jsxQuoteStyle": "double",
+            "quoteProperties": "asNeeded",
+            "semicolons": "always",
+            "arrowParentheses": "always",
+            "bracketSpacing": true,
+            "bracketSameLine": false
+        }
+    },
+    "json": {
+        "formatter": {
+            "enabled": true,
+            "lineWidth": 4
+        }
+    },
+    "files": {
+        "includes": [
+            "src/**/*.{js,jsx,ts,tsx,json}",
+            "*.{js,jsx,ts,tsx,json}",
+            "astro.config.ts",
+            "tailwind.config.ts"
+        ]
     }
-  },
-  "json": {
-    "formatter": {
-      "enabled": true,
-      "lineWidth": 4
-    }
-  },
-  "files": {
-    "include": [
-      "src/**/*.{js,jsx,ts,tsx,json}",
-      "*.{js,jsx,ts,tsx,json}",
-      "astro.config.ts",
-      "tailwind.config.ts"
-    ],
-    "ignore": [
-      "node_modules/**",
-      "dist/**",
-      ".astro/**",
-      "**/*.astro",
-      "**/*.md",
-      "**/*.mdx",
-      "public/**"
-    ]
-  }
 }
