@@ -1,5 +1,102 @@
-<div
-  class="prose py-12 text-[#f0f0f0]! prose-headings:text-[#f0f0f0] prose-headings:no-underline prose-h1:text-[40px] prose-p:text-justify prose-a:font-light prose-a:text-[#f0f0f0] prose-a:decoration-[#FFC799] prose-a:underline-offset-4 prose-img:rounded-xl"
->
+<div class="prose py-12">
   <slot />
 </div>
+
+<style is:global>
+    .prose {
+        font-family: var(--prose-font-family), 'Roboto', sans-serif;
+        font-size: 16px;
+    }
+
+    .prose h1 h2 h3 h4 h5 h6 th {
+        text-decoration-line: none;
+    }
+
+    .prose h1 {
+        font-size: 40px;
+        font-weight: 800;
+        line-height: 1.11111;
+        margin: 0;
+    }
+
+    .prose h2 {
+        font-weight: 700;
+        font-size: 1.5rem;
+        margin-top: 2em;
+        margin-bottom: 1em;
+        line-height: 1.3333333;
+    }
+
+    .prose h3 {
+        font-weight: 600;
+        font-size: 1.25em;
+        margin-top: 1.6em;
+        margin-bottom: .6em;
+        line-height: 1.6;
+    }
+
+    .prose h5 {
+        margin: 0
+    }
+
+    .prose a {
+        font-weight: 300;
+        text-underline-offset: 4px;
+        text-decoration: underline;
+        text-decoration-color: var(--prose-a-decoration-color);
+    }
+
+    .prose blockquote {
+        font-weight: 500;
+        margin-top: 1.6em;
+        margin-bottom: 1.6em;
+        padding-inline-start: 1em;
+        padding: 0.5rem 1rem;
+        border-radius: .875rem;
+        border-color: var(--color-vesper-gold);
+        border-width: 1px;
+    }
+
+    .prose pre {
+        font-weight: 400;
+        font-size: .875em;
+        line-height: 1.7142857;
+        margin-top: 1.7142857em;
+        margin-bottom: 1.7142857em;
+        border-radius: .375rem;
+        padding-top: .8571429em;
+        padding-inline-end: 1.1428571em;
+        padding-bottom: .8571429em;
+        padding-inline-start: 1.1428571em;
+        border-radius: .875rem;
+    }
+
+    .prose p {
+        margin-top: 1.25rem;
+        margin-bottom: 1.25rem;
+        text-align: justify;
+    }
+
+    .prose ul {
+        list-style-type: disc;
+        padding-inline-start: 1.625em;
+        margin-top: 1.25em;
+        margin-bottom: 1.25em;
+    }
+
+    .prose li {
+        margin-top: .5em;
+        margin-bottom: .5em;
+    }
+
+    .prose ol {
+        list-style-type: decimal;
+        margin-top: 1.25em;
+        margin-bottom: 1.25em;
+        padding-inline-start: 1.625em;
+    }
+
+    .prose .katex-display {
+        color: oklch(1 0 0 / 87.5%);
+    }
+</style>

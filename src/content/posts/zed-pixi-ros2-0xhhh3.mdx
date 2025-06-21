@@ -9,12 +9,13 @@ published: true
 
 import Video from '@/components/Video';
 import { Info, Tags } from 'lucide-react';
+import Tldr from '@/components/tldr.astro';
 
 <h5 class="mb-3 text-sm">{frontmatter.description}</h5>
 
 # {frontmatter.title}
 
-<div class="flex items-center gap-2">
+<div class="flex items-center gap-2 mb-8">
   <div class="flex items-center gap-1">
     <Tags size={16} />
     <div class="flex items-center gap-2">
@@ -27,8 +28,7 @@ import { Info, Tags } from 'lucide-react';
   </div>
 </div>
 
-tl;dr
-
+<Tldr>
 For nearly a year now, I've been using the Zed editor as my primary development tool.
 It has dramatically boosted my productivity across both my day job and side projects.
 Along the way, I discovered Pixi, which has become my favorite package manager.
@@ -46,6 +46,7 @@ However, this side project is just an excuse to demonstrate using Zed, Pixi and 
 While integrating these tools wasn't trivial and took time to configure properly, the
 investment was absolutely worth it. There's still room for improved
 interoperability between them, but the current workflow is already quite powerful.
+</Tldr>
 
 <Video
   client:load

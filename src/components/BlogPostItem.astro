@@ -3,7 +3,7 @@ const { frontmatter, slug, url } = Astro.props;
 ---
 
 <li>
-  <div class="grid grid-cols-4 gap-x-24">
+  <div class="grid grid-cols-4 gap-x-24 text-[16px]">
     <span class="col-span-1">
       {
         frontmatter.pubDate.toLocaleString('default', {

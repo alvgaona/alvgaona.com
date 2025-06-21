@@ -1,6 +1,6 @@
 ---
 import '@/styles/globals.css';
-
+import '@fontsource-variable/inter';
 import Footer from '@/components/Footer.astro';
 import AnimatedLayout from '@/components/AnimatedLayout';
 import { Toaster } from '@/components/ui/sonner';
@@ -13,10 +13,7 @@ const { meta } = Astro.props;
 
 const siteTitle = `${meta.title} • ${siteMeta.title}`;
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
-const socialImageUrl = new URL(
-  meta?.ogImage ? meta.ogImage : '/social-card.jpg',
-  Astro.url,
-).href;
+const socialImageUrl = new URL(meta?.ogImage ? meta.ogImage : '/social-card.jpg', Astro.url).href;
 ---
 
 <!DOCTYPE html>
@@ -79,7 +76,7 @@ const socialImageUrl = new URL(
 
     <SpeedInsights />
   </head>
-  <body class="bg-vesper-dark font-cmono text-white">
+  <body class="bg-vesper-dark text-white">
     <Grain client:load />
     <>
       <AnimatedLayout client:load>

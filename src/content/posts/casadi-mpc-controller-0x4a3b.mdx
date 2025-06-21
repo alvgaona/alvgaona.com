@@ -8,12 +8,13 @@ ogImage: https://pub-9f1fe13d7d3744ac9ba1c96fb5a148d0.r2.dev/ogimage-casadi-mpc-
 ---
 
 import { Info, Tags } from 'lucide-react';
+import Tldr from '@/components/tldr.astro';
 
 <h5 class="mb-3 text-sm">{frontmatter.description}</h5>
 
 # {frontmatter.title}
 
-<div class="flex items-center gap-2">
+<div class="flex items-center gap-2 mb-8">
   <div class="flex items-center gap-1">
     <Tags size={16} />
     <div class="flex items-center gap-2">
@@ -26,12 +27,12 @@ import { Info, Tags } from 'lucide-react';
   </div>
 </div>
 
-tl;dr
-
-The second most popular controller out there is the Model Predictive Control (MPC) controller, there is an unbelieveable number of
-variations around this controller, e.g, Data-driven MPC, Robust MPC, Nonlinear MPC.
-At the time of this writing, we can see MPC often beating Reinforcement Learning approaches in many tasks.
-In general, the hard part of this controller is to come up with a resilient model of the plant.
+<Tldr>
+    The second most popular controller out there is the Model Predictive Control (MPC) controller, there is an unbelieveable number of
+    variations around this controller, e.g, Data-driven MPC, Robust MPC, Nonlinear MPC.
+    At the time of this writing, we can see MPC often beating Reinforcement Learning approaches in many tasks.
+    In general, the hard part of this controller is to come up with a resilient model of the plant.
+</Tldr>
 
 <div class="flex items-center justify-center">
   <img alt="Plant" src="/plant.png" />
@@ -187,8 +188,10 @@ The assumptions we're making to approach this task are:
 - There are no obstacles on the terrain, which is basically derived by the domain being convex.
 - No external forces interact with the vehicle, e.g, wind forces, wheel friction.
 
-<blockquote class="flex flex-col gap-1">
-  <Info />
+<blockquote class="justify-text flex items-center gap-4">
+  <div class="shrink-0">
+    <Info />
+  </div>
   Use `import casasdi as ca` to use CasADi API.
 </blockquote>
 
@@ -270,8 +273,10 @@ $$
 x_{k+1} = x_k + f(x_k, u_k) \Delta t
 $$
 
-<blockquote class="flex flex-col gap-1">
-  <Info />
+<blockquote class="justify-text flex items-center gap-4">
+  <div class="shrink-0">
+    <Info />
+  </div>
   If you `print(J)` you will not get a value, but rather Python objects representing
   the sym objective function.
 </blockquote>
