@@ -6,9 +6,7 @@ import Publication from '@/components/Publication.astro';
 import BlogPostItem from '@/components/BlogPostItem.astro';
 import { getCollection } from 'astro:content';
 
-const allPosts = (await getCollection('posts')).filter(
-  post => post.data.published,
-);
+const allPosts = (await getCollection('posts')).filter((post) => post.data.published);
 
 allPosts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 ---
@@ -20,10 +18,10 @@ allPosts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 >
   <section class="flex flex-col items-start gap-6">
     <div class="mb-12 ml-4 mt-6 flex items-center">
-      <div class="flex w-2/3 flex-col justify-self-start">
+      <div class="flex w-3/4 flex-col justify-self-start">
         <span class="mb-1 text-2xl font-bold">ALVARO GAONA</span>
         <span class="text-vesper-gold">---</span>
-        <p>
+        <p class="text-[16px] justify-text">
           I'm Alvaro, I'm an electronics and robotics engineer. I'm into
           software and algorithms related to autonomous systems, such as
           control, navigation, mapping, et cetera.

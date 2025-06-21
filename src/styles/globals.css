@@ -1,11 +1,116 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@plugin "daisyui";
+
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+    --container-center: true;
+    --container-padding: 2rem;
+    --container-screens-2xl: 1400px;
+
+    --color-vesper-dark: #101010;
+    --color-vesper-gold: #FFC799;
+    --color-vesper-sky: #92f3d9;
+    --color-vitesse-dark: #121212;
+
+    --radius-lg: var(--radius);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-sm: calc(var(--radius) - 4px);
+    --radius-xs: calc(var(--radius) - 6px);
+
+    /* Animation theme */
+    --animate-accordion-down: accordion-down 0.2s ease-out;
+    --animate-accordion-up: accordion-up 0.2s ease-out;
+
+    /* Blog posts theme */
+    --prose-font-family: var(--font-inter-variable), var(--default-font-family);
+    --prose-a-decoration-color: var(--color-vesper-gold);
+}
 
 :root {
     --radius: 0.5rem;
+
+    --system-ui: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
+        'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    --font-inter-variable: 'Inter Variable';
 }
 
 * {
     box-sizing: border-box;
+}
+
+html,
+body {
+    font-family: var(--font-inter-variable), var(--system-ui);
+}
+
+@media screen and (max-width: 545px) {
+    body {
+        width: max-content;
+    }
+}
+
+body {
+    font-weight: 300;
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+    text-decoration: none;
+    text-transform: none;
+}
+
+@keyframes accordion-down {
+    0% {
+        height: 0;
+        overflow: hidden;
+    }
+
+    100% {
+        height: var(--radix-accordion-content-height);
+        overflow: visible;
+    }
+}
+
+@keyframes accordion-up {
+    0% {
+        height: var(--radix-accordion-content-height);
+        overflow: visible;
+    }
+
+    100% {
+        height: 0;
+        overflow: hidden;
+    }
+}
+
+@font-face {
+    font-family: 'CommitMono';
+    src: url('/fonts/CommitMono-400-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CommitMono';
+    src: url('/fonts/CommitMono-400-Italic.otf') format('opentype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CommitMono';
+    src: url('/fonts/CommitMono-700-Regular.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CommitMono';
+    src: url('/fonts/CommitMono-700-Italic.otf') format('opentype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
 }

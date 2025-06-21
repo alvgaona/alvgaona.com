@@ -9,12 +9,13 @@ published: true
 
 import Video from '@/components/Video';
 import { Info, Tags } from 'lucide-react';
+import Tldr from '@/components/tldr.astro';
 
 <h5 class="mb-3 text-sm">{frontmatter.description}</h5>
 
 # {frontmatter.title}
 
-<div class="flex items-center gap-2">
+<div class="flex items-center gap-2 mb-8">
   <div class="flex items-center gap-1">
     <Tags size={16} />
     <div class="flex items-center gap-2">
@@ -27,19 +28,19 @@ import { Info, Tags } from 'lucide-react';
   </div>
 </div>
 
-tl;dr
-
-During my time at the Laboratory of Artificial Intelligence and Robotics (LINAR) as part of the research team,
-a very good friend of mine had told me about RoboStack when we were struggling to install ROS distributions
-on our personal machines and in our cluster of servers with GPU support.
-A couple years ago it was extremely daunting to install ROS in any of the supported operating systems;
-in particular, Ubuntu distributions were the mainly supported OS at the time and it still remains that way.
-Ubuntu is probably the first distribution that you mostly everyone will install on their very first days of using a Linux distribution,
-and I think it's the right way to go, it's easy to set up and the UX/UI is good enough.
-However, as you start becoming a more advanced user you will see that it has many limitations.
-I believe the most annoying "feature" of Ubuntu is that its dependencies get old, and many of them are fixed to the
-Ubuntu distribution.
-This is the case for Python and ROS, and two technologies came to help us here: RoboStack, and pyenv.
+<Tldr>
+    During my time at the Laboratory of Artificial Intelligence and Robotics (LINAR) as part of the research team,
+    a very good friend of mine had told me about RoboStack when we were struggling to install ROS distributions
+    on our personal machines and in our cluster of servers with GPU support.
+    A couple years ago it was extremely daunting to install ROS in any of the supported operating systems;
+    in particular, Ubuntu distributions were the mainly supported OS at the time and it still remains that way.
+    Ubuntu is probably the first distribution that you mostly everyone will install on their very first days of using a Linux distribution,
+    and I think it's the right way to go, it's easy to set up and the UX/UI is good enough.
+    However, as you start becoming a more advanced user you will see that it has many limitations.
+    I believe the most annoying "feature" of Ubuntu is that its dependencies get old, and many of them are fixed to the
+    Ubuntu distribution.
+    This is the case for Python and ROS, and two technologies came to help us here: RoboStack, and pyenv.
+</Tldr>
 
 ## RoboStack
 

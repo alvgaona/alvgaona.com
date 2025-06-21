@@ -9,12 +9,13 @@ ogImage: ''
 
 import { Info, Tags } from 'lucide-react';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
+import Tldr from '@/components/tldr.astro';
 
 <h5 class="mb-3 text-sm">{frontmatter.description}</h5>
 
 # {frontmatter.title}
 
-<div class="flex items-center gap-2">
+<div class="flex items-center gap-2 mb-8">
   <div class="flex items-center gap-1">
     <Tags size={16} />
     <div class="flex items-center gap-2">
@@ -27,14 +28,15 @@ import { AspectRatio } from '@/components/ui/aspect-ratio';
   </div>
 </div>
 
-tl;dr
+<Tldr>
+    The system in this post consists of an inverted pendulum mounted to a motorized cart.
+    The inverted pendulum system is an example commonly found in control system textbooks and research literature.
+    Its popularity derives in part from the fact that it is unstable without control, that is,
+    the pendulum will simply fall over if the cart isn't moved to balance it. Additionally, the dynamics of the system are nonlinear.
+    The objective of the control system is to balance the inverted pendulum by applying a force to the cart that the pendulum is attached to.
+    A real-world example that relates directly to this inverted pendulum system is the attitude control of a booster rocket at takeoff.
+</Tldr>
 
-The system in this post consists of an inverted pendulum mounted to a motorized cart.
-The inverted pendulum system is an example commonly found in control system textbooks and research literature.
-Its popularity derives in part from the fact that it is unstable without control, that is,
-the pendulum will simply fall over if the cart isn't moved to balance it. Additionally, the dynamics of the system are nonlinear.
-The objective of the control system is to balance the inverted pendulum by applying a force to the cart that the pendulum is attached to.
-A real-world example that relates directly to this inverted pendulum system is the attitude control of a booster rocket at takeoff.
 
 ## Modeling
 

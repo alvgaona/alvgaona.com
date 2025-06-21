@@ -8,12 +8,10 @@ const { slug } = Astro.params;
 
 const allPosts = await getCollection('posts');
 
-const entry = allPosts.find(
-  (post) => post.slug === slug && post.data.published,
-);
+const entry = allPosts.find((post) => post.slug === slug && post.data.published);
 
 if (!entry) {
-  return Astro.redirect('/not-found');
+    return Astro.redirect('/not-found');
 }
 
 const { Content } = await entry.render();

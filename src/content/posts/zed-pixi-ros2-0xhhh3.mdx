@@ -9,12 +9,13 @@ published: true
 
 import Video from '@/components/Video';
 import { Info, Tags } from 'lucide-react';
+import Tldr from '@/components/tldr.astro';
 
 <h5 class="mb-3 text-sm">{frontmatter.description}</h5>
 
 # {frontmatter.title}
 
-<div class="flex items-center gap-2">
+<div class="flex items-center gap-2 mb-8">
   <div class="flex items-center gap-1">
     <Tags size={16} />
     <div class="flex items-center gap-2">
@@ -27,8 +28,7 @@ import { Info, Tags } from 'lucide-react';
   </div>
 </div>
 
-tl;dr
-
+<Tldr>
 For nearly a year now, I've been using the Zed editor as my primary development tool.
 It has dramatically boosted my productivity across both my day job and side projects.
 Along the way, I discovered Pixi, which has become my favorite package manager.
@@ -46,6 +46,7 @@ However, this side project is just an excuse to demonstrate using Zed, Pixi and 
 While integrating these tools wasn't trivial and took time to configure properly, the
 investment was absolutely worth it. There's still room for improved
 interoperability between them, but the current workflow is already quite powerful.
+</Tldr>
 
 <Video
   client:load
@@ -69,7 +70,7 @@ Just hit `Ctrl+Shift P` (or `Cmd+Shift P` for Mac folks)
 to pop open the command menu, then run `zed: extensions`.
 
 <blockquote class="justify-text flex items-center gap-6">
-  <div class="flex-shrink-0">
+  <div class="shrink-0">
     <Info />
   </div>
   Pro tip: you can also use `Ctrl+Shift X` / `Cmd+Shift X` as a shortcut to jump
@@ -287,7 +288,7 @@ clang-format = ">=18.1.3,<18.2"
 ```
 
 <blockquote class="justify-text flex items-center gap-4">
-  <div class="flex-shrink-0">
+  <div class="shrink-0">
     <Info />
   </div>
   The versions may vary but you get the gist of it.
@@ -699,7 +700,7 @@ colcon test --ctest-args tests ekf_mono_slam && ./build/ekf_mono_slam/slam_test
 ```
 
 <blockquote class="justify-text flex items-center gap-6">
-  <div class="flex-shrink-0">
+  <div class="shrink-0">
     <Info />
   </div>
   Note: Make sure the test executable name matches what you defined in your CMake
