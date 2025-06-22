@@ -10,6 +10,9 @@ ogImage: ''
 import { Info, Tags } from 'lucide-react';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import Tldr from '@/components/tldr.astro';
+import CodeBlock from '@/components/codeblock.astro';
+
+export const components = {pre: CodeBlock};
 
 <h5 class="mb-3 text-sm">{frontmatter.description}</h5>
 

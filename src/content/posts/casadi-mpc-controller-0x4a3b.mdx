@@ -10,6 +10,10 @@ ogImage: https://pub-9f1fe13d7d3744ac9ba1c96fb5a148d0.r2.dev/ogimage-casadi-mpc-
 import { Info, Tags } from 'lucide-react';
 import Tldr from '@/components/tldr.astro';
 
+import CodeBlock from '@/components/codeblock.astro';
+
+export const components = {pre: CodeBlock};
+
 <h5 class="mb-3 text-sm">{frontmatter.description}</h5>
 
 # {frontmatter.title}
