@@ -23,25 +23,33 @@ const decodedText = plainText
 const lines = decodedText.split('\n');
 ---
 
-<div class="relative flex flex-col mockup-code bg-vitesse-dark" data-language={language}>
+<div class="relative flex flex-col mockup-code bg-vitesse-dark w-full" data-language={language}>
   <button
-    class="cursor-pointer copy-btn absolute top-2 right-2 p-2 rounded-md transition-colors duration-200 text-gray-300 hover:text-white"
+    class="cursor-pointer copy-btn absolute top-2 right-2 p-2 rounded-md transition-colors duration-200 text-gray-300 hover:text-white z-10"
     data-code={decodedText}
     aria-label="Copy code"
   >
     <Copy className="copy-icon w-4 h-4" />
     <Check className="check-icon w-4 h-4 hidden" />
   </button>
-  {lines.map((line: string, index: number) => (
-    <Code
-      class="m-0! p-0! text-sm! bg-transparent!"
-      data-prefix={index + 1}
-      code={line}
-      theme={theme as any}
-      lang={language as any}
-    />
-  ))}
+  <div class="overflow-x-auto">
+    {lines.map((line: string, index: number) => (
+      <Code
+        class="m-0! p-0! text-sm! bg-transparent!"
+        data-prefix={index + 1}
+        code={line}
+        theme={theme as any}
+        lang={language as any}
+      />
+    ))}
+  </div>
 </div>
+
+<style>
+  .mockup-code pre {
+    overflow-x: visible !important;
+  }
+</style>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
