@@ -11,8 +11,12 @@ import { Info, Tags } from 'lucide-react';
 import Tldr from '@/components/tldr.astro';
 
 import CodeBlock from '@/components/codeblock.astro';
+import Aside from '@/components/aside.astro';
 
-export const components = {pre: CodeBlock};
+export const components = {
+    pre: CodeBlock,
+    blockquote: Aside,
+};
 
 <h5 class="mb-3 text-sm">{frontmatter.description}</h5>
 
@@ -192,12 +196,8 @@ The assumptions we're making to approach this task are:
 - There are no obstacles on the terrain, which is basically derived by the domain being convex.
 - No external forces interact with the vehicle, e.g, wind forces, wheel friction.
 
-<blockquote class="justify-text flex items-center gap-4">
-  <div class="shrink-0">
-    <Info />
-  </div>
-  Use `import casasdi as ca` to use CasADi API.
-</blockquote>
+> [!NOTE]
+> Use `import casasdi as ca` to use CasADi API.
 
 So the first thing we must do is the define the vehicle kinematics to use it with our controller, and even
 simulate it, and ultimately plotting it.
@@ -277,13 +277,9 @@ $$
 x_{k+1} = x_k + f(x_k, u_k) \Delta t
 $$
 
-<blockquote class="justify-text flex items-center gap-4">
-  <div class="shrink-0">
-    <Info />
-  </div>
-  If you `print(J)` you will not get a value, but rather Python objects representing
+> [!WARNING]
+> If you print J you will not get a value, but rather Python objects representing
   the sym objective function.
-</blockquote>
 
 Now we add more constraints to limit the control input as well as specifying that
 first value of the horizon must be equal to the initial state.
