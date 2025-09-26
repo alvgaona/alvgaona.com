@@ -1,38 +1,38 @@
 ---
-import Layout from './Layout.astro';
+import Layout from "./Layout.astro";
 
 const { frontmatter } = Astro.props;
 ---
 
 <Layout
-  meta={{
-    title: frontmatter.title,
-    ogImage: frontmatter.ogImage,
-    description: frontmatter.description,
-    articleDate: frontmatter.pubDate.toISOString(),
-  }}
+    meta={{
+        title: frontmatter.title,
+        ogImage: frontmatter.ogImage,
+        description: frontmatter.description,
+        articleDate: frontmatter.pubDate.toISOString(),
+    }}
 >
-  <main class="mx-auto max-w-4xl pb-12 pt-[56px]">
-    <div class="mt-4 flex items-center justify-between px-6 lg:px-0">
-      <div class="breadcrumbs text-sm">
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li>{frontmatter.title}</li>
-        </ul>
-      </div>
-      <span class="text-[14px] font-thin">
-        Published on
-        {
-          frontmatter.pubDate.toLocaleString('default', {
-            month: 'long',
-            year: 'numeric',
-            day: 'numeric',
-          })
-        }
-      </span>
-    </div>
-    <article class="mx-auto max-w-4xl px-8">
-      <slot />
-    </article>
-  </main>
+    <main class="mx-auto max-w-4xl pb-12 pt-[56px]">
+        <div class="mt-4 flex items-center justify-between px-6 lg:px-0">
+            <div class="breadcrumbs text-lg">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li>{frontmatter.title}</li>
+                </ul>
+            </div>
+            <span class="text-lg font-thin">
+                Published on
+                {
+                    frontmatter.pubDate.toLocaleString("default", {
+                        month: "long",
+                        year: "numeric",
+                        day: "numeric",
+                    })
+                }
+            </span>
+        </div>
+        <article class="mx-auto max-w-4xl px-24 font-antonia-body">
+            <slot />
+        </article>
+    </main>
 </Layout>

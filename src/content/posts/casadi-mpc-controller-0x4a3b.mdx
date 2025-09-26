@@ -2,30 +2,30 @@
 title: CasADi MPC Controller
 description: MPC controller made easy
 pubDate: 2024-08-28
-tags: ['python', 'optimization', 'control', 'programming']
+tags: ["python", "optimization", "control", "programming"]
 published: true
 ogImage: https://pub-9f1fe13d7d3744ac9ba1c96fb5a148d0.r2.dev/ogimage-casadi-mpc-controller.png
 ---
 
-import { Info, Tags } from 'lucide-react';
-import Tldr from '@/components/tldr.astro';
+import { Info, Tags } from "lucide-react";
+import Tldr from "@/components/tldr.astro";
 
-import CodeBlock from '@/components/codeblock.astro';
-import Aside from '@/components/aside.astro';
+import CodeBlock from "@/components/codeblock.astro";
+import Aside from "@/components/aside.astro";
 
 export const components = {
-    pre: CodeBlock,
-    blockquote: Aside,
+  pre: CodeBlock,
+  blockquote: Aside,
 };
 
-<h5 class="mb-3 text-sm">{frontmatter.description}</h5>
+<h5 class="mb-3 text-[16px]">{frontmatter.description}</h5>
 
 # {frontmatter.title}
 
 <div class="flex items-center gap-2 mb-8">
   <div class="flex items-center gap-1">
     <Tags size={16} />
-    <div class="flex items-center gap-2">
+    <div class="flex items-center gap-2 font-antonia">
       {frontmatter.tags.map((t) => (
         <a href="">
           <span># {t}</span>
@@ -36,10 +36,10 @@ export const components = {
 </div>
 
 <Tldr>
-    The second most popular controller out there is the Model Predictive Control (MPC) controller, there is an unbelieveable number of
-    variations around this controller, e.g, Data-driven MPC, Robust MPC, Nonlinear MPC.
-    At the time of this writing, we can see MPC often beating Reinforcement Learning approaches in many tasks.
-    In general, the hard part of this controller is to come up with a resilient model of the plant.
+  The second most popular controller out there is the Model Predictive Control (MPC) controller, there is an
+  unbelieveable number of variations around this controller, e.g, Data-driven MPC, Robust MPC, Nonlinear MPC. At the
+  time of this writing, we can see MPC often beating Reinforcement Learning approaches in many tasks. In general, the
+  hard part of this controller is to come up with a resilient model of the plant.
 </Tldr>
 
 <div class="flex items-center justify-center">
@@ -279,7 +279,7 @@ $$
 
 > [!WARNING]
 > If you print J you will not get a value, but rather Python objects representing
-  the sym objective function.
+> the sym objective function.
 
 Now we add more constraints to limit the control input as well as specifying that
 first value of the horizon must be equal to the initial state.
