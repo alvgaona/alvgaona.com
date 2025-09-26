@@ -1,81 +1,68 @@
 ---
-import MainLayout from '@/layouts/MainLayout.astro';
-import avatar from '@/assets/avatar.jpg';
-import Publication from '@/components/Publication.astro';
+import MainLayout from "@/layouts/MainLayout.astro";
+import avatar from "@/assets/avatar.jpg";
+import Publication from "@/components/Publication.astro";
 
-import BlogPostItem from '@/components/BlogPostItem.astro';
-import { getCollection } from 'astro:content';
+import BlogPostItem from "@/components/BlogPostItem.astro";
+import { getCollection } from "astro:content";
 
-const allPosts = (await getCollection('posts')).filter((post) => post.data.published);
+const allPosts = (await getCollection("posts")).filter((post) => post.data.published);
 
 allPosts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 ---
 
 <MainLayout
-  title="Home"
-  description="Electronics & Robotics Engineer"
-  className="flex flex-col max-w-4xl gap-10"
+    title="Home"
+    description="Electronics & Robotics Engineer"
+    className="flex flex-col max-w-4xl gap-10 font-antonia-body"
 >
-  <section class="flex flex-col items-start gap-6">
-    <div class="mb-12 ml-4 mt-6 flex items-center">
-      <div class="flex w-3/4 flex-col justify-self-start">
-        <span class="mb-1 text-2xl font-bold">ALVARO GAONA</span>
-        <span class="text-vesper-gold">---</span>
-        <p class="text-[16px] justify-text">
-          I'm Alvaro, I'm an electronics and robotics engineer. I'm into
-          software and algorithms related to autonomous systems, such as
-          control, navigation, mapping, et cetera.
-        </p>
-      </div>
-      <img
-        class="ml-auto h-32 w-auto rounded-full"
-        alt="avatar"
-        src={avatar.src}
-        width={avatar.width}
-        height={avatar.height}
-      />
-    </div>
-  </section>
-  <section class="ml-4 mt-8 flex flex-col items-start gap-4">
-    <h1
-      class="text-xl underline decoration-[#FFC799] decoration-2 underline-offset-[6px]"
-    >
-      Posts
-    </h1>
-    <ul>
-      {
-        allPosts.map(post => (
-          <BlogPostItem slug={post.slug} frontmatter={post.data} />
-        ))
-      }
-    </ul>
-  </section>
-  <section class="ml-4 mt-8 flex flex-col items-start gap-4">
-    <h1
-      class="text-xl font-bold underline decoration-[#FFC799] decoration-2 underline-offset-[6px]"
-    >
-      Publications
-    </h1>
-    <div class="flex flex-col gap-4">
-      <Publication
-        title="Fault Tolerant Solutions for Multirotor Unmanned Aerial Vehicles in NVIDIA® Jetson™ TX2"
-        reference="Juan I. Giribet, Claudio Pose, Alvaro J. Gaona, José I. Gonzalez Etchemaite, Roberto Bunge, ”Fault Tolerant Solutions for Multirotor Unmanned Aerial Vehicles in NVIDIA® Jetson™ TX2”. NVIDIA GPU Technology Conference (2022)."
-        video="https://www.youtube.com/watch?v=lB_cJI2HU94"
-        poster="https://pub-f074cead5eaf408790b463b05f6e8b32.r2.dev/NVIDIA_Poster.pdf"
-      />
+    <section class="flex flex-col items-start gap-6">
+        <div class="mb-12 ml-4 mt-6 flex items-center">
+            <div class="flex w-3/4 flex-col justify-self-start">
+                <span class="mb-1 text-4xl font-bold font-antonia">ALVARO GAONA</span>
+                <span class="text-vesper-gold">---</span>
+                <p class="text-xl justify-text">
+                    I'm Alvaro, I'm an electronics and robotics engineer. I'm into software and algorithms related to
+                    autonomous systems, such as control, navigation, mapping, et cetera.
+                </p>
+            </div>
+            <img
+                class="ml-auto h-32 w-auto rounded-full"
+                alt="avatar"
+                src={avatar.src}
+                width={avatar.width}
+                height={avatar.height}
+            />
+        </div>
+    </section>
+    <section class="ml-4 mt-8 flex flex-col items-start gap-4">
+        <h1 class="text-xl underline text-spectral-blue font-bold underline-offset-[6px] font-antonia">Posts</h1>
+        <ul>
+            {allPosts.map((post) => <BlogPostItem slug={post.slug} frontmatter={post.data} />)}
+        </ul>
+    </section>
+    <section class="ml-4 mt-8 flex flex-col items-start gap-4">
+        <h1 class="text-spectral-blue text-xl font-bold underline underline-offset-[6px] font-antonia">Publications</h1>
+        <div class="flex flex-col gap-4">
+            <Publication
+                title="Fault Tolerant Solutions for Multirotor Unmanned Aerial Vehicles in NVIDIA® Jetson™ TX2"
+                reference="Juan I. Giribet, Claudio Pose, Alvaro J. Gaona, José I. Gonzalez Etchemaite, Roberto Bunge, ”Fault Tolerant Solutions for Multirotor Unmanned Aerial Vehicles in NVIDIA® Jetson™ TX2”. NVIDIA GPU Technology Conference (2022)."
+                video="https://www.youtube.com/watch?v=lB_cJI2HU94"
+                poster="https://pub-f074cead5eaf408790b463b05f6e8b32.r2.dev/NVIDIA_Poster.pdf"
+            />
 
-      <Publication
-        title="Prototyping of a multirotor UAV for precision landing under rotor failures"
-        reference="A. J. Gaona, C. D. Pose, J. I. Giribet, R. Bunge, ”Prototyping of a multirotor UAV for precision landing under rotor failures”. Jornadas Argentinas de Robótica 2022 (JAR XI). Bariloche, Argentina."
-        article="https://arxiv.org/pdf/2408.01676"
-        video="https://www.youtube.com/watch?v=RSMMCVYldGk"
-      />
+            <Publication
+                title="Prototyping of a multirotor UAV for precision landing under rotor failures"
+                reference="A. J. Gaona, C. D. Pose, J. I. Giribet, R. Bunge, ”Prototyping of a multirotor UAV for precision landing under rotor failures”. Jornadas Argentinas de Robótica 2022 (JAR XI). Bariloche, Argentina."
+                article="https://arxiv.org/pdf/2408.01676"
+                video="https://www.youtube.com/watch?v=RSMMCVYldGk"
+            />
 
-      <Publication
-        title="Deep Recurrent Learning for Heart Sound Segmentation based on Instantaneous Frequency Features"
-        reference="A. J. Gaona, P. D. Arini, ”Deep Recurrent Learning for Heart Sounds Segmentation based on Instantaneous Frequency Features”. Revista Elektron, Vol. 4, No. 2, pp 52‑57 (2020)."
-        article="http://elektron.fi.uba.ar/index.php/elektron/article/view/101/212"
-      />
-    </div>
-  </section>
+            <Publication
+                title="Deep Recurrent Learning for Heart Sound Segmentation based on Instantaneous Frequency Features"
+                reference="A. J. Gaona, P. D. Arini, ”Deep Recurrent Learning for Heart Sounds Segmentation based on Instantaneous Frequency Features”. Revista Elektron, Vol. 4, No. 2, pp 52‑57 (2020)."
+                article="http://elektron.fi.uba.ar/index.php/elektron/article/view/101/212"
+            />
+        </div>
+    </section>
 </MainLayout>

@@ -2,23 +2,23 @@
 title: My thoughts on Pixi
 description: This is the coolest package manager
 pubDate: 2024-08-27
-tags: ['programming', 'c/c++', 'python', 'package manager']
+tags: ["programming", "c/c++", "python", "package manager"]
 ogImage: https://pub-9f1fe13d7d3744ac9ba1c96fb5a148d0.r2.dev/ogimage-my-thoughts-on-pixi.jpeg
 published: true
 ---
 
-import Video from '@/components/Video';
-import { Tags } from 'lucide-react';
-import Tldr from '@/components/tldr.astro';
+import Video from "@/components/Video";
+import { Tags } from "lucide-react";
+import Tldr from "@/components/tldr.astro";
 
-<h5 class="mb-3 text-sm">{frontmatter.description}</h5>
+<h5 class="mb-3 text-[16px]">{frontmatter.description}</h5>
 
 # {frontmatter.title}
 
 <div class="flex items-center gap-2 mb-8">
   <div class="flex items-center gap-1">
     <Tags size={16} />
-    <div class="flex items-center gap-2">
+    <div class="flex items-center gap-2 font-antonia">
       {frontmatter.tags.map((t) => (
         <a href={`/tags?value=${t}`}>
           <span># {t}</span>
@@ -29,17 +29,16 @@ import Tldr from '@/components/tldr.astro';
 </div>
 
 <Tldr>
-    During my time at the Laboratory of Artificial Intelligence and Robotics (LINAR) as part of the research team,
-    a very good friend of mine had told me about RoboStack when we were struggling to install ROS distributions
-    on our personal machines and in our cluster of servers with GPU support.
-    A couple years ago it was extremely daunting to install ROS in any of the supported operating systems;
-    in particular, Ubuntu distributions were the mainly supported OS at the time and it still remains that way.
-    Ubuntu is probably the first distribution that you mostly everyone will install on their very first days of using a Linux distribution,
-    and I think it's the right way to go, it's easy to set up and the UX/UI is good enough.
-    However, as you start becoming a more advanced user you will see that it has many limitations.
-    I believe the most annoying "feature" of Ubuntu is that its dependencies get old, and many of them are fixed to the
-    Ubuntu distribution.
-    This is the case for Python and ROS, and two technologies came to help us here: RoboStack, and pyenv.
+  During my time at the Laboratory of Artificial Intelligence and Robotics (LINAR) as part of the research team, a very
+  good friend of mine had told me about RoboStack when we were struggling to install ROS distributions on our personal
+  machines and in our cluster of servers with GPU support. A couple years ago it was extremely daunting to install ROS
+  in any of the supported operating systems; in particular, Ubuntu distributions were the mainly supported OS at the
+  time and it still remains that way. Ubuntu is probably the first distribution that you mostly everyone will install on
+  their very first days of using a Linux distribution, and I think it's the right way to go, it's easy to set up and the
+  UX/UI is good enough. However, as you start becoming a more advanced user you will see that it has many limitations. I
+  believe the most annoying "feature" of Ubuntu is that its dependencies get old, and many of them are fixed to the
+  Ubuntu distribution. This is the case for Python and ROS, and two technologies came to help us here: RoboStack, and
+  pyenv.
 </Tldr>
 
 ## RoboStack
@@ -103,11 +102,7 @@ I'm glad other communities are following this approach.
 Additionally, it's based and inspired by Conda/Mamba and Poetry, respectively.
 It's the better package manager at this time as it merges these two worlds with great success.
 
-<Video
-  client:load
-  ratio={16 / 9}
-  url="https://pub-9f1fe13d7d3744ac9ba1c96fb5a148d0.r2.dev/pixi-ekf-mono-slam.webm"
-/>
+<Video client:load ratio={16 / 9} url="https://pub-9f1fe13d7d3744ac9ba1c96fb5a148d0.r2.dev/pixi-ekf-mono-slam.webm" />
 
 ## Final thoughts
 

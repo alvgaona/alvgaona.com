@@ -1,6 +1,5 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 @plugin "daisyui";
-
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -9,10 +8,14 @@
     --container-padding: 2rem;
     --container-screens-2xl: 1400px;
 
-    --color-vesper-dark: #101010;
-    --color-vesper-gold: #FFC799;
+    --color-default-light: #f2f0ea;
+    --color-vesper-gold: #ffc799;
     --color-vesper-sky: #92f3d9;
     --color-vitesse-dark: #121212;
+    --color-spectral-blue: #2082df;
+
+    --font-antonia: "Antonia", var(--default-font-family);
+    --font-antonia-body: "AntoniaBody", var(--default-font-family);
 
     --radius-lg: var(--radius);
     --radius-md: calc(var(--radius) - 2px);
@@ -24,16 +27,20 @@
     --animate-accordion-up: accordion-up 0.2s ease-out;
 
     /* Blog posts theme */
-    --prose-font-family: var(--font-inter-variable), var(--default-font-family);
+    --prose-font-family: var(--font-antonia-body), var(--default-font-family);
+    --prose-heading-font-family: var(--font-antonia), var(--default-font-family);
+    --prose-heading-color: #2082df;
     --prose-a-decoration-color: var(--color-vesper-gold);
 }
 
 :root {
     --radius: 0.5rem;
 
-    --system-ui: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
-        'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-    --font-inter-variable: 'Inter Variable';
+    --system-ui:
+        system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+        "Segoe UI Symbol";
+    --font-inter-variable: "Inter Variable";
+    --font-antonia-variable: "Antonia";
 }
 
 * {
@@ -42,7 +49,7 @@
 
 html,
 body {
-    font-family: var(--font-inter-variable), var(--system-ui);
+    font-family: var(--font-antonia), var(--system-ui);
 }
 
 @media screen and (max-width: 545px) {
@@ -84,32 +91,48 @@ body {
 }
 
 @font-face {
-    font-family: 'CommitMono';
-    src: url('/fonts/CommitMono-400-Regular.otf') format('opentype');
+    font-family: "Antonia";
+    src: url("/fonts/Antonia-400-Regular.otf") format("opentype");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'CommitMono';
-    src: url('/fonts/CommitMono-400-Italic.otf') format('opentype');
+    font-family: "AntoniaBody";
+    src: url("/fonts/AntoniaBody-400-Regular.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "CommitMono";
+    src: url("/fonts/CommitMono-400-Regular.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "CommitMono";
+    src: url("/fonts/CommitMono-400-Italic.otf") format("opentype");
     font-weight: normal;
     font-style: italic;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'CommitMono';
-    src: url('/fonts/CommitMono-700-Regular.otf') format('opentype');
+    font-family: "CommitMono";
+    src: url("/fonts/CommitMono-700-Regular.otf") format("opentype");
     font-weight: bold;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'CommitMono';
-    src: url('/fonts/CommitMono-700-Italic.otf') format('opentype');
+    font-family: "CommitMono";
+    src: url("/fonts/CommitMono-700-Italic.otf") format("opentype");
     font-weight: bold;
     font-style: italic;
     font-display: swap;
