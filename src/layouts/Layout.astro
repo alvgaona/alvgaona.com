@@ -1,19 +1,19 @@
 ---
-import "@/styles/globals.css";
-import "@fontsource-variable/inter";
-import Footer from "@/components/Footer.astro";
-import AnimatedLayout from "@/components/AnimatedLayout";
-import { Toaster } from "@/components/ui/sonner";
-import { Grain } from "@/components/Grain";
-import siteMeta from "@/site-meta";
+import '@/styles/globals.css';
+import '@fontsource-variable/inter';
+import Footer from '@/components/Footer.astro';
+import AnimatedLayout from '@/components/AnimatedLayout';
+import { Toaster } from '@/components/ui/sonner';
+import { Grain } from '@/components/Grain';
+import siteMeta from '@/site-meta';
 
-import SpeedInsights from "@vercel/speed-insights/astro";
+import SpeedInsights from '@vercel/speed-insights/astro';
 
 const { meta } = Astro.props;
 
 const siteTitle = `${meta.title} • ${siteMeta.title}`;
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
-const socialImageUrl = new URL(meta?.ogImage ? meta.ogImage : "/social-card.jpg", Astro.url).href;
+const socialImageUrl = new URL(meta?.ogImage ? meta.ogImage : '/social-card.jpg', Astro.url).href;
 ---
 
 <!doctype html>

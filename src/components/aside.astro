@@ -2,7 +2,7 @@
 import { Info, AlertTriangle, CheckCircle, XCircle, Lightbulb, AlertCircle, Zap } from 'lucide-react';
 
 interface Props {
-  class?: string;
+    class?: string;
 }
 
 const { class: className } = Astro.props;
@@ -12,85 +12,95 @@ const slotContent = await Astro.slots.render('default');
 
 // Parse the GitHub-style callout syntax
 const parseCallout = (content: string) => {
-  // Remove HTML tags and get plain text
-  const plainText = content.replace(/<[^>]*>/g, '').trim();
-  const lines = plainText.split('\n').filter(line => line.trim());
+    // Remove HTML tags and get plain text
+    const plainText = content.replace(/<[^>]*>/g, '').trim();
+    const lines = plainText.split('\n').filter((line) => line.trim());
 
-  // Check if first line matches [!TYPE] pattern
-  const calloutMatch = lines[0]?.match(/^\[!(.*?)\]$/);
+    // Check if first line matches [!TYPE] pattern
+    const calloutMatch = lines[0]?.match(/^\[!(.*?)\]$/);
 
-  if (!calloutMatch) {
-    // Not a callout, return as regular blockquote
-    return {
-      type: 'default',
-      title: '',
-      body: plainText
-    };
-  }
+    if (!calloutMatch) {
+        // Not a callout, return as regular blockquote
+        return {
+            type: 'default',
+            title: '',
+            body: plainText,
+        };
+    }
 
-  const type = calloutMatch[1].toLowerCase();
-  const body = lines.slice(1).join('\n');
+    const type = calloutMatch[1].toLowerCase();
+    const body = lines.slice(1).join('\n');
 
-  return { type, title: calloutMatch[1], body };
+    return { type, title: calloutMatch[1], body };
 };
 
 const getIcon = (type: string) => {
-  switch (type) {
-    case 'note': return Info;
-    case 'important': return AlertCircle;
-    case 'warning': return AlertTriangle;
-    case 'caution': return AlertTriangle;
-    case 'tip': return Lightbulb;
-    case 'success': return CheckCircle;
-    case 'error': return XCircle;
-    case 'danger': return XCircle;
-    case 'info': return Info;
-    default: return Info;
-  }
+    switch (type) {
+        case 'note':
+            return Info;
+        case 'important':
+            return AlertCircle;
+        case 'warning':
+            return AlertTriangle;
+        case 'caution':
+            return AlertTriangle;
+        case 'tip':
+            return Lightbulb;
+        case 'success':
+            return CheckCircle;
+        case 'error':
+            return XCircle;
+        case 'danger':
+            return XCircle;
+        case 'info':
+            return Info;
+        default:
+            return Info;
+    }
 };
 
 const getStyles = (type: string) => {
-  const baseStyles = 'border-l-4 p-4 my-6';
-  switch (type) {
-    case 'note':
-    case 'info':
-      return `${baseStyles} border-blue-500 bg-blue-50 dark:bg-blue-950/20`;
-    case 'important':
-      return `${baseStyles} border-purple-500 bg-purple-50 dark:bg-purple-950/20`;
-    case 'warning':
-    case 'caution':
-      return `${baseStyles} border-yellow-500 bg-yellow-50 dark:bg-yellow-950/20`;
-    case 'tip':
-      return `${baseStyles} border-green-500 bg-green-50 dark:bg-green-950/20`;
-    case 'success':
-      return `${baseStyles} border-green-500 bg-green-50 dark:bg-green-950/20`;
-    case 'error':
-    case 'danger':
-      return `${baseStyles} border-red-500 bg-red-50 dark:bg-red-950/20`;
-    default:
-      return `${baseStyles} border-gray-300 bg-gray-50 dark:bg-gray-800/20`;
-  }
+    const baseStyles = 'border-l-4 p-4 my-6';
+    switch (type) {
+        case 'note':
+        case 'info':
+            return `${baseStyles} border-blue-500 bg-blue-50 dark:bg-blue-950/20`;
+        case 'important':
+            return `${baseStyles} border-purple-500 bg-purple-50 dark:bg-purple-950/20`;
+        case 'warning':
+        case 'caution':
+            return `${baseStyles} border-yellow-500 bg-yellow-50 dark:bg-yellow-950/20`;
+        case 'tip':
+            return `${baseStyles} border-green-500 bg-green-50 dark:bg-green-950/20`;
+        case 'success':
+            return `${baseStyles} border-green-500 bg-green-50 dark:bg-green-950/20`;
+        case 'error':
+        case 'danger':
+            return `${baseStyles} border-red-500 bg-red-50 dark:bg-red-950/20`;
+        default:
+            return `${baseStyles} border-gray-300 bg-gray-50 dark:bg-gray-800/20`;
+    }
 };
 
 const getTextColor = (type: string) => {
-  switch (type) {
-    case 'note':
-    case 'info':
-      return 'text-blue-600 dark:text-blue-400';
-    case 'important':
-      return 'text-purple-600 dark:text-purple-400';
-    case 'warning':
-    case 'caution':
-      return 'text-yellow-600 dark:text-yellow-400';
-    case 'tip':
-    case 'success':
-      return 'text-green-600 dark:text-green-400';
-    case 'error':
-    case 'danger':
-      return 'text-red-600 dark:text-red-400';
-    default:
-      return 'text-gray-600 dark:text-gray-400';
-  }
+    switch (type) {
+        case 'note':
+        case 'info':
+            return 'text-blue-600 dark:text-blue-400';
+        case 'important':
+            return 'text-purple-600 dark:text-purple-400';
+        case 'warning':
+        case 'caution':
+            return 'text-yellow-600 dark:text-yellow-400';
+        case 'tip':
+        case 'success':
+            return 'text-green-600 dark:text-green-400';
+        case 'error':
+        case 'danger':
+            return 'text-red-600 dark:text-red-400';
+        default:
+            return 'text-gray-600 dark:text-gray-400';
+    }
 };
 
 const { type, title, body } = parseCallout(slotContent);
