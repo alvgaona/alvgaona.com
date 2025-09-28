@@ -29,6 +29,14 @@
         margin: 0;
     }
 
+    .prose code {
+        font-family: "Lilex";
+    }
+
+    .prose p code {
+        font-size: 16px;
+    }
+
     .prose h2 {
         font-weight: 500;
         font-size: 1.875rem;
@@ -54,8 +62,12 @@
     .prose a {
         font-weight: 300;
         text-underline-offset: 4px;
+        color: var(--color-spectral-blue);
+        text-decoration-color: var(--prose-heading-color);
+    }
+
+    .prose a:hover {
         text-decoration: underline;
-        text-decoration-color: var(--prose-a-decoration-color);
     }
 
     .prose blockquote {
@@ -65,7 +77,6 @@
         padding-inline-start: 1em;
         padding: 0.5rem 1rem;
         border-radius: 0.875rem;
-        border-color: var(--color-vesper-gold);
         border-width: 1px;
     }
 
@@ -109,6 +120,6 @@
     }
 
     .prose .katex-display {
-        color: oklch(1 0 0 / 87.5%);
+        color: oklch(0 0 0 / 80%);
     }
 </style>

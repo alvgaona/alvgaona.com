@@ -22,19 +22,6 @@ export const components = {
 
 # {frontmatter.title}
 
-<div class="flex items-center gap-2 mb-8">
-  <div class="flex items-center gap-1">
-    <Tags size={16} />
-    <div class="flex items-center gap-2 font-antonia">
-      {frontmatter.tags.map((t) => (
-        <a href={`/tags?value=${t}`}>
-          <span># {t}</span>
-        </a>
-      ))}
-    </div>
-  </div>
-</div>
-
 <Tldr>
   The system in this post consists of an inverted pendulum mounted to a motorized cart. The inverted pendulum system is
   an example commonly found in control system textbooks and research literature. Its popularity derives in part from the

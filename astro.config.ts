@@ -1,12 +1,10 @@
 import mdx from '@astrojs/mdx';
 import react from '@astrojs/react';
+import vercel from '@astrojs/vercel';
+import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
 import rehypeKatex from 'rehype-katex';
 import remarkMath from 'remark-math';
-
-import tailwindcss from '@tailwindcss/vite';
-
-import vercel from '@astrojs/vercel';
 
 // https://astro.build/config
 export default defineConfig({
@@ -28,7 +26,7 @@ export default defineConfig({
     markdown: {
         syntaxHighlight: 'shiki',
         shikiConfig: {
-            theme: 'vitesse-dark',
+            theme: 'nord',
         },
     },
 });

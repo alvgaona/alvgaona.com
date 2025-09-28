@@ -22,19 +22,6 @@ export const components = {
 
 # {frontmatter.title}
 
-<div class="flex items-center gap-2 mb-8">
-  <div class="flex items-center gap-1">
-    <Tags size={16} />
-    <div class="flex items-center gap-2 font-antonia">
-      {frontmatter.tags.map((t) => (
-        <a href="">
-          <span># {t}</span>
-        </a>
-      ))}
-    </div>
-  </div>
-</div>
-
 <Tldr>
   The second most popular controller out there is the Model Predictive Control (MPC) controller, there is an
   unbelieveable number of variations around this controller, e.g, Data-driven MPC, Robust MPC, Nonlinear MPC. At the
