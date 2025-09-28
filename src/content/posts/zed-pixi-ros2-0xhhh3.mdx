@@ -19,19 +19,6 @@ export const components = { pre: CodeBlock, blockquote: Aside };
 
 # {frontmatter.title}
 
-<div class="flex items-center gap-2 mb-8">
-  <div class="flex items-center gap-1">
-    <Tags size={16} />
-    <div class="flex items-center gap-2 font-antonia">
-      {frontmatter.tags.map((t) => (
-        <a href={`/tags?value=${t}`}>
-          <span># {t}</span>
-        </a>
-      ))}
-    </div>
-  </div>
-</div>
-
 <Tldr>
 For nearly a year now, I've been using the Zed editor as my primary development tool.
 It has dramatically boosted my productivity across both my day job and side projects.

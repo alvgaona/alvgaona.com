@@ -1,0 +1,14 @@
+<div class="flex items-center gap-2 mb-8">
+    <div class="flex items-center gap-1">
+        <Tags size={16} />
+        <div class="flex items-center gap-2 font-antonia">
+            {
+                frontmatter.tags.map((t) => (
+                    <a href="">
+                        <span># {t}</span>
+                    </a>
+                ))
+            }
+        </div>
+    </div>
+</div>

@@ -9,9 +9,6 @@
     --container-screens-2xl: 1400px;
 
     --color-default-light: #f2f0ea;
-    --color-vesper-gold: #ffc799;
-    --color-vesper-sky: #92f3d9;
-    --color-vitesse-dark: #121212;
     --color-spectral-blue: #2082df;
 
     --font-antonia: "Antonia", var(--default-font-family);
@@ -88,6 +85,14 @@ body {
         height: 0;
         overflow: hidden;
     }
+}
+
+@font-face {
+    font-family: "Lilex";
+    src: url("/fonts/LilexVariable.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
 
 @font-face {

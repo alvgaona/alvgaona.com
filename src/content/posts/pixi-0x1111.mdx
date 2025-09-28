@@ -15,19 +15,6 @@ import Tldr from "@/components/tldr.astro";
 
 # {frontmatter.title}
 
-<div class="flex items-center gap-2 mb-8">
-  <div class="flex items-center gap-1">
-    <Tags size={16} />
-    <div class="flex items-center gap-2 font-antonia">
-      {frontmatter.tags.map((t) => (
-        <a href={`/tags?value=${t}`}>
-          <span># {t}</span>
-        </a>
-      ))}
-    </div>
-  </div>
-</div>
-
 <Tldr>
   During my time at the Laboratory of Artificial Intelligence and Robotics (LINAR) as part of the research team, a very
   good friend of mine had told me about RoboStack when we were struggling to install ROS distributions on our personal

@@ -23,62 +23,64 @@ const decodedText = plainText
 const lines = decodedText.split('\n');
 ---
 
-<div class="relative flex flex-col mockup-code bg-vitesse-dark w-full" data-language={language}>
-  <button
-    class="cursor-pointer copy-btn absolute top-2 right-2 p-2 rounded-md transition-colors duration-200 text-gray-300 hover:text-white z-10"
-    data-code={decodedText}
-    aria-label="Copy code"
-  >
-    <Copy className="copy-icon w-4 h-4" />
-    <Check className="check-icon w-4 h-4 hidden" />
-  </button>
-  <div class="overflow-x-auto">
-    {lines.map((line: string, index: number) => (
-      <Code
-        class="m-0! p-0! text-sm! bg-transparent!"
-        data-prefix={index + 1}
-        code={line}
-        theme={theme as any}
-        lang={language as any}
-      />
-    ))}
-  </div>
+<div class="relative flex flex-col mockup-code w-full bg-[#2E3440]" data-language={language}>
+    <button
+        class="cursor-pointer copy-btn absolute top-2 right-2 p-2 rounded-md transition-colors duration-200 text-gray-300 hover:text-white z-10"
+        data-code={decodedText}
+        aria-label="Copy code"
+    >
+        <Copy className="copy-icon w-4 h-4" />
+        <Check className="check-icon w-4 h-4 hidden" />
+    </button>
+    <div class="overflow-x-auto">
+        {
+            lines.map((line: string, index: number) => (
+                <Code
+                    class="m-0! p-0! text-sm! bg-transparent!"
+                    data-prefix={index + 1}
+                    code={line}
+                    theme={theme as any}
+                    lang={language as any}
+                />
+            ))
+        }
+    </div>
 </div>
 
 <style>
-  .mockup-code pre {
-    overflow-x: visible !important;
-  }
+    .mockup-code pre {
+        overflow-x: visible !important;
+    }
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const copyButtons = document.querySelectorAll('.copy-btn');
+    document.addEventListener("DOMContentLoaded", () => {
+        const copyButtons = document.querySelectorAll(".copy-btn");
 
-    copyButtons.forEach(button => {
-      button.addEventListener('click', async () => {
-        const code = button.getAttribute('data-code');
-        const copyIcon = button.querySelector('.copy-icon');
-        const checkIcon = button.querySelector('.check-icon');
+        copyButtons.forEach((button) => {
+            button.addEventListener("click", async () => {
+                const code = button.getAttribute("data-code");
+                const copyIcon = button.querySelector(".copy-icon");
+                const checkIcon = button.querySelector(".check-icon");
 
-        if (code) {
-          try {
-            await navigator.clipboard.writeText(code);
+                if (code) {
+                    try {
+                        await navigator.clipboard.writeText(code);
 
-            // Show success state
-            copyIcon?.classList.add('hidden');
-            checkIcon?.classList.remove('hidden');
+                        // Show success state
+                        copyIcon?.classList.add("hidden");
+                        checkIcon?.classList.remove("hidden");
 
-            // Reset after 2 seconds
-            setTimeout(() => {
-              copyIcon?.classList.remove('hidden');
-              checkIcon?.classList.add('hidden');
-            }, 2000);
-          } catch (err) {
-            console.error('Failed to copy code:', err);
-          }
-        }
-      });
+                        // Reset after 2 seconds
+                        setTimeout(() => {
+                            copyIcon?.classList.remove("hidden");
+                            checkIcon?.classList.add("hidden");
+                        }, 2000);
+                    } catch (err) {
+                        console.error("Failed to copy code:", err);
+                    }
+                }
+            });
+        });
     });
-  });
 </script>
