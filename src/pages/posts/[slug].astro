@@ -1,31 +1,31 @@
 ---
-import { getCollection } from 'astro:content';
-import { CopyLink } from '@/components/CopyLink';
-import MarkdownLayout from '@/layouts/MarkdownLayout.astro';
-import Prose from '@/components/Prose.astro';
+import { getCollection } from "astro:content";
+import { CopyLink } from "@/components/CopyLink";
+import MarkdownLayout from "@/layouts/MarkdownLayout.astro";
+import Prose from "@/components/Prose.astro";
 
 const { slug } = Astro.params;
 
-const allPosts = await getCollection('posts');
+const allPosts = await getCollection("posts");
 
 const entry = allPosts.find((post) => post.slug === slug && post.data.published);
 
 if (!entry) {
-    return Astro.redirect('/not-found');
+    return Astro.redirect("/not-found");
 }
 
 const { Content } = await entry.render();
 ---
 
 <MarkdownLayout frontmatter={entry.data}>
-  <Prose>
-    <Content />
-  </Prose>
-  <div class="flex flex-col gap-2">
-    <span class="text-sm">Share</span>
-    <div class="divider m-0"></div>
-    <div class="mt-4">
-      <CopyLink client:load />
+    <Prose>
+        <Content />
+    </Prose>
+    <div class="flex flex-col gap-2">
+        <span class="text-sm">Share</span>
+        <div class="w-full border-t border-gray-300 m-0"></div>
+        <div class="mt-4">
+            <CopyLink client:visible />
+        </div>
     </div>
-  </div>
 </MarkdownLayout>

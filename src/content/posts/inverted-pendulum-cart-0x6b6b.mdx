@@ -360,7 +360,7 @@ r = 0.2 * ones(1, size(t)[1])
 y, t, _, _ = lsim(sys, r, t)
 ```
 
-![Closed-loop Step Response Angle](/closed-loop-step-response.png)
+![Closed-loop Step Response Angle](/closed-loop-step-response.webp)
 
 ```julia
 plot(t, y[2, :],
@@ -373,7 +373,7 @@ plot(t, y[2, :],
 
 The angle stabilizes relatively quickly, reaching stability in approximately 2 seconds. However, an issue arises with the cart position, as it deviates from the reference signal of 0.2 meters and ends up very close to 0. How can we address this drift?
 
-![Closed-loop Step Response Position](/closed-loop-step-response-2.png)
+![Closed-loop Step Response Position](/closed-loop-step-response-2.webp)
 
 ```julia
 plot(t, y[1, :],
@@ -401,7 +401,7 @@ sys = ss(Ac, Bc*Nbar, Cc, Dc)
 y, _, _, _ = lsim(sys, r, t)
 ```
 
-![Precompensated CL Angle](/precompensated-cl-step-response-2.png)
+![Precompensated CL Angle](/precompensated-cl-step-response-2.webp)
 
 ```julia
 plot(t, y2[1, :],
@@ -412,7 +412,7 @@ plot(t, y2[1, :],
   legend = false)
 ```
 
-![Precompensated CL Position](/precompensated-cl-step-response.png)
+![Precompensated CL Position](/precompensated-cl-step-response.webp)
 
 ```julia
 plot(t, y2[2, :],
@@ -514,7 +514,7 @@ sys = ss(Aca, Br, Cca, D)
 y, _, _, _ = lsim(sys, r, t)
 ```
 
-![Integral Action CL Position](/ia-cl-step-response-2.png)
+![Integral Action CL Position](/ia-cl-step-response-2.webp)
 
 ```julia
 plot(t, y[1, :],
@@ -525,7 +525,7 @@ plot(t, y[1, :],
   legend = false)
 ```
 
-![Integral Action CL Angle](/ia-cl-step-response.png)
+![Integral Action CL Angle](/ia-cl-step-response.webp)
 
 ```julia
 plot(t, y[2, :],
@@ -697,7 +697,7 @@ sys = ss(Af - Bf*Kf, Bfr, Cf, Df);
 y, _, _, _ = lsim(sys, r, t)
 ```
 
-![Integral Action CL w/ L Observer Position](/observer-cl-step-response.png)
+![Integral Action CL w/ L Observer Position](/observer-cl-step-response.webp)
 
 ```julia
 plot(t, y4[1, :],
@@ -708,7 +708,7 @@ plot(t, y4[1, :],
   legend = false)
 ```
 
-![Integral Action CL w/ L Observer Angle](/observer-cl-step-response-2.png)
+![Integral Action CL w/ L Observer Angle](/observer-cl-step-response-2.webp)
 
 ```julia
 plot(t, y4[2, :],
