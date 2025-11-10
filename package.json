@@ -13,8 +13,8 @@
         "lint": "biome lint --write ."
     },
     "dependencies": {
-        "@astrojs/mdx": "4.3.9",
-        "@astrojs/react": "4.4.1",
+        "@astrojs/mdx": "4.3.10",
+        "@astrojs/react": "4.4.2",
         "@astrojs/rss": "4.0.13",
         "@astrojs/vercel": "8.2.11",
         "@heroicons/react": "^2.2.0",
