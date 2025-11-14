@@ -30,7 +30,7 @@
         "@types/react-dom": "^19.2.2",
         "@vercel/analytics": "^1.5.0",
         "@vercel/speed-insights": "^1.2.0",
-        "astro": "5.14.8",
+        "astro": "5.15.6",
         "class-variance-authority": "^0.7.1",
         "clsx": "^2.1.1",
         "daisyui": "^5.3.8",
