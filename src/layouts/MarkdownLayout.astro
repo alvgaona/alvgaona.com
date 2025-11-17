@@ -5,6 +5,33 @@ import Layout from './Layout.astro';
 const { frontmatter } = Astro.props;
 ---
 
+<style>
+    .breadcrumbs ul {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .breadcrumbs li:not(:last-child)::after {
+        content: "/";
+        margin-left: 0.5rem;
+        opacity: 0.5;
+    }
+
+    .breadcrumbs a {
+        text-decoration: none;
+        opacity: 0.7;
+        transition: opacity 0.2s;
+    }
+
+    .breadcrumbs a:hover {
+        opacity: 1;
+    }
+</style>
+
 <Layout
     meta={{
         title: frontmatter.title,
