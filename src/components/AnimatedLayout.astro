@@ -1,0 +1,36 @@
+---
+// Simple animated layout using CSS instead of Framer Motion
+---
+
+<div class="animated-layout">
+    <slot />
+</div>
+
+<style>
+    .animated-layout {
+        animation: fadeInUp 0.5s ease-in-out;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
+
+<script>
+    // Scroll to top on page navigation
+    if (typeof window !== "undefined") {
+        window.history.scrollRestoration = "manual";
+
+        // Scroll to top on navigation
+        document.addEventListener('astro:page-load', () => {
+            window.scrollTo({ top: 0 });
+        });
+    }
+</script>

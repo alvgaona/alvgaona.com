@@ -1,10 +1,25 @@
-import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 import { Toaster as Sonner } from 'sonner';
 
 type ToasterProps = React.ComponentProps<typeof Sonner>;
 
 const Toaster = ({ ...props }: ToasterProps) => {
-    const { theme = 'system' } = useTheme();
+    const [theme, setTheme] = useState<'light' | 'dark' | 'system'>('system');
+
+    useEffect(() => {
+        // Get theme from localStorage or default to system
+        const currentTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
+        setTheme(currentTheme || 'system');
+
+        // Listen for theme changes
+        const handleStorage = () => {
+            const newTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
+            setTheme(newTheme || 'system');
+        };
+
+        window.addEventListener('storage', handleStorage);
+        return () => window.removeEventListener('storage', handleStorage);
+    }, []);
 
     return (
         <Sonner

@@ -1,10 +1,8 @@
 ---
 import "@/styles/globals.css";
-import "katex/dist/katex.min.css";
 import Footer from "@/components/Footer.astro";
-import AnimatedLayout from "@/components/AnimatedLayout";
+import AnimatedLayout from "@/components/AnimatedLayout.astro";
 import { Toaster } from "@/components/ui/sonner";
-import { Grain } from "@/components/Grain";
 import siteMeta from "@/site-meta";
 
 import SpeedInsights from "@vercel/speed-insights/astro";
@@ -13,7 +11,7 @@ const { meta } = Astro.props;
 
 const siteTitle = `${meta.title} • ${siteMeta.title}`;
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
-const socialImageUrl = new URL(meta?.ogImage ? meta.ogImage : "/social-card.png", Astro.url).href;
+const socialImageUrl = new URL(meta?.ogImage ? meta.ogImage : "/social-card.webp", Astro.url).href;
 ---
 
 <!doctype html>
@@ -57,23 +55,49 @@ const socialImageUrl = new URL(meta?.ogImage ? meta.ogImage : "/social-card.png"
         <link rel="alternate" type="application/rss+xml" title={siteMeta.title} href="/rss.xml" />
 
         <!-- Preload critical fonts -->
-        <link rel="preload" href="/fonts/Antonia-400-Regular.otf" as="font" type="font/otf" crossorigin="anonymous" />
+        <link rel="preload" href="/fonts/Antonia-400-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
         <link
             rel="preload"
-            href="/fonts/AntoniaBody-400-Regular.otf"
+            href="/fonts/AntoniaBody-400-Regular.woff2"
             as="font"
-            type="font/otf"
+            type="font/woff2"
             crossorigin="anonymous"
         />
 
         <script is:inline src="/toggle-theme.js"></script>
         <link rel="icon" type="image/png" href="/favicon.png" />
+
+        <!-- Structured Data -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": meta?.articleDate ? "BlogPosting" : "WebSite",
+                "name": meta.title,
+                "description": meta.description,
+                "url": canonicalUrl,
+                ...(meta?.articleDate && {
+                    "headline": meta.title,
+                    "datePublished": meta.articleDate,
+                    "author": {
+                        "@type": "Person",
+                        "name": siteMeta.author,
+                        "url": "https://alvgaona.com"
+                    },
+                    "image": socialImageUrl,
+                    "publisher": {
+                        "@type": "Person",
+                        "name": siteMeta.author,
+                        "url": "https://alvgaona.com"
+                    }
+                })
+            }
+        </script>
+
         <SpeedInsights />
     </head>
     <body class="bg-default-light text-black">
-        <!-- <Grain client:load /> -->
         <>
-            <AnimatedLayout client:idle>
+            <AnimatedLayout>
                 <slot />
                 <Toaster
                     client:idle
