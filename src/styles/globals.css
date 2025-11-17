@@ -45,7 +45,7 @@
 
 html,
 body {
-    font-family: var(--system-ui);
+    font-family: var(--font-antonia), var(--system-ui);
 }
 
 @media screen and (max-width: 545px) {

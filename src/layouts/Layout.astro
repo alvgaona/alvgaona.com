@@ -54,6 +54,16 @@ const socialImageUrl = new URL(meta?.ogImage ? meta.ogImage : "/social-card.webp
         <!-- RSS auto-discovery -->
         <link rel="alternate" type="application/rss+xml" title={siteMeta.title} href="/rss.xml" />
 
+        <!-- Preload critical fonts -->
+        <link rel="preload" href="/fonts/Antonia-400-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+        <link
+            rel="preload"
+            href="/fonts/AntoniaBody-400-Regular.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin="anonymous"
+        />
+
         <!-- Minimal inline theme script to prevent FOUC -->
         <script is:inline>
             const theme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
