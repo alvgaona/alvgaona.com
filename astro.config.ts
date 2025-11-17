@@ -1,7 +1,7 @@
 import mdx from '@astrojs/mdx';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
-import vercel from '@astrojs/vercel';
+import vercel from '@astrojs/vercel/static';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
 import rehypeKatex from 'rehype-katex';
@@ -10,7 +10,7 @@ import remarkMath from 'remark-math';
 // https://astro.build/config
 export default defineConfig({
     site: 'https://alvgaona.com',
-    output: 'server',
+    output: 'static',
     adapter: vercel({
         webAnalytics: { enabled: true },
     }),
