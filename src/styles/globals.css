@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@plugin "daisyui";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -45,7 +44,7 @@
 
 html,
 body {
-    font-family: var(--font-antonia), var(--system-ui);
+    font-family: var(--system-ui);
 }
 
 @media screen and (max-width: 545px) {
