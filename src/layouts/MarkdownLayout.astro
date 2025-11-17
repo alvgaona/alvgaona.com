@@ -6,29 +6,40 @@ const { frontmatter } = Astro.props;
 ---
 
 <style>
+    /* Override DaisyUI breadcrumbs with custom styling */
     .breadcrumbs ul {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        list-style: none;
-        padding: 0;
-        margin: 0;
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.5rem !important;
+        list-style: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
     }
 
-    .breadcrumbs li:not(:last-child)::after {
-        content: "/";
-        margin-left: 0.5rem;
-        opacity: 0.5;
+    .breadcrumbs li {
+        display: flex !important;
+        align-items: center !important;
+    }
+
+    /* Remove DaisyUI's default separator and add custom one */
+    .breadcrumbs li::before {
+        content: none !important;
+    }
+
+    .breadcrumbs li + li::before {
+        content: "/" !important;
+        margin-inline: 0.5rem !important;
+        opacity: 0.5 !important;
     }
 
     .breadcrumbs a {
-        text-decoration: none;
-        opacity: 0.7;
-        transition: opacity 0.2s;
+        text-decoration: none !important;
+        opacity: 0.7 !important;
+        transition: opacity 0.2s !important;
     }
 
     .breadcrumbs a:hover {
-        opacity: 1;
+        opacity: 1 !important;
     }
 </style>
 
