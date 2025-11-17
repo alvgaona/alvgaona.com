@@ -32,6 +32,7 @@
         "astro": "5.14.8",
         "class-variance-authority": "^0.7.1",
         "clsx": "^2.1.1",
+        "daisyui": "^5.5.5",
         "katex": "^0.16.25",
         "lucide-react": "^0.544.0",
         "react": "^18.3.1",
