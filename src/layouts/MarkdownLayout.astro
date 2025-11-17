@@ -6,40 +6,34 @@ const { frontmatter } = Astro.props;
 ---
 
 <style>
-    /* Override DaisyUI breadcrumbs with custom styling */
-    .breadcrumbs ul {
-        display: flex !important;
-        align-items: center !important;
-        gap: 0.5rem !important;
-        list-style: none !important;
-        padding: 0 !important;
-        margin: 0 !important;
+    .page-nav ul {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        list-style: none;
+        padding: 0;
+        margin: 0;
     }
 
-    .breadcrumbs li {
-        display: flex !important;
-        align-items: center !important;
+    .page-nav li {
+        display: flex;
+        align-items: center;
     }
 
-    /* Remove DaisyUI's default separator and add custom one */
-    .breadcrumbs li::before {
-        content: none !important;
+    .page-nav li + li::before {
+        content: "/";
+        margin-inline: 0.5rem;
+        opacity: 0.5;
     }
 
-    .breadcrumbs li + li::before {
-        content: "/" !important;
-        margin-inline: 0.5rem !important;
-        opacity: 0.5 !important;
+    .page-nav a {
+        text-decoration: none;
+        opacity: 0.7;
+        transition: opacity 0.2s;
     }
 
-    .breadcrumbs a {
-        text-decoration: none !important;
-        opacity: 0.7 !important;
-        transition: opacity 0.2s !important;
-    }
-
-    .breadcrumbs a:hover {
-        opacity: 1 !important;
+    .page-nav a:hover {
+        opacity: 1;
     }
 </style>
 
@@ -53,7 +47,7 @@ const { frontmatter } = Astro.props;
 >
     <main class="mx-auto max-w-4xl pb-12 pt-[56px]">
         <div class="mt-4 flex items-center justify-between px-6 lg:px-0">
-            <div class="breadcrumbs text-lg">
+            <div class="page-nav text-lg">
                 <ul>
                     <li><a href="/">Home</a></li>
                     <li>{frontmatter.title}</li>
