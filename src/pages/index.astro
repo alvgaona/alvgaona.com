@@ -1,19 +1,18 @@
 ---
-import MainLayout from "@/layouts/MainLayout.astro";
-import avatar from "@/assets/avatar.webp";
-import Publication from "@/components/Publication.astro";
+import MainLayout from '@/layouts/MainLayout.astro';
+import avatar from '@/assets/avatar-2.webp';
+import Publication from '@/components/Publication.astro';
 
-import BlogPostItem from "@/components/BlogPostItem.astro";
-import { getCollection } from "astro:content";
+import BlogPostItem from '@/components/BlogPostItem.astro';
+import { getCollection } from 'astro:content';
 
-const allPosts = (await getCollection("posts")).filter((post) => post.data.published);
+const allPosts = (await getCollection('posts')).filter((post) => post.data.published);
 
 allPosts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 ---
 
 <MainLayout
-    title="Home"
-    description="Electronics & Robotics Engineer"
+    meta={{title: 'Home', description: 'Electronics & Robotics Engineer'}}
     className="flex flex-col max-w-4xl font-antonia-body"
 >
     <section class="flex flex-col items-start gap-6">
@@ -57,14 +56,12 @@ allPosts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
                 video="https://www.youtube.com/watch?v=lB_cJI2HU94"
                 poster="https://pub-f074cead5eaf408790b463b05f6e8b32.r2.dev/NVIDIA_Poster.pdf"
             />
-
             <Publication
                 title="Prototyping of a multirotor UAV for precision landing under rotor failures"
                 reference="A. J. Gaona, C. D. Pose, J. I. Giribet, R. Bunge, ”Prototyping of a multirotor UAV for precision landing under rotor failures”. Jornadas Argentinas de Robótica 2022 (JAR XI). Bariloche, Argentina."
                 article="https://arxiv.org/pdf/2408.01676"
                 video="https://www.youtube.com/watch?v=RSMMCVYldGk"
             />
-
             <Publication
                 title="Deep Recurrent Learning for Heart Sound Segmentation based on Instantaneous Frequency Features"
                 reference="A. J. Gaona, P. D. Arini, ”Deep Recurrent Learning for Heart Sounds Segmentation based on Instantaneous Frequency Features”. Revista Elektron, Vol. 4, No. 2, pp 52‑57 (2020)."

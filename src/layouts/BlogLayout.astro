@@ -1,0 +1,69 @@
+---
+import 'katex/dist/katex.min.css';
+import MainLayout from './MainLayout.astro';
+const { frontmatter } = Astro.props;
+---
+
+<style>
+    .page-nav ul {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .page-nav li {
+        display: flex;
+        align-items: center;
+    }
+
+    .page-nav li + li::before {
+        content: "/";
+        margin-inline: 0.5rem;
+        opacity: 0.5;
+    }
+
+    .page-nav a {
+        text-decoration: none;
+        opacity: 0.7;
+        transition: opacity 0.2s;
+    }
+
+    .page-nav a:hover {
+        opacity: 1;
+    }
+</style>
+
+  <MainLayout
+    className="max-w-4xl px-0"
+    meta={{
+        title: frontmatter.title,
+        ogImage: frontmatter.ogImage,
+        description: frontmatter.description,
+        articleDate: frontmatter.pubDate.toISOString(),
+    }}
+>
+  <div class="mt-4 flex items-center justify-between px-6 lg:px-0">
+      <div class="page-nav text-lg">
+          <ul>
+              <li><a href="/">Home</a></li>
+              <li>{frontmatter.title}</li>
+          </ul>
+      </div>
+      <span class="text-lg font-thin">
+          Published on
+          {
+              frontmatter.pubDate.toLocaleString("default", {
+                  month: "long",
+                  year: "numeric",
+                  day: "numeric",
+              })
+          }
+      </span>
+  </div>
+  <article class="mx-auto max-w-4xl px-24 font-antonia-body">
+      <slot />
+  </article>
+</MainLayout>

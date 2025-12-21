@@ -1,11 +1,11 @@
 ---
-import { getCollection } from "astro:content";
-import { CopyLink } from "@/components/CopyLink";
-import MarkdownLayout from "@/layouts/MarkdownLayout.astro";
-import Prose from "@/components/Prose.astro";
+import { getCollection } from 'astro:content';
+import { CopyLink } from '@/components/CopyLink';
+import BlogLayout from '@/layouts/BlogLayout.astro';
+import Prose from '@/components/Prose.astro';
 
 export async function getStaticPaths() {
-    const allPosts = await getCollection("posts");
+    const allPosts = await getCollection('posts');
     return allPosts
         .filter((post) => post.data.published)
         .map((post) => ({
@@ -18,7 +18,7 @@ const { post } = Astro.props;
 const { Content } = await post.render();
 ---
 
-<MarkdownLayout frontmatter={post.data}>
+<BlogLayout frontmatter={post.data}>
     <Prose>
         <Content />
     </Prose>
@@ -29,4 +29,4 @@ const { Content } = await post.render();
             <CopyLink client:visible />
         </div>
     </div>
-</MarkdownLayout>
+</BlogLayout>
