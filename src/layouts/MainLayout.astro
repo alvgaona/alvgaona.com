@@ -2,13 +2,13 @@
 import Layout from '@/layouts/Layout.astro';
 import { cn } from '@/lib/utils';
 
-const { className = 'max-w-2xl', title, description } = Astro.props;
+const { className = 'max-w-2xl', ...props } = Astro.props;
 ---
 
-<Layout meta={{ title, description }}>
+<Layout meta={props.meta}>
   <main
     class={cn(
-      'pt-[56px] mx-auto max-w-2xl px-8 pb-12 relative',
+      'pt-14 mx-auto max-w-2xl px-8 pb-12 relative',
       className,
     )}
   >
