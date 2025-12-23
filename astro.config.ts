@@ -52,6 +52,7 @@ export default defineConfig({
         syntaxHighlight: 'shiki',
         shikiConfig: {
             theme: 'nord',
+            wrap: true,
         },
     },
 });

@@ -2,7 +2,7 @@ import siteMeta from '@/site-meta';
 import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
 
-export const get = async () => {
+export const GET = async () => {
     const posts = (await getCollection('posts')).filter((post) => post.data.published);
 
     return rss({
