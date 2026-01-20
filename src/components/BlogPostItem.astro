@@ -1,10 +1,10 @@
 ---
-const { frontmatter, slug, url } = Astro.props;
+const { frontmatter, slug } = Astro.props;
 ---
 
 <li>
-    <div class="grid grid-cols-4 gap-x-24 text-[16px]">
-        <span class="col-span-1">
+    <div class="flex flex-col sm:flex-row sm:gap-4 text-base">
+        <span class="text-sm sm:text-base opacity-70 sm:opacity-100 sm:w-28 shrink-0">
             {
                 frontmatter.pubDate.toLocaleString("default", {
                     month: "short",
@@ -13,7 +13,7 @@ const { frontmatter, slug, url } = Astro.props;
                 })
             }
         </span>
-        <a href={`/posts/${slug}/`} class="col-span-3">
+        <a href={`/posts/${slug}/`}>
             <span class="break-normal hover:underline underline-offset-4">{frontmatter.title}</span>
         </a>
     </div>
