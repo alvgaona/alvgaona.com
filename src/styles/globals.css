@@ -11,12 +11,28 @@
     --container-padding: 2rem;
     --container-screens-2xl: 1400px;
 
+    /* Base colors */
     --color-default-light: #f2f0ea;
     --color-default-dark: #101010;
+
+    /* Accent colors */
     --color-spectral-blue: #7ab8e8;
     --color-accent-dark: #f8a5a5;
+
+    /* Text colors */
     --color-text-light: #e0e0e0;
+
+    /* Header colors */
+    --color-header-light: #e5e3dd;
+    --color-header-dark: #1a1a1a;
+
+    /* Border colors */
+    --color-border-dark: #2a2a2a;
+
+    /* Code block colors */
     --color-code-bg: #121212;
+    --color-inline-code-bg-dark: #1e1e1e;
+    --color-inline-code-bg-light: #d9d7d1;
 
     --font-inter: "Inter Variable", var(--default-font-family);
     --font-space-grotesk: "Space Grotesk Variable", var(--default-font-family);
@@ -84,6 +100,30 @@ body {
     }
 
     .dark a {
+        text-decoration-color: var(--color-accent-dark);
+    }
+}
+
+@layer components {
+    /* Navigation link - no underline by default, shows on hover */
+    .nav-link {
+        font-family: var(--font-inter);
+    }
+
+    .nav-link a {
+        text-decoration: none;
+    }
+
+    .nav-link:hover a,
+    .nav-link a:hover {
+        text-decoration: underline;
+        text-decoration-color: var(--color-spectral-blue);
+        text-decoration-thickness: 1px;
+        text-underline-offset: 4px;
+    }
+
+    .dark .nav-link:hover a,
+    .dark .nav-link a:hover {
         text-decoration-color: var(--color-accent-dark);
     }
 }

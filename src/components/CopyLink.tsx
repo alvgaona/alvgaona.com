@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { Link } from 'lucide-react';
+import { Link } from '@phosphor-icons/react';
 
 import { toast } from 'sonner';
 
@@ -21,7 +21,7 @@ const CopyLink = () => {
             variant="outline"
             size="sm"
         >
-            <Link className="h-4 w-4" />
+            <Link size={16} />
             Copy link
         </Button>
     );
