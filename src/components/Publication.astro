@@ -11,16 +11,16 @@ const { title, reference, article, video, poster } = Astro.props;
 ---
 
 <div class="flex flex-col">
-    <p id="hss" class="text-b-gray-200 text-[17px] inline font-bold font-antonia">
+    <p id="hss" class="text-b-gray-200 text-[17px] inline font-medium font-space-grotesk">
         &bdquo;{title}&ldquo;
     </p>
     <p class="text-justify text-[16px]">{reference}</p>
-    <div class="flex items-center gap-3 text-spectral-blue">
+    <div class="flex items-center gap-3">
         {
             article && (
                 <a
                     href={article}
-                    class="transform pt-4 hover:underline decoration-2 underline-offset-4 transition duration-200 hover:-translate-y-1"
+                    class="transform pt-4 hover:underline decoration-1 underline-offset-4 transition duration-200 hover:-translate-y-1"
                 >
                     <span class="flex items-center gap-1 text-[16px]"> Article</span>
                 </a>
@@ -31,7 +31,7 @@ const { title, reference, article, video, poster } = Astro.props;
             poster && (
                 <a
                     href={poster}
-                    class="transform pt-4 hover:underline decoration-2 underline-offset-4 transition duration-200 hover:-translate-y-1"
+                    class="transform pt-4 hover:underline decoration-1 underline-offset-4 transition duration-200 hover:-translate-y-1"
                 >
                     <span class="flex items-center gap-1 text-[16px]"> Poster</span>
                 </a>
@@ -42,7 +42,7 @@ const { title, reference, article, video, poster } = Astro.props;
             video && (
                 <a
                     href={video}
-                    class="transform pt-4 hover:underline decoration-2 underline-offset-4 transition duration-200 hover:-translate-y-1"
+                    class="transform pt-4 hover:underline decoration-1 underline-offset-4 transition duration-200 hover:-translate-y-1"
                 >
                     <span class="flex items-center gap-1 text-[16px]"> Video</span>
                 </a>

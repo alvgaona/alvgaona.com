@@ -1,6 +1,6 @@
 ---
 import MainLayout from '@/layouts/MainLayout.astro';
-import avatar from '@/assets/avatar-2.webp';
+import avatar from '@/assets/avatar-3.jpg';
 import Publication from '@/components/Publication.astro';
 
 import BlogPostItem from '@/components/BlogPostItem.astro';
@@ -13,42 +13,42 @@ allPosts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 
 <MainLayout
     meta={{title: 'Home', description: 'Electronics & Robotics Engineer'}}
-    className="flex flex-col max-w-4xl font-antonia-body"
+    className="flex flex-col max-w-4xl font-inter-body"
 >
     <section class="flex flex-col items-start gap-6">
-        <div class="mb-12 ml-4 mt-6 flex items-center">
-            <div class="flex w-3/4 flex-col justify-self-start">
-                <span class="text-4xl font-bold font-antonia">ALVARO GAONA</span>
-                <p class="text-lg justify-text mt-6 text-justify">
-                    I'm an electrical engineer graduated from Universidad de Buenos Aires, with 10+ years of experience
-                    in software engineering. I've worked as a backend engineer at several companies, and worked at the
-                    <a class="text-spectral-blue hover:underline underline-offset-4" href="https://udesa.edu.ar/linar"
-                        >Artificial Intelligence and Robotics Laboratory</a
-                    > at Universidad de San Andrés, where I did research in robotics and taught programming languages to
-                    undergraduates. My academic revolved around autonomous mobile vehicles and Spatial AI. In particular,
-                    how vehicles can autonomously navigate through complex environments using advanced control, perception,
-                    and localization algorithms.
-                </p>
+        <div class="mb-12 ml-4 mt-6 flex flex-col">
+            <div class="flex items-center gap-6">
+                <img
+                    class="h-20 w-auto rounded-full"
+                    alt="avatar"
+                    src={avatar.src}
+                    width={avatar.width}
+                    height={avatar.height}
+                    loading="lazy"
+                    decoding="async"
+                />
+                <span class="text-4xl font-light font-space-grotesk">ALVARO GAONA</span>
             </div>
-            <img
-                class="ml-auto h-32 w-auto rounded-full"
-                alt="avatar"
-                src={avatar.src}
-                width={avatar.width}
-                height={avatar.height}
-                loading="lazy"
-                decoding="async"
-            />
+            <p class="text-lg justify-text mt-6 text-justify">
+                I'm an electrical engineer graduated from Universidad de Buenos Aires, with 10+ years of experience
+                in software engineering. I've worked as a backend engineer at several companies, and worked at the
+                <a class="hover:underline underline-offset-4" href="https://udesa.edu.ar/linar"
+                    >Artificial Intelligence and Robotics Laboratory</a
+                > at Universidad de San Andrés, where I did research in robotics and taught programming languages to
+                undergraduates. My academic revolved around autonomous mobile vehicles and Spatial AI. In particular,
+                how vehicles can autonomously navigate through complex environments using advanced control, perception,
+                and localization algorithms.
+            </p>
         </div>
     </section>
     <section class="ml-4 mt-8 flex flex-col items-start gap-4">
-        <h1 class="text-xl underline text-spectral-blue font-bold underline-offset-[6px] font-antonia">Posts</h1>
+        <h1 class="text-xl underline decoration-1 text-text-light light:text-black decoration-accent-dark light:decoration-spectral-blue font-medium underline-offset-[6px] font-space-grotesk">Posts</h1>
         <ul>
             {allPosts.map((post) => <BlogPostItem slug={post.slug} frontmatter={post.data} />)}
         </ul>
     </section>
     <section class="ml-4 mt-8 flex flex-col items-start gap-4">
-        <h1 class="text-spectral-blue text-xl font-bold underline underline-offset-[6px] font-antonia">Publications</h1>
+        <h1 class="text-xl underline decoration-1 text-text-light light:text-black decoration-accent-dark light:decoration-spectral-blue font-medium underline-offset-[6px] font-space-grotesk">Publications</h1>
         <div class="flex flex-col gap-4">
             <Publication
                 title="Fault Tolerant Solutions for Multirotor Unmanned Aerial Vehicles in NVIDIA® Jetson™ TX2"

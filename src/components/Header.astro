@@ -1,20 +1,11 @@
 ---
-import github from '@/assets/github.svg';
-import white_logo from '@/assets/alvgaona-logo-white-transparent.webp';
-import black_logo from '@/assets/alvgaona-logo-black-transparent.webp';
+import ThemeToggle from '@/components/ThemeToggle';
+import SocialLinks from '@/components/SocialLinks';
 ---
 
-<header class="fixed z-10 w-full bg-default-light shadow-sm dark:bg-black">
-    <nav class="flex items-center justify-end px-6 text-base">
-        <div class="flex h-12 flex-row items-center">
-            <ul class="flex h-full flex-row items-center justify-evenly gap-4">
-                <li class="font-dm-sans decoration-[#FFC799] hover:underline hover:underline-offset-4">
-                    <div class="flex flex-row items-center justify-evenly">
-                        <img src={github.src} alt="github" width="18" height="18" loading="lazy" decoding="async" />
-                        <a class="ml-1" href="https://github.com/alvgaona/alvgaona.com"> Source </a>
-                    </div>
-                </li>
-            </ul>
-        </div>
+<header class="fixed z-10 top-4 left-4 right-4 bg-[#e5e3dd]/50 dark:bg-[#1a1a1a]/70 backdrop-blur-sm shadow-sm rounded-lg">
+    <nav class="flex items-center justify-between px-6 h-12">
+        <SocialLinks client:load />
+        <ThemeToggle client:load />
     </nav>
 </header>

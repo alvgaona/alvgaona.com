@@ -11,11 +11,9 @@ import { Tags } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import Tldr from "@/components/tldr.astro";
 import CodeBlock from "@/components/codeblock.astro";
-import Aside from "@/components/aside.astro";
 
 export const components = {
   pre: CodeBlock,
-  blockquote: Aside,
 };
 
 <h5 class="mb-3 text-[16px]">{frontmatter.description}</h5>
@@ -62,10 +60,6 @@ It's important to note that although we have a force directed downwards due to t
 $$
 F = M a + b v + N
 $$
-
-> [!NOTE]
-> We'll use variable names with a different notation commonly employed in control
-> theory, specifically in state-space modeling.
 
 As previously defined, $x$ represents the position of the cart, and according to physics, we understand that $v = \frac{dx}{dt}$ and $a = \frac{d^2x}{dt^2}$.
 
@@ -612,11 +606,6 @@ L = place(A', C', poles)'
  -174.495    1796.46
 =#
 ```
-
-> [!WARNING]
-> If you happen to try this in MATLAB, please note that implementations of place
-> may vary, and as a result, the values of the L gain may differ slightly between
-> implementations.
 
 ### Observer-based System
 

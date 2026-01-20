@@ -1,7 +1,10 @@
 @import "tailwindcss";
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/space-grotesk";
 @plugin "daisyui";
 
 @custom-variant dark (&:where(.dark, .dark *));
+@custom-variant light (&:not(:where(.dark, .dark *)));
 
 @theme inline {
     --container-center: true;
@@ -9,10 +12,14 @@
     --container-screens-2xl: 1400px;
 
     --color-default-light: #f2f0ea;
-    --color-spectral-blue: #2082df;
+    --color-default-dark: #101010;
+    --color-spectral-blue: #7ab8e8;
+    --color-accent-dark: #f8a5a5;
+    --color-text-light: #e0e0e0;
+    --color-code-bg: #121212;
 
-    --font-antonia: "Antonia", var(--default-font-family);
-    --font-antonia-body: "AntoniaBody", var(--default-font-family);
+    --font-inter: "Inter Variable", var(--default-font-family);
+    --font-space-grotesk: "Space Grotesk Variable", var(--default-font-family);
 
     --radius-lg: var(--radius);
     --radius-md: calc(var(--radius) - 2px);
@@ -24,10 +31,10 @@
     --animate-accordion-up: accordion-up 0.2s ease-out;
 
     /* Blog posts theme */
-    --prose-font-family: var(--font-antonia-body), var(--default-font-family);
-    --prose-heading-font-family: var(--font-antonia), var(--default-font-family);
+    --prose-font-family: var(--font-inter), var(--default-font-family);
+    --prose-heading-font-family: var(--font-space-grotesk), var(--default-font-family);
     --prose-heading-color: #2082df;
-    --prose-a-decoration-color: var(--color-vesper-gold);
+    --prose-a-decoration-color: var(--color-accent-dark);
 }
 
 :root {
@@ -36,7 +43,6 @@
     --system-ui:
         system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
         "Segoe UI Symbol";
-    --font-antonia-variable: "Antonia";
 }
 
 * {
@@ -45,7 +51,13 @@
 
 html,
 body {
-    font-family: var(--font-antonia), var(--system-ui);
+    font-family: var(--font-inter), var(--system-ui);
+    background-color: var(--color-default-dark);
+}
+
+html:not(.dark),
+html:not(.dark) body {
+    background-color: var(--color-default-light);
 }
 
 @media screen and (max-width: 545px) {
@@ -60,6 +72,20 @@ body {
     line-height: 1.5rem;
     text-decoration: none;
     text-transform: none;
+}
+
+@layer base {
+    a {
+        color: inherit;
+        text-decoration: underline;
+        text-decoration-color: var(--color-spectral-blue);
+        text-decoration-thickness: 1px;
+        text-underline-offset: 4px;
+    }
+
+    .dark a {
+        text-decoration-color: var(--color-accent-dark);
+    }
 }
 
 @keyframes accordion-down {
@@ -94,21 +120,6 @@ body {
     font-display: swap;
 }
 
-@font-face {
-    font-family: "Antonia";
-    src: url("/fonts/Antonia-400-Regular.woff2") format("woff2");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "AntoniaBody";
-    src: url("/fonts/AntoniaBody-400-Regular.woff2") format("woff2");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
 
 @font-face {
     font-family: "CommitMono";
