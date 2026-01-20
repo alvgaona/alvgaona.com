@@ -1,7 +1,9 @@
 ---
 import '@/styles/globals.css';
+import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import AnimatedLayout from '@/components/AnimatedLayout.astro';
+import { Grain } from '@/components/Grain';
 import { Toaster } from '@/components/ui/sonner';
 import siteMeta from '@/site-meta';
 
@@ -54,20 +56,11 @@ const socialImageUrl = new URL(meta?.ogImage ? meta.ogImage : '/social-card.webp
         <!-- RSS auto-discovery -->
         <link rel="alternate" type="application/rss+xml" title={siteMeta.title} href="/rss.xml" />
 
-        <!-- Preload critical fonts -->
-        <link rel="preload" href="/fonts/Antonia-400-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
-        <link
-            rel="preload"
-            href="/fonts/AntoniaBody-400-Regular.woff2"
-            as="font"
-            type="font/woff2"
-            crossorigin="anonymous"
-        />
 
         <!-- Minimal inline theme script to prevent FOUC -->
         <script is:inline>
-            const theme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-            if (theme === 'dark' || (theme !== 'light' && !window.location.href.includes('/posts'))) {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'dark') {
                 document.documentElement.classList.add('dark');
             }
         </script>
@@ -101,27 +94,31 @@ const socialImageUrl = new URL(meta?.ogImage ? meta.ogImage : '/social-card.webp
 
         <SpeedInsights />
     </head>
-    <body class="bg-default-light text-black">
+    <body class="bg-default-dark text-text-light light:bg-default-light light:text-black">
         <>
+            <Grain client:load />
+            <Header />
+            <div class="pt-12">
             <AnimatedLayout>
                 <slot />
                 <Toaster
                     client:idle
                     toastOptions={{
                         unstyled: true,
-                        className: "border-[1px] border-black shadow shadow-black rounded-md",
+                        className: "border-[1px] border-white shadow shadow-white rounded-md",
                         classNames: {
-                            toast: "bg-default-light",
+                            toast: "bg-default-dark",
                             title: "text-xs pr-24 py-3 pl-4 w-full",
                         },
                     }}
                 />
             </AnimatedLayout>
+            </div>
             <Footer />
         </>
         <script is:inline>
             // Theme toggle functionality
-            let themeValue = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            let themeValue = localStorage.getItem('theme') || 'dark';
 
             function setPreference() {
                 localStorage.setItem('theme', themeValue);
@@ -129,10 +126,10 @@ const socialImageUrl = new URL(meta?.ogImage ? meta.ogImage : '/social-card.webp
             }
 
             function reflectPreference() {
-                if (themeValue === 'light' && window.location.href.includes('/posts')) {
-                    document.documentElement.classList.remove('dark');
-                } else if (themeValue === 'dark' || !window.location.href.includes('/posts')) {
+                if (themeValue === 'dark') {
                     document.documentElement.classList.add('dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
                 }
                 document.querySelector('#theme-btn')?.setAttribute('data-theme', themeValue);
             }

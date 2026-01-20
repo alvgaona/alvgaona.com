@@ -11,9 +11,8 @@ import Video from "@/components/Video";
 import { Tags } from "lucide-react";
 import Tldr from "@/components/tldr.astro";
 import CodeBlock from "@/components/codeblock.astro";
-import Aside from "@/components/aside.astro";
 
-export const components = { pre: CodeBlock, blockquote: Aside };
+export const components = { pre: CodeBlock };
 
 <h5 class="mb-3 text-[16px]">{frontmatter.description}</h5>
 
@@ -56,10 +55,6 @@ juggling CMake, XML, and other config files, these will make our life so much ea
 
 Just hit `Ctrl+Shift P` (or `Cmd+Shift P` for Mac folks)
 to pop open the command menu, then run `zed: extensions`.
-
-> [!TIP]
-> You can also use `Ctrl+Shift X` / `Cmd+Shift X` as a shortcut
-> to jump straight to extensions.
 
 Here are the must-have extensions for our setup:
 
@@ -270,9 +265,6 @@ ros-humble-ament-cmake-auto = ">=1.3.7,<1.4"
 spdlog = ">=1.12.0,<1.13"
 clang-format = ">=18.1.3,<18.2"
 ```
-
-> [!NOTE]
-> The versions may vary but you get the gist of it.
 
 ### ROS package & nodes
 
@@ -678,10 +670,6 @@ And when you want to run the tests:
 ```sh
 colcon test --ctest-args tests ekf_mono_slam && ./build/ekf_mono_slam/slam_test
 ```
-
-> [!NOTE]
-> Make sure the test executable name matches what you defined in
-> your CMake setup.
 
 Those commands are pretty lengthy to type out each time. I can make my life easier by adding
 them as Pixi tasks. I just open `pixi.toml` and add these under the `[tasks]` section:

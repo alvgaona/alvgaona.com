@@ -1,6 +1,7 @@
 ---
 import { Code } from 'astro:components';
 import { Copy, Check } from 'lucide-react';
+import vitesseDark from 'shiki/themes/vitesse-dark.mjs';
 
 interface Props {
     'data-language'?: string;
@@ -9,7 +10,8 @@ interface Props {
 
 const { 'data-language': language, class: className } = Astro.props as Props;
 
-const theme = className.split(' ')[1];
+const codeTheme = vitesseDark;
+const bgColor = codeTheme.colors?.['editor.background'] ?? '#121212';
 
 const slot = await Astro.slots.render('default');
 
@@ -23,7 +25,7 @@ const decodedText = plainText
 const lines = decodedText.split('\n');
 ---
 
-<div class="relative flex flex-col mockup-code w-full bg-[#2E3440]" data-language={language}>
+<div class="relative flex flex-col mockup-code w-full" style={`background-color: ${bgColor}`} data-language={language}>
     <button
         class="cursor-pointer copy-btn absolute top-2 right-2 p-2 rounded-md transition-colors duration-200 text-gray-300 hover:text-white z-10"
         data-code={decodedText}
@@ -39,7 +41,7 @@ const lines = decodedText.split('\n');
                     class="m-0! p-0! text-sm! bg-transparent!"
                     data-prefix={index + 1}
                     code={line}
-                    theme={theme as any}
+                    theme={codeTheme}
                     lang={language as any}
                 />
             ))
@@ -50,6 +52,13 @@ const lines = decodedText.split('\n');
 <style>
     .mockup-code pre {
         overflow-x: visible !important;
+    }
+
+    .mockup-code::before {
+        opacity: 1;
+        margin-left: 1.25rem;
+        background-color: #ff5f56;
+        box-shadow: 1.4em 0 0 #ffbd2e, 2.8em 0 0 #27c93f;
     }
 </style>
 
