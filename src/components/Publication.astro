@@ -11,10 +11,10 @@ const { title, reference, article, video, poster } = Astro.props;
 ---
 
 <div class="flex flex-col">
-    <p id="hss" class="text-b-gray-200 text-[17px] inline font-medium font-space-grotesk">
+    <p class="text-lg inline font-medium font-space-grotesk">
         &bdquo;{title}&ldquo;
     </p>
-    <p class="text-justify text-[16px]">{reference}</p>
+    <p class="text-justify text-base">{reference}</p>
     <div class="flex items-center gap-3">
         {
             article && (
@@ -22,7 +22,7 @@ const { title, reference, article, video, poster } = Astro.props;
                     href={article}
                     class="transform pt-4 hover:underline decoration-1 underline-offset-4 transition duration-200 hover:-translate-y-1"
                 >
-                    <span class="flex items-center gap-1 text-[16px]"> Article</span>
+                    <span class="flex items-center gap-1 text-base">Article</span>
                 </a>
             )
         }
@@ -33,7 +33,7 @@ const { title, reference, article, video, poster } = Astro.props;
                     href={poster}
                     class="transform pt-4 hover:underline decoration-1 underline-offset-4 transition duration-200 hover:-translate-y-1"
                 >
-                    <span class="flex items-center gap-1 text-[16px]"> Poster</span>
+                    <span class="flex items-center gap-1 text-base">Poster</span>
                 </a>
             )
         }
@@ -44,7 +44,7 @@ const { title, reference, article, video, poster } = Astro.props;
                     href={video}
                     class="transform pt-4 hover:underline decoration-1 underline-offset-4 transition duration-200 hover:-translate-y-1"
                 >
-                    <span class="flex items-center gap-1 text-[16px]"> Video</span>
+                    <span class="flex items-center gap-1 text-base">Video</span>
                 </a>
             )
         }

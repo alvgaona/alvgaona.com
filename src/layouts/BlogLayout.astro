@@ -45,14 +45,14 @@ const { frontmatter } = Astro.props;
         articleDate: frontmatter.pubDate.toISOString(),
     }}
 >
-  <div class="mt-4 flex items-center justify-between px-6 lg:px-0">
-      <div class="page-nav text-lg">
+  <div class="mt-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between px-6 lg:px-0">
+      <nav aria-label="Breadcrumb" class="page-nav text-base sm:text-lg">
           <ul>
               <li><a href="/">Home</a></li>
               <li>{frontmatter.title}</li>
           </ul>
-      </div>
-      <span class="text-lg font-thin">
+      </nav>
+      <span class="text-sm sm:text-lg font-thin">
           Published on
           {
               frontmatter.pubDate.toLocaleString("default", {
@@ -63,7 +63,7 @@ const { frontmatter } = Astro.props;
           }
       </span>
   </div>
-  <article class="mx-auto max-w-4xl px-24 font-inter">
+  <article class="mx-auto max-w-4xl px-6 md:px-12 lg:px-24 font-inter">
       <slot />
   </article>
 </MainLayout>

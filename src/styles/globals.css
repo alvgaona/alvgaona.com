@@ -78,7 +78,8 @@ html:not(.dark) body {
 
 @media screen and (max-width: 545px) {
     body {
-        width: max-content;
+        width: 100%;
+        overflow-x: hidden;
     }
 }
 
