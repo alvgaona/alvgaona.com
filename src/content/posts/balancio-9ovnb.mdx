@@ -6,13 +6,13 @@ ogImage: ''
 ---
 
 import Video from '@/components/Video';
-import { Info, Tags } from 'lucide-react';
+import { Tag } from '@phosphor-icons/react';
 
 # {frontmatter.title}
 
 <div class="flex items-center gap-2">
   <div class="flex items-center gap-1">
-    <Tags size={16} />
+    <Tag size={16} />
     <div class="flex items-center gap-2">
       {frontmatter.tags.map((t) => (
         <a href="">

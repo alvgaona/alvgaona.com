@@ -1,5 +1,5 @@
 ---
-import { Link } from 'lucide-react';
+import { Link } from '@phosphor-icons/react';
 
 export interface Props {
     href: string;
@@ -12,6 +12,6 @@ const { href } = Astro.props;
   class="mb-auto mr-1 cursor-pointer pt-2 opacity-0 hover:opacity-100 hover:transition hover:duration-200 hover:ease-in-out"
 >
   <a href={href}>
-    <Link className="h-4 w-4" />
+    <Link size={16} />
   </a>
 </div>

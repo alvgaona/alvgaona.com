@@ -1,6 +1,6 @@
 ---
 import { Code } from 'astro:components';
-import { Copy, Check } from 'lucide-react';
+import { Copy, Check } from '@phosphor-icons/react';
 import vitesseDark from 'shiki/themes/vitesse-dark.mjs';
 
 interface Props {
@@ -31,8 +31,8 @@ const lines = decodedText.split('\n');
         data-code={decodedText}
         aria-label="Copy code"
     >
-        <Copy className="copy-icon w-4 h-4" />
-        <Check className="check-icon w-4 h-4 hidden" />
+        <Copy className="copy-icon" size={16} />
+        <Check className="check-icon hidden" size={16} />
     </button>
     <div class="overflow-x-auto">
         {
