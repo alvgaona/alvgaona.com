@@ -28,7 +28,7 @@ export default function ThemeToggle() {
       onClick={toggleTheme}
       className="p-2 cursor-pointer text-white light:text-black bg-transparent border-none outline-none"
     >
-      {isDark ? <Moon size={16} weight="fill" /> : <Sun size={16} weight="fill" />}
+      {isDark ? <Moon size={16} /> : <Sun size={16} />}
     </button>
   );
 }
