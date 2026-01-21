@@ -1,7 +1,6 @@
 @import "tailwindcss";
 @import "@fontsource-variable/inter";
 @import "@fontsource-variable/space-grotesk";
-@plugin "daisyui";
 
 @custom-variant dark (&:where(.dark, .dark *));
 @custom-variant light (&:not(:where(.dark, .dark *)));
@@ -126,6 +125,74 @@ body {
     .dark .nav-link:hover a,
     .dark .nav-link a:hover {
         text-decoration-color: var(--color-accent-dark);
+    }
+
+    /* Mockup code component */
+    .mockup-code {
+        position: relative;
+        overflow: hidden;
+        border-radius: 0.5rem;
+        padding-top: 2.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .mockup-code::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0.75rem;
+        left: 1.25rem;
+        height: 0.75rem;
+        width: 0.75rem;
+        border-radius: 50%;
+        background-color: #ff5f56;
+        box-shadow: 1.25em 0 0 #ffbd2e, 2.5em 0 0 #27c93f;
+        opacity: 1;
+    }
+
+    .mockup-code .overflow-x-auto {
+        overflow-x: auto;
+        padding-right: 1rem;
+        scrollbar-width: thin;
+        scrollbar-color: transparent transparent;
+    }
+
+    .mockup-code:hover .overflow-x-auto {
+        scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+    }
+
+    .mockup-code .overflow-x-auto::-webkit-scrollbar {
+        height: 8px;
+    }
+
+    .mockup-code .overflow-x-auto::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .mockup-code .overflow-x-auto::-webkit-scrollbar-thumb {
+        background-color: transparent;
+        border-radius: 4px;
+    }
+
+    .mockup-code:hover .overflow-x-auto::-webkit-scrollbar-thumb {
+        background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .mockup-code:hover .overflow-x-auto::-webkit-scrollbar-thumb:hover {
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .mockup-code pre {
+        overflow-x: visible !important;
+    }
+
+    .mockup-code pre[data-prefix]::before {
+        content: attr(data-prefix);
+        display: inline-block;
+        width: 3ch;
+        margin-right: 1rem;
+        text-align: right;
+        opacity: 0.5;
     }
 
     /* Section heading style */
