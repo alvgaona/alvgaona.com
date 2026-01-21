@@ -13,9 +13,16 @@ function OrcidIcon({ size = 16 }: { size?: number }) {
             viewBox="0 0 24 24"
             width={size}
             height={size}
-            fill="currentColor"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
         >
-            <path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.025-5.325 5.025h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 4.022-2.484 4.022-3.722 0-2.016-1.284-3.722-4.097-3.722h-2.222z" />
+            <circle cx="12" cy="12" r="10.5" />
+            <circle cx="7.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+            <line x1="7.5" y1="9" x2="7.5" y2="17.5" />
+            <path d="M10.5 9h2.5c2.5 0 4 1.5 4 4s-1.5 4.5-4 4.5h-2.5V9z" />
         </svg>
     );
 }
@@ -32,7 +39,7 @@ export default function SocialLinks() {
                     aria-label={label}
                     className="text-white light:text-black hover:opacity-70 transition-opacity"
                 >
-                    <Icon size={16} weight="fill" />
+                    <Icon size={16} />
                 </a>
             ))}
             <a
