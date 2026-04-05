@@ -13,7 +13,7 @@ export const GET = async () => {
             title: post.data.title,
             description: post.data.description,
             pubDate: post.data.pubDate,
-            link: post.slug,
+            link: post.id,
         })),
     });
 };

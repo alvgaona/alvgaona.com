@@ -1,7 +1,7 @@
 import mdx from '@astrojs/mdx';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
-import vercel from '@astrojs/vercel/static';
+import vercel from '@astrojs/vercel';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
 import rehypeKatex from 'rehype-katex';
@@ -23,22 +23,8 @@ export default defineConfig({
         prefetchAll: true,
         defaultStrategy: 'hover',
     },
-    compressHTML: true,
-    build: {
-        inlineStylesheets: 'auto',
-    },
     vite: {
         plugins: [tailwindcss()],
-        build: {
-            cssCodeSplit: true,
-            rollupOptions: {
-                output: {
-                    manualChunks: {
-                        'react-vendor': ['react', 'react-dom'],
-                    },
-                },
-            },
-        },
     },
     integrations: [
         react(),
