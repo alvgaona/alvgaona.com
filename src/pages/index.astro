@@ -41,7 +41,7 @@ allPosts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
     <section class="mt-8 px-4 flex flex-col gap-4">
         <h2 class="section-heading">Posts</h2>
         <ul>
-            {allPosts.map((post) => <BlogPostItem slug={post.slug} frontmatter={post.data} />)}
+            {allPosts.map((post) => <BlogPostItem slug={post.id} frontmatter={post.data} />)}
         </ul>
     </section>
     <section class="mt-8 px-4 flex flex-col gap-4">
